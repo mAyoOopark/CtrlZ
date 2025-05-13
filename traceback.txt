@@ -1,0 +1,22 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/scripts/script.rpy", line 342, in script
+    jump champter1_4_2_1
+ScriptError: could not find label 'champter1_4_2_1'.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/scripts/script.rpy", line 342, in script
+    jump champter1_4_2_1
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 1712, in execute
+    rv = renpy.game.script.lookup(target)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/script.py", line 1103, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'champter1_4_2_1'.
+
+macOS-13.6.4-arm64-arm-64bit arm64
+Ren'Py 8.3.7.25031702
+MysteryGame 1.0
+Tue May 13 13:48:05 2025

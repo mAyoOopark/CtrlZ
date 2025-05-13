@@ -72,7 +72,9 @@ transform shake:         # 화면 흔들림 효과
 default visited_chapel = False
 default visited_dining = False
 default visited_bathroom = False
-
+default checked_tools = False
+default checked_menu = False
+default checked_table = False
 
 label start:
     scene chapter1_1 with fade # 기본 제공 배경 or "bg_restaurant.jpg"로 교체
@@ -233,7 +235,8 @@ label chapter1_4:
 
 # ✅ 장소 선택 메뉴
 label location_select:
-
+    if checked_tools and checked_menu and checked_table:
+        "식당에서 중요한 단어를 얻었다"
     menu:
         "어디로 이동할까?"
 
@@ -311,11 +314,46 @@ label chapter1_4_2:
     scene chapter1_4_2 with fade
 
     show hajun at left_bottom_offset
-    hajun "식당인가... 신도들이랑 최도현이 여기서 식사했을지도 모르겠네."
-    hajun "안으로 들어가서 단서를 찾아봐야겠어."
+    " 식당으로 들어가니 각종 조리도구가 많이 걸려있다. "
+    hajun "조리하시는 영양사분이 계신걸까 조리도구가 엄청 많네"
+    hajun "조리도구중에 엄청 날카로운 칼도 있으니 조심해야겠어."
     hide hajun
 
-    jump location_select
+    jump chapter1_4_2_1
+
+label chapter1_4_2_1:
+    menu :
+        "조리도구":
+            $ checked_tools = True
+            $ wrong_count += 1
+            show chapter1_4_2 at shake
+            "날카로운 칼에 긁혀서 상처가 생겼다."
+            "잘못된 선택으로 라이프가 1 감소했다."
+            with Pause(1.0)
+            jump chapter1_4_2_check
+        "메뉴판":
+            $ checked_menu = True
+            "'지하실에도 음식 가져다 줘야하네...' 라는 문구가 써있다"
+            jump chapter1_4_2_2
+        "식탁":
+            $ checked_table = True
+            "음식을 가지고 와서 앉아서 먹는 곳이다."
+            jump chapter1_4_2_check
+
+label chapter1_4_2_2:
+    show hajun_surprised at left_bottom_offset
+    hajun "지하실...? 여기에 지하실이 있었나...?"
+    hide hajun_surprised
+
+    jump chapter1_4_2_check
+
+label chapter1_4_2_check:
+        if checked_tools and checked_menu and checked_table:
+            "여기서 더 할일은 없을 것 같아."
+            jump location_select
+        else:
+            jump chapter1_4_2_1
+
 
 label chapter1_4_3:
     $ visited_bathroom = True
