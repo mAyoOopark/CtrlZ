@@ -7,8 +7,13 @@ image chapter1_4 = "chapter1_4.png"
 image chapter1_4_1 = "chapter1_4_1.png"
 image chapter1_4_1_2 = "chapter1_4_1_2.png"
 image chapter1_4_2 = "chapter1_4_2.png"
+image chapter1_4_2_A = "chapter1_4_2_A.png"
 image chapter1_4_3 = "chapter1_4_3.png"
 image chapter1_4_3_1 = "chapter1_4_3_1.png"
+image chapter1_5 = "chapter1_5.png"
+image chapter1_5_1 = "chapter1_5_1.png"
+image chapter1_5_2 = "chapter1_5_2.png"
+image chapter1_5_3 = "chapter1_5_3.png"
 
 #이미지
 image hajun = "hajun.png"
@@ -16,9 +21,11 @@ image hajun_angry = "hajun_angry.png"
 image hajun_surprised = "hajun_surprised.png"
 image hajun_consider = "hajun_consider.png"
 image hajun_despair = "hajun_despair.png"
-image hajun_puzzled = "hajun_puzzled"
+image hajun_puzzled = "hajun_puzzled.png"
 image hajun_sad = "hajun_sad.png"
 image hajun_determind = "hajun_determind.png"
+image hajun_smile = "hajun_smile.png"
+image hajun_cough = "hajun_cough.png"
 
 image jungsik = "jungsik.png"
 image jungsik_angry = "jungsik_angry.png"
@@ -75,13 +82,19 @@ default visited_bathroom = False
 default checked_tools = False
 default checked_menu = False
 default checked_table = False
+default visited_chapter1_5_2 = False
+default visited_chapter1_5_3 = False
+default visited_chapter1_5_4 = False
+default visited_chapter1_5_5 = False
+
 
 label start:
     scene chapter1_1 with fade # 기본 제공 배경 or "bg_restaurant.jpg"로 교체
     show screen life_display
 
     "20xx년  xx월 xx일 늦은 밤. 나와 남종식 선배는 한 사이비 종교단체의 불법적인 행각이 벌어지고 있다는 신고를 받고 xx에 위치한 xx로 출동했다."
-    "그날은 유난히 어두운 밤임에도 구름때문에 달빛하나 비추지 않아 더욱더 어두웠으며 인적이 드문 곳에 위치한 건물이기에 스산한 분위기가 맴돌았다."
+    "그 날은 비가 많이 오고 있던 아침이였다."
+    
     show jungsik at right_bottom_offset
     jungsik "그러니까, 여기라는 거지?"
     hide jungsik
@@ -134,7 +147,7 @@ label break_door_choice:
             $ knock_count += 1
             "당신은 또 다시 문을 두드렸다... (현재 [knock_count]회)"
 
-            if knock_count >= 10:
+            if knock_count >= 5:
                 jump bad_end1
             else:
                 jump break_door_choice
@@ -143,7 +156,6 @@ label break_door_choice:
             jump chapter1_3
 
 label bad_end1:
-    scene chapter1_3 with fade
     show hajun_puzzled at left_bottom_offset
     hajun "아무도 없는 거 같은데요?"
     hide hajun_puzzled
@@ -163,8 +175,8 @@ label bad_end1:
     
     scene black with fade
     
-    "박하준과 남중식이 간 곳은 최도현의 아지트가 맞았다."
-    "하지만 그들이 노크를 하는 동안, 최도현은 자취를 감췄다."
+    "증거를 가지고 다시 찾아갔을 땐 모든 것이 불에 타고 있었다."
+    "모든 증거가 사라지고, 최도현 또한 사라지고 없었다."
     
     with Pause(2.0)
     
@@ -175,68 +187,74 @@ label bad_end1:
     return
 
 label chapter1_3:
+    show chapter1_2 at shake
+    scene chapter1_3 with fade
+
     show dohyeon_asd at right_bottom_offset
     asd "어서오세요 자매님들 잘 찾아오셨습니다."
     hide dohyeon_asd
 
-    "최도현은 박하준과 남중식을 한번씩 쳐다보며 급하게 말하였다."
+    "박하준과 남종식은 검은색 망토를 뒤집어 쓴 남자를 보고있다."
     
     show dohyeon_asd at right_bottom_offset
     asd "자매님들 조금만 더 밖에서 기다려 주시겠어요?"
     hide dohyeon_asd
     
-    "최도현은 그 자리를 도망치듯 빠르게 문을 닫고 뒤도 안돌아보고 도망쳤다."
+    "???는 자리를 도망치듯 빠르게 말하며 달려갔다."
     
-    show jungsik_angry at right_bottom_offset
-    jungsik "저 개자식이 어딜 도망가려고!!!"
-    hide jungsik_angry
+    show jungsik_consider at right_bottom_offset
+    jungsik "야 하준아 저 사람 뭔가 이상하지 않냐?"
+    hide jungsik_consider
     
-    "남중식은 문을 열어보려 하지만 열리지 않았다."
-    "그 사이 교주로 추정되는 인물의 발걸음 소리는 더욱 멀어지고 있었다."
-    
-    show hajun_determind at left_bottom_offset
-    hajun "선배 나와봐요!!"
-    hide hajun_determind
-    show chapter1_2 at shake
+    show hajun_puzzled at left_bottom_offset
+    hajun "선배도 그렇게 생각하시죠?"
+    hide hajun_puzzled
 
-    with Pause(1.0)
-    
-    "문이 부숴지며 교회 안으로 진입했다."
-    
-    scene chapter1_3 with fade
+    show jungsik_puzzled at right_bottom_offset
+    jungsik "자리에서 벗어날려고 하는 느낌이 들었는데?"
+    hide jungsik_puzzled
+
+    show hajun_determind at left_bottom_offset
+    hajun "선배 그러면 한번 쫓아가 볼까요?"
+    hide hajun_determind
 
     show jungsik at right_bottom_offset
-    jungsik "하준아 우리 둘이 같이 가는 것 보단 찢어져서 최도현을 찾아보자"
+    jungsik "하준아 우리 둘이 같이 가는 것 보단 찢어져서 한번 찾아보자."
     hide jungsik
-    
+
     show hajun at left_bottom_offset
-    hajun "예 선배님."
-    hajun "그럼 제가 1층을 찾아보겠습니다."
-    hajun "선배님이 2층을 찾아봐주세요!"
+    hajun "예 선배님. 제가 1층을 살펴보고 오겠습니다!"
+    hajun "선배님이 2층을 살펴주세요!"
     hide hajun
 
     show jungsik at right_bottom_offset
-    jungsik "그래 찾으면 바로 무전 하는걸로 하자."
+    jungsik "그래 찾으면 바로 무전하는걸로 하자"
     hide jungsik
 
     show hajun at left_bottom_offset
-    hajun "알겠습니다 선배님!"
+    hajun "넵!"
+    hide hajun
 
     jump chapter1_4
 
 label chapter1_4:
     scene chapter1_4 with fade
 
+    show hajun_consider at left_bottom_offset
+    hajun "숨겨진 방? 여긴 뭐가 있는거지?"
+    hide hajun_consider
+
     show hajun at left_bottom_offset
     hajun "어디서부터 확인해볼까?"
     hide hajun
+
+    "예배실과 식당, 화장실을 살펴보고 숨겨진 방으로 다시 와야한다."
 
     jump location_select
 
 # ✅ 장소 선택 메뉴
 label location_select:
-    if checked_tools and checked_menu and checked_table:
-        "식당에서 중요한 단어를 얻었다"
+
     menu:
         "어디로 이동할까?"
 
@@ -259,11 +277,12 @@ label location_select:
 
 label chapter1_4_1:
     $ visited_chapel = True
-    scene chapter1_4_1 with fade
-
+    
     show hajun at left_bottom_offset
     hajun "여긴 신도들이 예배를 드리는 곳인가... 안으로 더 들어가볼까?"
     hide hajun
+
+    scene chapter1_4_1 with fade
 
     "예배실 안으로 들어가니 앞에는 예수님 동상이 있고,많은 의자들이 있었다."
 
@@ -295,10 +314,17 @@ label chapter1_4_1_2:
 label chapter1_4_1_2_1:
     menu:
         "왼쪽 문":
-            " '보일러실' 이라는 키워드를 얻었다."
+            " '빨리 돈을 다 챙겨!' 라는 키워드를 발견했다."
+
+            show hajun_consider at left_bottom_offset
+            hajun "돈을 다 챙기라는건 무슨 의미일까?"
+            hide hajun_consider
+
             show hajun at left_bottom_offset
             hajun "다시 돌아가자"
             hide hajun
+
+            scene chapter1_4 with fade
 
             jump location_select
         "오른쪽 문":
@@ -313,8 +339,9 @@ label chapter1_4_2:
     $ visited_dining = True
     scene chapter1_4_2 with fade
 
-    show hajun at left_bottom_offset
     " 식당으로 들어가니 각종 조리도구가 많이 걸려있다. "
+
+    show hajun at left_bottom_offset
     hajun "조리하시는 영양사분이 계신걸까 조리도구가 엄청 많네"
     hajun "조리도구중에 엄청 날카로운 칼도 있으니 조심해야겠어."
     hide hajun
@@ -333,16 +360,20 @@ label chapter1_4_2_1:
             jump chapter1_4_2_check
         "메뉴판":
             $ checked_menu = True
-            "'지하실에도 음식 가져다 줘야하네...' 라는 문구가 써있다"
+            scene chapter1_4_2_A
+            show chapter1_4_2_A at shake
+           
+            " 메뉴판에 문구가 생성되었다."
+
             jump chapter1_4_2_2
         "식탁":
             $ checked_table = True
             "음식을 가지고 와서 앉아서 먹는 곳이다."
             jump chapter1_4_2_check
-
 label chapter1_4_2_2:
     show hajun_surprised at left_bottom_offset
-    hajun "지하실...? 여기에 지하실이 있었나...?"
+    hajun "??시??분 까지 가야한다고?"
+    hajun "어디를 간다는거지?"
     hide hajun_surprised
 
     jump chapter1_4_2_check
@@ -350,10 +381,10 @@ label chapter1_4_2_2:
 label chapter1_4_2_check:
         if checked_tools and checked_menu and checked_table:
             "여기서 더 할일은 없을 것 같아."
+            scene chapter1_4 with fade
             jump location_select
         else:
             jump chapter1_4_2_1
-
 
 label chapter1_4_3:
     $ visited_bathroom = True
@@ -376,10 +407,134 @@ label room_secret_locked:
 
 # ✅ 숨겨진 방: 조건 만족 시
 label chapter1_4_4:
-    scene chapter1_4_4 with fade
+    
+    "3곳을 전부 확인했다."
+
+    show hajun_consider at left_bottom_offset
+    hajun "3곳에서 얻은건 어디로 몇시까지 돈을 가지고 간다는건데..."
+    hide hajun_consider
+
+    show hajun_surprised at left_bottom_offset
+    hajun "설마 최도현은 몇시까지 어디로 돈을 가지고 도망을 가려고 생각하는건가?"
+    hide hajun_surprised
+
+    menu:
+        "내려가자":
+            show hajun_determind at left_bottom_offset
+            hajun "빠르게 숨겨진 문으로 내려가보자."
+            hide hajun_determind
+
+            show hajun at left_bottom_offset
+            hajun "선배님 1층 조사하는 중에 최도현의 행동이 너무 수상해서 지하실로 가보겠습니다."
+            hide hajun
+
+            show jungsik at right_bottom_offset
+            jungsik "야 그래도 혼자는 위험해 같이가자."
+            hide jungsik
+
+            show hajun at left_bottom_offset
+            hajun "알겠어요 그럼 조심히 찾아볼게요"
+            hide hajun
+
+            show jungsik_angry at right_bottom_offset
+            jungsik "야 그래도 혼자는 위험해 같이가자"
+            hide jungsik
+
+            jump chapter1_5
+        "아직 좀 더 찾아보자":
+            jump location_select
+label chapter1_5:
+    scene chapter1_5 with fade
+    
+    show hajun_surprised at left_bottom_offset
+    hajun "와.. 이 건물 밑에 이런 곳이 숨겨져있다니.."
+    hide hajun_surprised
+
+    show hajun_consider at left_bottom_offset
+    hajun "대체.. 이런 곳에서 무슨 일이 있었던거야?"
+    hajun "방도 여러 개 있네."
+    hajun "그럼 하나씩 조사해보자"
+    hide hajun_consider
+
+    show hajun_smile at left_bottom_offset
+    hajun "종식 선배가 조심하라 했지만, 뭔 일 나겠어?"
+    hide hajun_smile
+    
+    jump chapter1_5_1
+
+label chapter1_5_1:
+    scene chapter1_5_1 with fade
+    with Pause(1.0)
+    "총 방이 4개가 있다."
+    "각 방 안에는 열쇠 조각과 본드가 들어있다."
+    "각각의 방을 둘러보고 아이템을 획득하게 되면 보일러실 열쇠가 완성된다."
+    "열쇠를 완성한 후 보일러실에 진입할 수 있다."
+
+    jump chapter1_5_1location
+
+label chapter1_5_1location:
+        menu:
+            "서재":
+                jump chapter1_5_2
+            "창고":
+                jump chapter1_5_3
+
+
+label chapter1_5_2:
+    $ visited_chapter1_5_2 = True
+    scene chapter1_5_2 with fade
 
     show hajun at left_bottom_offset
-    hajun "이 문은 뭔가 수상해... 이제야 열 수 있게 된 것 같군."
+    hajun "이 방은.. 서재인가?"
+    hajun "많은 책들이 있어. 전부 교리 서적이군."
     hide hajun
+
+    show hajun_cough at left_bottom_offset
+    hajun "콜록콜록.."
+    hajun "먼지가 잔뜩 쌓였구만.."
+    hide hajun_cough
+
+    show hajun at left_bottom_offset
+    hajun "여기에도 최도현은 보이지 않아"
+    hide hajun
+    menu:
+        "책에 튀어나온 것을 살펴본다.":
+            show hajun at left_bottom_offset
+            hajun "이건 뭐지..? 무슨 조각 같은데?"
+            hajun "일단 가지고 있자."
+            hide hajun
+            
+            scene chapter1_5_1 with fade
+            jump chapter1_5_1location
+
+label chapter1_5_3:
+    $ visited_chapter1_5_3 = True
+    scene chapter1_5_3 with fade
+
+    show hajun at left_bottom_offset
+    hajun "여기는.. 창고인 것 같네"
+    hajun "여러 기구들이 있어."
+    hide hajun
+
+    show hajun_consider at left_bottom_offset
+    hajun "뼈톱? 인두기?"
+    hajun "이런것 들이 여기에 왜 있는거지..?"
+    hide hajun_consider
+    
+    show hajun at left_bottom_offset
+    hajun "대체 여기서 무슨 일이 벌어졌던거야?"
+    hajun "바닥에 왜 본드가 떨어져있지?"
+    hide hajun
+
+    menu:
+        "바닥에 떨어진 본드를 살펴본다.":
+            show hajun at left_bottom_offset
+            hajun "본드...."
+            hajun "뭔가 맞출 수 있을 것 같아"
+            hajun "일단 가져가자"
+            hide hajun
+
+            scene chapter1_5_1 with fade
+            jump chapter1_5_1location
 
     return
