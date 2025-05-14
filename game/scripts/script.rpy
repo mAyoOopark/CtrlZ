@@ -14,6 +14,10 @@ image chapter1_5 = "chapter1_5.png"
 image chapter1_5_1 = "chapter1_5_1.png"
 image chapter1_5_2 = "chapter1_5_2.png"
 image chapter1_5_3 = "chapter1_5_3.png"
+image chapter1_5_4 = "chapter1_5_4.png"
+image chapter1_5_5 = "chapter1_5_5.png"
+image chapter1_6 = "chapter1_6"
+
 
 #이미지
 image hajun = "hajun.png"
@@ -419,7 +423,7 @@ label chapter1_4_4:
     hide hajun_surprised
 
     menu:
-        "내려가자":
+        "내려가자" :
             show hajun_determind at left_bottom_offset
             hajun "빠르게 숨겨진 문으로 내려가보자."
             hide hajun_determind
@@ -478,6 +482,16 @@ label chapter1_5_1location:
                 jump chapter1_5_2
             "창고":
                 jump chapter1_5_3
+            "고문실":
+                jump chapter1_5_4
+            "감옥":
+                jump chapter1_5_5
+
+label chapter1_5_1_check:
+    if visited_chapter1_5_2 and visited_chapter1_5_3 and visited_chapter1_5_4 and visited_chapter1_5_5
+        jump chapter1_5_6
+    else
+        jump chapter1_5_1location
 
 
 label chapter1_5_2:
@@ -505,7 +519,7 @@ label chapter1_5_2:
             hide hajun
             
             scene chapter1_5_1 with fade
-            jump chapter1_5_1location
+            jump chapter1_5_1_check
 
 label chapter1_5_3:
     $ visited_chapter1_5_3 = True
@@ -535,6 +549,91 @@ label chapter1_5_3:
             hide hajun
 
             scene chapter1_5_1 with fade
-            jump chapter1_5_1location
+            jump chapter1_5_1_check
 
+label chapter1_5_4:
+    scene chapter1_5_4 with fade
+    $ visited_chapter1_5_4 = True
+    show hajun_cough at left_bottom_offset
+    hajun "윽.."
+    hajun "이상한 냄새가 진동을 하네... 피비린내?"
+    hide hajun_cough
+
+    show hajun_surprised at left_bottom_offset
+    hajun "잠시만... 여기는 고문실인가?"
+    hide hajun_surprised
+
+    show hajun_angry at left_bottom_offset
+    hajun "이 의자에 포박당한 자국도 있군..."
+    hajun "최도현 이새끼..."
+    hide hajun_angry
+
+    show hajun at left_bottom_offset
+    hajun "잠깐만, 의자 밑에 이건 뭐지?"
+    hajun "쇳조각이군..."
+    hide hajun
+
+    menu:
+        "바닥에 떨어진 쇳조각을 살펴본다":
+            show hajun at left_bottom_offset
+            hajun "쇳조각..."
+            hajun "뭔가 맞출 수 있는게 있지 않을까?"
+            hajun "가져가자"
+            hide hajun
+
+            scene chapter1_5_1 with fade
+            jump chapter1_5_1_check
+
+label chapter1_5_5:
+    scene chapter1_5_5 with fade
+    $ visited_chapter1_5_5 = True
+
+    show hajun at left_bottom_offset
+    hajun "여기에 왜 쇠창살이...?"
+    hajun "잠시만... 이건 감옥이잖아?"
+    hajun "진짜 온통 알 수 없는 것들만 있어"
+    hide hajun
+
+    show hajun_consider at left_bottom_offset
+    hajun "누굴 가두며 있던거야?"
+    hide hajun_consider
+
+    show hajun at left_bottom_offset
+    hajun "최도현을 꼭 잡아서 물어봐야겠어"
+    hajun "바닥에 반짝이는게 있어, 이건 뭐지?"    
+    hide hajun
+
+    menu:
+        "바닥에 떨어진 반짝이는 것을 살펴본다":
+            show hajun at left_bottom_offset
+            hajun "퍼즐처럼 쪼개진 듯한 쇳조각..."
+            hajun "나중에 뭔가 할 수 있을지도 몰라"
+            hajun "가져가자"
+            hide hajun
+            
+            scene chapter1_5_1 with fade
+
+            jump chapter1_5_1_check
+
+label chapter1_5_6:
+    show hajun at left_bottom_offset
+    hajun "잠시만... 이 조각들... 다 맞춰지잖아?"
+    hajun "내가 주워온 것들로 다시 맞출 수 있을 것 같아."
+    hajun "맞춰볼까?"
+    hide hajun
+    manu:
+        "맞춰본다":
+            show hajun at left_bottom_offset
+            hajun "맞춰보자"
+            hide hajun
+
+            show hajun_surprised at left_bottom_offset
+            hajun "이건... 열쇠잖아?"
+            hide hajun_surprised
+
+            show hajun at left_bottom_offset
+            hajun ""
+
+
+    
     return
