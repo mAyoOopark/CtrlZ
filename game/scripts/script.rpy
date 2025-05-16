@@ -69,12 +69,33 @@ transform shake:         # 화면 흔들림 효과
     linear 0.05 xoffset 15 yoffset -20
     linear 0.05 xoffset 0 yoffset 0
 
+transform sparkle: #반짝임 효과
+    linear 0.5 alpha 0.5
+    linear 0.5 alpha 1.0
+    repeat
+
+screen toilet_message:
+    imagebutton:
+        idle "obj_sparkle_ch1_01.png"         # 클릭 가능한 이미지 (hover 등 자동 처리)
+        xpos 1200 ypos 300
+        at sparkle
+        focus_mask True
+        action Show("message_dialogue")
+        sensitive toilet_button_enabled
+
+screen message_dialogue:
+    text "거울 옆에 물에 젖은 쪽지를 발견했다. / 쪽지에는 '#$@!#!$로 도망가야해...'라고 적혀있었다.":
+        xalign 0.5
+        yalign 0.9
+    timer 2.0 action Hide("message_dialogue")
+
 default visited_chapel = False
 default visited_dining = False
 default visited_bathroom = False
 default checked_tools = False
 default checked_menu = False
 default checked_table = False
+default toilet_button_enabled = False
 
 label start:
     scene chapter1_1 with fade # 기본 제공 배경 or "bg_restaurant.jpg"로 교체
@@ -333,7 +354,7 @@ label chapter1_4_2_1:
             jump chapter1_4_2_check
         "메뉴판":
             $ checked_menu = True
-            "'지하실에도 음식 가져다 줘야하네...' 라는 문구가 써있다"
+            "'??시까지 가야해...' 라는 문구가 써있다"
             jump chapter1_4_2_2
         "식탁":
             $ checked_table = True
@@ -342,14 +363,14 @@ label chapter1_4_2_1:
 
 label chapter1_4_2_2:
     show hajun_surprised at left_bottom_offset
-    hajun "지하실...? 여기에 지하실이 있었나...?"
+    hajun "??시까지 가야한다고? 어디를 간다는 거지?"
     hide hajun_surprised
 
     jump chapter1_4_2_check
 
 label chapter1_4_2_check:
         if checked_tools and checked_menu and checked_table:
-            "여기서 더 할일은 없을 것 같아."
+            "식당에서는 더 이상 할게 없는 것 같다"
             jump location_select
         else:
             jump chapter1_4_2_1
@@ -359,11 +380,20 @@ label chapter1_4_3:
     $ visited_bathroom = True
     scene chapter1_4_3 with fade
 
-    show hajun at left_bottom_offset
-    hajun "화장실이군... 남자 화장실과 여자 화장실이 있어. 한번 살펴보자."
-    hide hajun
+    $ toilet_button_enabled = False
+    show screen toilet_message
+    show hajun_consider at left_bottom_offset
+    hajun "여자 화장실과 남자 화장실이 있는데 어디를 먼저 가볼까?"
+    "여자화장실은 문이 잠겨 있다."
+    "큰 거울과 칸 마다 변기들이 있다."
+    ""
+    hide hajun_consider
 
-    jump location_select
+    jump chapter1_4_3_1
+
+label chapter1_4_3_1:
+    $ toilet_button_enabled = True
+    
 
 # ✅ 숨겨진 방: 조건 미달 시
 label room_secret_locked:

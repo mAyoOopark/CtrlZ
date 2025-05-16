@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/scripts/script.rpy", line 325: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    $ wrong_count += 1
-    ^
+File "game/scripts/script.rpy", line 392: end of line expected.
+    jump chapter 1_4_3_1
+                 ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Tue May 13 13:42:13 2025
+Tue May 13 17:34:42 2025
