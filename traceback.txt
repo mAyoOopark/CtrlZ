@@ -1,22 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/scripts/script.rpy", line 387, in script
-    jump chapter1_4_2_checkㅒㄲ
-ScriptError: could not find label 'chapter1_4_2_checkㅒㄲ'.
+  File "game/scripts/script.rpy", line 443, in script
+    jump chapter1_4_2_checkㄲ
+ScriptError: could not find label 'chapter1_4_2_checkㄲ'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/scripts/script.rpy", line 387, in script
-    jump chapter1_4_2_checkㅒㄲ
+  File "game/scripts/script.rpy", line 443, in script
+    jump chapter1_4_2_checkㄲ
   File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 1712, in execute
     rv = renpy.game.script.lookup(target)
   File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/script.py", line 1103, in lookup
     raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'chapter1_4_2_checkㅒㄲ'.
+ScriptError: could not find label 'chapter1_4_2_checkㄲ'.
 
 macOS-13.6.4-arm64-arm-64bit arm64
 Ren'Py 8.3.7.25031702
 MysteryGame 1.0
-Mon May 19 12:54:03 2025
+Tue May 20 00:23:59 2025
