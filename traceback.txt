@@ -1,22 +1,32 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/scripts/script.rpy", line 443, in script
-    jump chapter1_4_2_checkㄲ
-ScriptError: could not find label 'chapter1_4_2_checkㄲ'.
+  File "renpy/common/00start.rpy", line 195, in script
+    python:
+  File "renpy/common/00start.rpy", line 196, in <module>
+    renpy.execute_default_statement(True)
+  File "game/scripts/variable.rpy", line 70, in execute_default
+    default wrong_count = 0
+Exception: store.wrong_count is being given a default a second time.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/scripts/script.rpy", line 443, in script
-    jump chapter1_4_2_checkㄲ
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 1712, in execute
-    rv = renpy.game.script.lookup(target)
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/script.py", line 1103, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'chapter1_4_2_checkㄲ'.
+  File "renpy/common/00start.rpy", line 195, in script
+    python:
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 834, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/python.py", line 1187, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "renpy/common/00start.rpy", line 196, in <module>
+    renpy.execute_default_statement(True)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/exports/statementexports.py", line 372, in execute_default_statement
+    i.execute_default(start)
+  File "game/scripts/variable.rpy", line 70, in execute_default
+    default wrong_count = 0
+Exception: store.wrong_count is being given a default a second time.
 
 macOS-13.6.4-arm64-arm-64bit arm64
 Ren'Py 8.3.7.25031702
 MysteryGame 1.0
-Tue May 20 00:23:59 2025
+Tue May 20 04:52:53 2025
