@@ -1,3 +1,4 @@
+*.xlsx
 *.rpyc
 *.log
 *.save

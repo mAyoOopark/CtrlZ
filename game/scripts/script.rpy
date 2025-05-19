@@ -1,5 +1,4 @@
-﻿
-#배경
+﻿#배경
 image chapter1_1 = "chapter1_1.png"
 image chapter1_2 = "chapter1_2.png"
 image chapter1_3 = "chapter1_3.png"
@@ -76,18 +75,17 @@ transform sparkle: #반짝임 효과
 
 screen toilet_message:
     imagebutton:
-        idle "obj_sparkle_ch1_01.png"         # 클릭 가능한 이미지 (hover 등 자동 처리)
+        idle "obj_sparkle_ch1_01.png"         # 클릭 가능한 이미지
         xpos 1200 ypos 300
         at sparkle
         focus_mask True
-        action Show("message_dialogue")
+        action [Jump("checked_message")]
         sensitive toilet_button_enabled
 
-screen message_dialogue:
-    text "거울 옆에 물에 젖은 쪽지를 발견했다. / 쪽지에는 '#$@!#!$로 도망가야해...'라고 적혀있었다.":
-        xalign 0.5
-        yalign 0.9
-    timer 2.0 action Hide("message_dialogue")
+label checked_message:
+    $ checked_message = True
+    "거울 옆에 물에 젖은 쪽지를 발견했다. / 쪽지에는 #$@!#!$로 도망가야해...라고 적혀있었다. "
+    jump chapter1_4_3
 
 default visited_chapel = False
 default visited_dining = False
@@ -96,6 +94,7 @@ default checked_tools = False
 default checked_menu = False
 default checked_table = False
 default toilet_button_enabled = False
+default checked_message = False
 
 label start:
     scene chapter1_1 with fade # 기본 제공 배경 or "bg_restaurant.jpg"로 교체
@@ -256,8 +255,28 @@ label chapter1_4:
 
 # ✅ 장소 선택 메뉴
 label location_select:
+    scene chapter1_4 with fade
     if checked_tools and checked_menu and checked_table:
         "식당에서 중요한 단어를 얻었다"
+    if checked_message :
+        show hajun_puzzled at left_bottom_offset
+        hajun "쪽지... 앞에는 젖어 있어서 읽을 수 없었다. 도망가야한다는건 무슨 소리지...?"
+        hide hajun_puzzled
+    if visited_bathroom and visited_chapel and visited_dining :
+        "3곳을 모두 확인했다."
+        show hajun_puzzled at left_bottom_offset
+        # hajun "도망... 돈을 다 챙겨.... ??시 까지..."
+        hajun "3곳에서 얻은건 어디로 ??시까지 돈을 가지고 간다는건데..."
+        hide hajun_puzzled
+        show hajun_despair at left_bottom_offset
+        hajun "설마 최도현은 ??시까지 어디로 돈을 가지고 도망을 갈려고 생각하는건가?!"
+        menu :
+            "내려가자":
+                jump chapter1_5
+
+            "아직 좀 더 찾아보자": 
+                jump chapter1_4
+            
     menu:
         "어디로 이동할까?"
 
@@ -366,10 +385,10 @@ label chapter1_4_2_2:
     hajun "??시까지 가야한다고? 어디를 간다는 거지?"
     hide hajun_surprised
 
-    jump chapter1_4_2_check
+    jump chapter1_4_2_checkㄲ
 
 label chapter1_4_2_check:
-        if checked_tools and checked_menu and checked_table:
+        if checked_menu and checked_table:
             "식당에서는 더 이상 할게 없는 것 같다"
             jump location_select
         else:
@@ -379,21 +398,23 @@ label chapter1_4_2_check:
 label chapter1_4_3:
     $ visited_bathroom = True
     scene chapter1_4_3 with fade
-
-    $ toilet_button_enabled = False
+    if checked_message :
+        
+        show hajun at left_bottom_offset
+        hajun "화장실에서는 더 이상 할 수 있는게 없는 거 같다. 돌아가자."
+        jump location_select
     show screen toilet_message
+
     show hajun_consider at left_bottom_offset
     hajun "여자 화장실과 남자 화장실이 있는데 어디를 먼저 가볼까?"
     "여자화장실은 문이 잠겨 있다."
     "큰 거울과 칸 마다 변기들이 있다."
-    ""
     hide hajun_consider
-
-    jump chapter1_4_3_1
-
-label chapter1_4_3_1:
     $ toilet_button_enabled = True
-    
+
+    if checked_message == False :
+        "여기서 무언가를 더 찾아야해"
+        jump chapter1_4_3
 
 # ✅ 숨겨진 방: 조건 미달 시
 label room_secret_locked:

@@ -1,18 +1,52 @@
-2025-05-13 08:41:18 UTC
+2025-05-19 03:52:49 UTC
 macOS-13.6.4-arm64-arm-64bit
 Ren'Py 8.3.7.25031702
 
 Early init took 0.03s
 Loading error handling took 0.02s
-Loading script took 0.05s
-Loading save slot metadata took 0.05s
+Loading script took 0.14s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/scripts/script.rpy", line 272: menu statement expects a non-empty block.
+    menu :
+        ^
+
+File "game/scripts/script.rpy", line 273: expected statement.
+    "내려가자":
+          ^
+
+File "game/scripts/script.rpy", line 275: expected statement.
+    "아직 좀 더 찾아보자" : 
+                  ^
+DPI scale factor: 1.000000
+Interface start took 0.21s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Fullscreen mode.
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 83.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1440, 900) drawable=(2880, 1800)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1440, 900) drawable=(2880, 1800)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 38.98s
+Loading error handling took 0.02s
+Loading script took 0.09s
+Loading save slot metadata took 0.02s
 Loading persistent took 0.00s
 Running init code took 0.03s
 Loading analysis data took 0.01s
 Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
+Reloading save slot metadata took 0.02s
 Index archives took 0.00s
-Dump and make backups took 0.03s
+Backing up script files to '/Users/joooyeon/Library/RenPy/backups/MysteryGame':
+Dump and make backups took 0.02s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc took 0.02s
@@ -21,22 +55,92 @@ Creating interface object took 0.00s
 Cleaning stores took 0.00s
 Init translation took 0.00s
 Build styles took 0.00s
-Load screen analysis took 0.01s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
 Prepare screens took 0.03s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
+Save bytecode. took 0.01s
 Running _start took 0.00s
-Interface start took 0.28s
+Interface start took 0.18s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1440, 900)
 swap interval: 1 frames
-Windowed mode.
+Fullscreen mode.
 Vendor: "b'Apple'"
 Renderer: b'Apple M1'
 Version: b'2.1 Metal - 83.1'
 Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1338, 753) drawable=(2676, 1506)
+Screen sizes: virtual=(1920, 1080) physical=(1440, 900) drawable=(2880, 1800)
 Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1440, 900) drawable=(2880, 1800)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/scripts/script.rpy", line 387, in script
+    jump chapter1_4_2_checkㅒㄲ
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 1712, in execute
+    rv = renpy.game.script.lookup(target)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/script.py", line 1103, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'chapter1_4_2_checkㅒㄲ'.
+
+While running game code:
+  File "game/scripts/script.rpy", line 387, in script
+    jump chapter1_4_2_checkㅒㄲ
+ScriptError: could not find label 'chapter1_4_2_checkㅒㄲ'.
+Resetting cache.
+Early init took 97.68s
+Loading error handling took 0.01s
+Loading script took 0.08s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to '/Users/joooyeon/Library/RenPy/backups/MysteryGame':
+Dump and make backups took 0.03s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.03s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.03s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Interface start took 0.16s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Fullscreen mode.
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 83.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1440, 900) drawable=(2880, 1800)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1440, 900) drawable=(2880, 1800)
+Maximum texture size: 4096x4096
+Traceback (most recent call last):
+  File "renpy/common/00console.rpy", line 696, in run
+    he.result = command_fn(l)
+  File "renpy/common/00console.rpy", line 1025, in jump
+    raise Exception("Could not parse label. (Unqualified local labels are not allowed.)")
+Exception: Could not parse label. (Unqualified local labels are not allowed.)
+Traceback (most recent call last):
+  File "renpy/common/00console.rpy", line 696, in run
+    he.result = command_fn(l)
+  File "renpy/common/00console.rpy", line 1031, in jump
+    raise Exception("Label %s not found." % label)
+Exception: Label chapter not found.

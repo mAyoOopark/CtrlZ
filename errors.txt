@@ -2,9 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/scripts/script.rpy", line 392: end of line expected.
-    jump chapter 1_4_3_1
-                 ^
+File "game/scripts/script.rpy", line 272: menu statement expects a non-empty block.
+    menu :
+        ^
+
+File "game/scripts/script.rpy", line 273: expected statement.
+    "내려가자":
+          ^
+
+File "game/scripts/script.rpy", line 275: expected statement.
+    "아직 좀 더 찾아보자" : 
+                  ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Tue May 13 17:34:42 2025
+Mon May 19 12:52:49 2025

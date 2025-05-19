@@ -1,70 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/scripts/script.rpy", line 383, in script
-    hajun "여자 화장실과 남자 화장실이 있는데 어디를 먼저 가볼까?"
-  File "game/scripts/script.rpy", line 77, in execute
-    screen toilet_message:
-  File "game/scripts/script.rpy", line 77, in execute
-    screen toilet_message:
-  File "game/scripts/script.rpy", line 78, in execute
-    imagebutton:
-  File "renpy/common/00defaults.rpy", line 164, in _imagemap_auto_function
-    rv = auto_param % variant
-TypeError: not all arguments converted during string formatting
+  File "game/scripts/script.rpy", line 387, in script
+    jump chapter1_4_2_checkㅒㄲ
+ScriptError: could not find label 'chapter1_4_2_checkㅒㄲ'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/scripts/script.rpy", line 383, in script
-    hajun "여자 화장실과 남자 화장실이 있는데 어디를 먼저 가볼까?"
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 2586, in execute
-    Say.execute(self)
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 623, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/exports/sayexports.py", line 132, in say
-    who(what, *args, **kwargs)
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/character.py", line 1471, in __call__
-    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/character.py", line 1117, in do_display
-    display_say(who,
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/character.py", line 814, in display_say
-    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ui.py", line 301, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/core.py", line 2218, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/core.py", line 2748, in interact_core
-    root_widget.visit_all(lambda d : d.per_interact())
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/displayable.py", line 434, in visit_all
-    d.visit_all(callback, seen)
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/displayable.py", line 434, in visit_all
-    d.visit_all(callback, seen)
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/displayable.py", line 434, in visit_all
-    d.visit_all(callback, seen)
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/screen.py", line 480, in visit_all
-    callback(self)
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/core.py", line 2748, in <lambda>
-    root_widget.visit_all(lambda d : d.per_interact())
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/screen.py", line 491, in per_interact
-    self.update()
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/screen.py", line 700, in update
-    self.screen.function(**self.scope)
-  File "game/scripts/script.rpy", line 77, in execute
-    screen toilet_message:
-  File "game/scripts/script.rpy", line 77, in execute
-    screen toilet_message:
-  File "game/scripts/script.rpy", line 78, in execute
-    imagebutton:
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ui.py", line 975, in _imagebutton
-    idle = choice(idle, idle_image, "idle", required=True)
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ui.py", line 963, in choice
-    rv = renpy.config.imagemap_auto_function(auto, name)
-  File "renpy/common/00defaults.rpy", line 164, in _imagemap_auto_function
-    rv = auto_param % variant
-TypeError: not all arguments converted during string formatting
+  File "game/scripts/script.rpy", line 387, in script
+    jump chapter1_4_2_checkㅒㄲ
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 1712, in execute
+    rv = renpy.game.script.lookup(target)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/script.py", line 1103, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'chapter1_4_2_checkㅒㄲ'.
 
 macOS-13.6.4-arm64-arm-64bit arm64
 Ren'Py 8.3.7.25031702
 MysteryGame 1.0
-Tue May 13 16:59:24 2025
+Mon May 19 12:54:03 2025
