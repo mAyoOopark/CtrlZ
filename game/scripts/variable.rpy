@@ -74,13 +74,13 @@ default wrong_count = 0
 default life = 3
   
 transform left_bottom_offset: # 캐릭터를 왼쪽 아래에 위치
-    xpos 100
+    xpos 50
     ypos 1.0
     xanchor 0.0
     yanchor 1.0
 
 transform right_bottom_offset:     # 캐릭터를 오른쪽 아래에 위치
-    xpos 1820
+    xpos 1600
     ypos 1.0
     xanchor 1.0
     yanchor 1.0
