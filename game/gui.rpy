@@ -59,13 +59,13 @@ define gui.interface_text_color = '#404040'
 ## 글자와 글자 크기 ###################################################################
 
 ## 인-게임 글자에 사용됩니다.
-define gui.text_font = "SourceHanSansLite.ttf"
+define gui.text_font = "Kimjungchul_Font/otf/KimjungchulMyungjo-Regular.otf"
 
 ## 캐릭터의 이름에 사용됩니다.
-define gui.name_text_font = "SourceHanSansLite.ttf"
+define gui.name_text_font = "Kimjungchul_Font/otf/KimjungchulMyungjo-Bold.otf"
 
 ## 인터페이스에 사용됩니다.
-define gui.interface_text_font = "SourceHanSansLite.ttf"
+define gui.interface_text_font = "Kimjungchul_Font/otf/KimjungchulMyungjo-Regular.otf"
 
 ## 일반 대사의 글자 크기입니다.
 define gui.text_size = 33
@@ -98,7 +98,7 @@ define gui.game_menu_background = "gui/game_menu.png"
 ## 이러한 변수들은 한 번에 한 줄의 대사가 어떻게 화면에 표시되는지 제어합니다.
 
 ## 대사를 포함하는 텍스트 박스의 높이입니다.
-define gui.textbox_height = 278
+define gui.textbox_height = 250
 
 ## 화면에 텍스트박스를 세로로 배치합니다. 0.0은 최상단, 0.5는 중앙, 그리고 1.0은
 ## 최하단입니다.
@@ -130,11 +130,11 @@ define gui.namebox_tile = False
 
 ## 텍스트박스에서 대사의 위치입니다. These can be a whole number of pixels
 ## relative to the left or top side of the textbox, or 0.5 to center.
-define gui.dialogue_xpos = 402
+define gui.dialogue_xpos = 350
 define gui.dialogue_ypos = 75
 
 ## 픽셀값에서 대사의 최대 너비입니다.
-define gui.dialogue_width = 1116
+define gui.dialogue_width = 1100
 
 ## 대사 글자의 수평 정렬입니다. 이것은 0.0으로 좌측 정렬, 0.5로 중앙, 그리고 1.0
 ## 으로 우측 정렬이 될 수 있습니다.
@@ -436,7 +436,7 @@ init python:
         gui.label_text_size = 51
 
         ## 텍스트박스의 위치를 조정합니다.
-        gui.textbox_height = 360
+        gui.textbox_height = 1000
         gui.name_xpos = 120
         gui.dialogue_xpos = 135
         gui.dialogue_width = 1650
