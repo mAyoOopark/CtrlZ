@@ -1,32 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "renpy/common/00start.rpy", line 195, in script
+  File "game/scripts/Ch02.rpy", line 9, in script
     python:
-  File "renpy/common/00start.rpy", line 196, in <module>
-    renpy.execute_default_statement(True)
-  File "game/scripts/variable.rpy", line 70, in execute_default
-    default wrong_count = 0
-Exception: store.wrong_count is being given a default a second time.
+  File "game/scripts/Ch02.rpy", line 10, in <module>
+    typewriter_effect_who(hajun, "......", cps=30)
+  File "game/scripts/variable.rpy", line 107, in typewriter_effect_who
+    renpy.hide_window()  # ← 이걸로 바꿔야 해
+AttributeError: module 'renpy.exports' has no attribute 'hide_window'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/00start.rpy", line 195, in script
+  File "game/scripts/Ch02.rpy", line 9, in script
     python:
   File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 834, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/python.py", line 1187, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "renpy/common/00start.rpy", line 196, in <module>
-    renpy.execute_default_statement(True)
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/exports/statementexports.py", line 372, in execute_default_statement
-    i.execute_default(start)
-  File "game/scripts/variable.rpy", line 70, in execute_default
-    default wrong_count = 0
-Exception: store.wrong_count is being given a default a second time.
+  File "game/scripts/Ch02.rpy", line 10, in <module>
+    typewriter_effect_who(hajun, "......", cps=30)
+  File "game/scripts/variable.rpy", line 107, in typewriter_effect_who
+    renpy.hide_window()  # ← 이걸로 바꿔야 해
+AttributeError: module 'renpy.exports' has no attribute 'hide_window'
 
 macOS-13.6.4-arm64-arm-64bit arm64
 Ren'Py 8.3.7.25031702
 MysteryGame 1.0
-Tue May 20 04:52:53 2025
+Tue May 20 17:51:08 2025

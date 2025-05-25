@@ -20,6 +20,7 @@ image chapter1_7bg = "chapter1_7.png"
 image chapter1_8bg = "chapter1_8.png"
 image chapter1_9bg = "chapter1_9.png"
 
+image chapter2_1bg = "chapter2_1.png"
 
 # 이미지
 image hajun = "hajun.png"
@@ -96,3 +97,25 @@ transform sparkle: #반짝임 효과
     linear 0.5 alpha 0.5
     linear 0.5 alpha 1.0
     repeat
+
+# 한자씩 출력 효과
+init python:
+    def auto_typewriter(text, delay=0.05):
+        store._typewriter_display = ""
+        renpy.call_screen("typewriter_screen")
+
+        for c in text:
+            store._typewriter_display += c
+            renpy.pause(delay)
+
+        renpy.pause(1.0)  # 출력 후 멈춤
+        renpy.end_screen("typewriter_screen")
+
+screen typewriter_screen():
+    window:
+        style "say_window"
+        text _typewriter_display style "say_dialogue"
+
+
+
+

@@ -1,34 +1,18 @@
-2025-05-20 07:46:26 UTC
+2025-05-20 08:49:39 UTC
 macOS-13.6.4-arm64-arm-64bit
 Ren'Py 8.3.7.25031702
 
 Early init took 0.03s
 Loading error handling took 0.02s
-Loading script took 0.07s
+Loading script took 0.10s
 Loading save slot metadata took 0.03s
 Loading persistent took 0.00s
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.02s
-Index archives took 0.00s
-Dump and make backups took 0.02s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.02s
+
+File "game/scripts/variable.rpy", line 107: invalid syntax
+            window hide
+                    ^
 DPI scale factor: 1.000000
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.00s
-Build styles took 0.00s
-Load screen analysis took 0.01s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
-Running _start took 0.00s
-Interface start took 0.29s
+Interface start took 0.75s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1440, 900)
@@ -38,5 +22,113 @@ Vendor: "b'Apple'"
 Renderer: b'Apple M1'
 Version: b'2.1 Metal - 83.1'
 Display Info: None
-Screen sizes: virtual=(1650, 1100) physical=(1270, 847) drawable=(2540, 1694)
+Screen sizes: virtual=(1650, 1100) physical=(1440, 847) drawable=(2880, 1694)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1650, 1100) physical=(1440, 847) drawable=(2880, 1694)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 80.51s
+Loading error handling took 0.03s
+Loading script took 0.07s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to '/Users/joooyeon/Library/RenPy/backups/MysteryGame':
+Dump and make backups took 0.03s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.02s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.03s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Interface start took 0.18s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 83.1'
+Display Info: None
+Screen sizes: virtual=(1650, 1100) physical=(1440, 847) drawable=(2880, 1694)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1650, 1100) physical=(1440, 847) drawable=(2880, 1694)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/scripts/Ch02.rpy", line 9, in script
+    python:
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 834, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/python.py", line 1187, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/scripts/Ch02.rpy", line 10, in <module>
+    typewriter_effect_who(hajun, "......", cps=30)
+  File "game/scripts/variable.rpy", line 107, in typewriter_effect_who
+    renpy.hide_window()  # ← 이걸로 바꿔야 해
+AttributeError: module 'renpy.exports' has no attribute 'hide_window'
+
+While running game code:
+  File "game/scripts/Ch02.rpy", line 9, in script
+    python:
+  File "game/scripts/Ch02.rpy", line 10, in <module>
+    typewriter_effect_who(hajun, "......", cps=30)
+  File "game/scripts/variable.rpy", line 107, in typewriter_effect_who
+    renpy.hide_window()  # ← 이걸로 바꿔야 해
+AttributeError: module 'renpy.exports' has no attribute 'hide_window'
+Resetting cache.
+Early init took 137.72s
+Loading error handling took 0.01s
+Loading script took 0.07s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to '/Users/joooyeon/Library/RenPy/backups/MysteryGame':
+Dump and make backups took 0.02s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.02s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.03s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Interface start took 0.18s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 83.1'
+Display Info: None
+Screen sizes: virtual=(1650, 1100) physical=(1440, 847) drawable=(2880, 1694)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1650, 1100) physical=(1440, 847) drawable=(2880, 1694)
 Maximum texture size: 4096x4096
