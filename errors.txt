@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/scripts/variable.rpy", line 107: invalid syntax
-            window hide
-                    ^
+File "game/scripts/Ch02/Ch02explore2.rpy", line 64: if statement expects a non-empty block.
+    if checked_villa_livingroom_칼 and checked_villa_livingroom_피글자 and checked_villa_livingroom_시신 and checked_villa_livingroom_머리카락 :
+                                                                                                                                      ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Tue May 20 17:49:39 2025
+Tue May 27 08:24:00 2025

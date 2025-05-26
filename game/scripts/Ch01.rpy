@@ -10,7 +10,7 @@
 
 label checked_message:
     $ checked_message = True
-    "거울 옆에 물에 젖은 쪽지를 발견했다. / 쪽지에는 #$@!#!$로 도망가야해...라고 적혀있었다. "
+    "거울 옆에 물에 젖은 쪽지를 발견했다. \n쪽지에는 #$@!#!$로 도망가야해...라고 적혀있었다. "
     jump chapter1_4_3
 
 default visited_chapel = False
@@ -286,8 +286,6 @@ label chapter1_4_1_2_1:
             hajun "다시 돌아가자"
             hide hajun
 
-            scene chapter1_4bg with fade
-
             jump location_select
         "오른쪽 문":
              $ wrong_count += 1
@@ -371,6 +369,7 @@ label chapter1_4_3:
 
     if checked_message == False :
         "여기서 무언가를 더 찾아야해"
+        "오브젝트들을 탐색해보자"
         jump chapter1_4_3
 
 # ✅ 숨겨진 방: 조건 미달 시
@@ -982,4 +981,4 @@ label chapter1_10:
 
     pause 1.0
     
-    return
+    jump chapter2_1

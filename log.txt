@@ -1,44 +1,18 @@
-2025-05-20 08:49:39 UTC
+2025-05-26 23:17:40 UTC
 macOS-13.6.4-arm64-arm-64bit
 Ren'Py 8.3.7.25031702
 
 Early init took 0.03s
 Loading error handling took 0.02s
-Loading script took 0.10s
+Loading script took 0.12s
 Loading save slot metadata took 0.03s
 Loading persistent took 0.00s
-
-File "game/scripts/variable.rpy", line 107: invalid syntax
-            window hide
-                    ^
-DPI scale factor: 1.000000
-Interface start took 0.75s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1440, 900)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Apple'"
-Renderer: b'Apple M1'
-Version: b'2.1 Metal - 83.1'
-Display Info: None
-Screen sizes: virtual=(1650, 1100) physical=(1440, 847) drawable=(2880, 1694)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1650, 1100) physical=(1440, 847) drawable=(2880, 1694)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 80.51s
-Loading error handling took 0.03s
-Loading script took 0.07s
-Loading save slot metadata took 0.02s
-Loading persistent took 0.00s
-Running init code took 0.02s
+Running init code took 0.03s
 Loading analysis data took 0.01s
 Analyze and compile ATL took 0.00s
 Reloading save slot metadata took 0.02s
 Index archives took 0.00s
-Backing up script files to '/Users/joooyeon/Library/RenPy/backups/MysteryGame':
-Dump and make backups took 0.03s
+Dump and make backups took 0.02s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc took 0.02s
@@ -47,14 +21,14 @@ Creating interface object took 0.00s
 Cleaning stores took 0.00s
 Init translation took 0.00s
 Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
+Load screen analysis took 0.01s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
 Prepare screens took 0.03s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
+Save bytecode. took 0.02s
 Running _start took 0.00s
-Interface start took 0.18s
+Interface start took 2.02s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1440, 900)
@@ -70,30 +44,563 @@ Screen sizes: virtual=(1650, 1100) physical=(1440, 847) drawable=(2880, 1694)
 Maximum texture size: 4096x4096
 
 Full traceback:
-  File "game/scripts/Ch02.rpy", line 9, in script
-    python:
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 834, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/python.py", line 1187, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/scripts/Ch02.rpy", line 10, in <module>
-    typewriter_effect_who(hajun, "......", cps=30)
-  File "game/scripts/variable.rpy", line 107, in typewriter_effect_who
-    renpy.hide_window()  # ← 이걸로 바꿔야 해
-AttributeError: module 'renpy.exports' has no attribute 'hide_window'
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 59, in script
+    call screen screen_villa_livingroom
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 1987, in execute
+    self.call("execute")
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 1966, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/statements.py", line 374, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/exports/statementexports.py", line 345, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ui.py", line 301, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/core.py", line 2218, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/core.py", line 2748, in interact_core
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/displayable.py", line 434, in visit_all
+    d.visit_all(callback, seen)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/displayable.py", line 434, in visit_all
+    d.visit_all(callback, seen)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/displayable.py", line 434, in visit_all
+    d.visit_all(callback, seen)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/screen.py", line 480, in visit_all
+    callback(self)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/core.py", line 2748, in <lambda>
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/screen.py", line 491, in per_interact
+    self.update()
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/screen.py", line 700, in update
+    self.screen.function(**self.scope)
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 7, in execute
+    screen screen_villa_livingroom():
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 7, in execute
+    screen screen_villa_livingroom():
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 9, in execute
+    if not is_object_locked:
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 40, in execute
+    if not checked_viall_livingroom_피글자:
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 40, in <module>
+    if not checked_viall_livingroom_피글자:
+NameError: name 'checked_viall_livingroom_피글자' is not defined
 
 While running game code:
-  File "game/scripts/Ch02.rpy", line 9, in script
-    python:
-  File "game/scripts/Ch02.rpy", line 10, in <module>
-    typewriter_effect_who(hajun, "......", cps=30)
-  File "game/scripts/variable.rpy", line 107, in typewriter_effect_who
-    renpy.hide_window()  # ← 이걸로 바꿔야 해
-AttributeError: module 'renpy.exports' has no attribute 'hide_window'
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 59, in script
+    call screen screen_villa_livingroom
+  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 7, in execute
+    screen screen_villa_livingroom():
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 7, in execute
+    screen screen_villa_livingroom():
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 9, in execute
+    if not is_object_locked:
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 40, in execute
+    if not checked_viall_livingroom_피글자:
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 40, in <module>
+    if not checked_viall_livingroom_피글자:
+NameError: name 'checked_viall_livingroom_피글자' is not defined
 Resetting cache.
-Early init took 137.72s
+Early init took 129.87s
+Loading error handling took 0.02s
+Loading script took 0.09s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to '/Users/joooyeon/Library/RenPy/backups/MysteryGame':
+Dump and make backups took 0.02s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.03s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.03s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Interface start took 0.19s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 83.1'
+Display Info: None
+Screen sizes: virtual=(1650, 1100) physical=(1440, 847) drawable=(2880, 1694)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1650, 1100) physical=(1440, 847) drawable=(2880, 1694)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 67, in script
+    call screen screen_villa_livingroom
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 1987, in execute
+    self.call("execute")
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 1966, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/statements.py", line 374, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/exports/statementexports.py", line 345, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ui.py", line 301, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/core.py", line 2218, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/core.py", line 2748, in interact_core
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/displayable.py", line 434, in visit_all
+    d.visit_all(callback, seen)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/displayable.py", line 434, in visit_all
+    d.visit_all(callback, seen)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/displayable.py", line 434, in visit_all
+    d.visit_all(callback, seen)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/screen.py", line 480, in visit_all
+    callback(self)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/core.py", line 2748, in <lambda>
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/screen.py", line 491, in per_interact
+    self.update()
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/screen.py", line 700, in update
+    self.screen.function(**self.scope)
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 15, in execute
+    screen screen_villa_livingroom():
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 15, in execute
+    screen screen_villa_livingroom():
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 17, in execute
+    if not is_object_locked:
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 48, in execute
+    if not checked_viall_livingroom_피글자:
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 48, in <module>
+    if not checked_viall_livingroom_피글자:
+NameError: name 'checked_viall_livingroom_피글자' is not defined
+
+While running game code:
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 67, in script
+    call screen screen_villa_livingroom
+  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 15, in execute
+    screen screen_villa_livingroom():
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 15, in execute
+    screen screen_villa_livingroom():
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 17, in execute
+    if not is_object_locked:
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 48, in execute
+    if not checked_viall_livingroom_피글자:
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 48, in <module>
+    if not checked_viall_livingroom_피글자:
+NameError: name 'checked_viall_livingroom_피글자' is not defined
+Resetting cache.
+Early init took 167.30s
 Loading error handling took 0.01s
-Loading script took 0.07s
+Loading script took 0.08s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to '/Users/joooyeon/Library/RenPy/backups/MysteryGame':
+Dump and make backups took 0.02s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.03s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.03s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Interface start took 0.19s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 83.1'
+Display Info: None
+Screen sizes: virtual=(1650, 1100) physical=(1440, 847) drawable=(2880, 1694)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1650, 1100) physical=(1440, 847) drawable=(2880, 1694)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1650, 1100) physical=(720, 847) drawable=(1440, 1694)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1650, 1100) physical=(1335, 847) drawable=(2670, 1694)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 189.67s
+Loading error handling took 0.02s
+Loading script took 0.08s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to '/Users/joooyeon/Library/RenPy/backups/MysteryGame':
+Dump and make backups took 0.02s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.03s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.03s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Interface start took 0.19s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 83.1'
+Display Info: None
+Screen sizes: virtual=(1650, 1100) physical=(1270, 847) drawable=(2540, 1694)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 202.09s
+Loading error handling took 0.01s
+Loading script took 0.06s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.01s
+Index archives took 0.00s
+Backing up script files to '/Users/joooyeon/Library/RenPy/backups/MysteryGame':
+Dump and make backups took 0.02s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.03s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.03s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Interface start took 0.19s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 83.1'
+Display Info: None
+Screen sizes: virtual=(1650, 1100) physical=(1270, 847) drawable=(2540, 1694)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 209.95s
+Loading error handling took 0.01s
+Loading script took 0.06s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to '/Users/joooyeon/Library/RenPy/backups/MysteryGame':
+Dump and make backups took 0.03s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.03s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.03s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Interface start took 0.20s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 83.1'
+Display Info: None
+Screen sizes: virtual=(1650, 1100) physical=(1270, 847) drawable=(2540, 1694)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 237.42s
+Loading error handling took 0.01s
+Loading script took 0.09s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to '/Users/joooyeon/Library/RenPy/backups/MysteryGame':
+Dump and make backups took 0.03s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.03s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.03s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Interface start took 0.20s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 83.1'
+Display Info: None
+Screen sizes: virtual=(1650, 1100) physical=(1270, 847) drawable=(2540, 1694)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 242.27s
+Loading error handling took 0.01s
+Loading script took 0.06s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.01s
+Index archives took 0.00s
+Backing up script files to '/Users/joooyeon/Library/RenPy/backups/MysteryGame':
+Dump and make backups took 0.02s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.03s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.03s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Interface start took 0.20s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 83.1'
+Display Info: None
+Screen sizes: virtual=(1650, 1100) physical=(1270, 847) drawable=(2540, 1694)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 248.64s
+Loading error handling took 0.01s
+Loading script took 0.06s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to '/Users/joooyeon/Library/RenPy/backups/MysteryGame':
+Dump and make backups took 0.03s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.03s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.04s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Interface start took 0.21s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 83.1'
+Display Info: None
+Screen sizes: virtual=(1650, 1100) physical=(1270, 847) drawable=(2540, 1694)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 254.95s
+Loading error handling took 0.01s
+Loading script took 0.06s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to '/Users/joooyeon/Library/RenPy/backups/MysteryGame':
+Dump and make backups took 0.02s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.03s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.03s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Interface start took 0.20s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 83.1'
+Display Info: None
+Screen sizes: virtual=(1650, 1100) physical=(1270, 847) drawable=(2540, 1694)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 309.56s
+Loading error handling took 0.01s
+Loading script took 0.08s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to '/Users/joooyeon/Library/RenPy/backups/MysteryGame':
+Dump and make backups took 0.02s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.03s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.03s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Interface start took 0.20s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 83.1'
+Display Info: None
+Screen sizes: virtual=(1650, 1100) physical=(1270, 847) drawable=(2540, 1694)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 379.44s
+Loading error handling took 0.01s
+Loading script took 0.09s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/scripts/Ch02/Ch02explore2.rpy", line 64: if statement expects a non-empty block.
+    if checked_villa_livingroom_칼 and checked_villa_livingroom_피글자 and checked_villa_livingroom_시신 and checked_villa_livingroom_머리카락 :
+                                                                                                                                      ^
+DPI scale factor: 1.000000
+Interface start took 0.07s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 83.1'
+Display Info: None
+Screen sizes: virtual=(1650, 1100) physical=(1270, 847) drawable=(2540, 1694)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 405.28s
+Loading error handling took 0.02s
+Loading script took 0.09s
 Loading save slot metadata took 0.02s
 Loading persistent took 0.00s
 Running init code took 0.02s
@@ -118,7 +625,7 @@ Prepare screens took 0.03s
 Save pyanalysis. took 0.00s
 Save bytecode. took 0.01s
 Running _start took 0.00s
-Interface start took 0.18s
+Interface start took 0.19s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1440, 900)
@@ -128,7 +635,99 @@ Vendor: "b'Apple'"
 Renderer: b'Apple M1'
 Version: b'2.1 Metal - 83.1'
 Display Info: None
-Screen sizes: virtual=(1650, 1100) physical=(1440, 847) drawable=(2880, 1694)
+Screen sizes: virtual=(1650, 1100) physical=(1270, 847) drawable=(2540, 1694)
 Maximum texture size: 4096x4096
-Screen sizes: virtual=(1650, 1100) physical=(1440, 847) drawable=(2880, 1694)
+Resetting cache.
+Early init took 408.65s
+Loading error handling took 0.01s
+Loading script took 0.06s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.01s
+Index archives took 0.00s
+Backing up script files to '/Users/joooyeon/Library/RenPy/backups/MysteryGame':
+Dump and make backups took 0.03s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.03s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.03s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Interface start took 0.17s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 83.1'
+Display Info: None
+Screen sizes: virtual=(1650, 1100) physical=(1270, 847) drawable=(2540, 1694)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 66, in script
+    jump chpater2_5
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 1712, in execute
+    rv = renpy.game.script.lookup(target)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/script.py", line 1103, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'chpater2_5'.
+
+While running game code:
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 66, in script
+    jump chpater2_5
+ScriptError: could not find label 'chpater2_5'.
+Resetting cache.
+Early init took 422.60s
+Loading error handling took 0.01s
+Loading script took 0.06s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to '/Users/joooyeon/Library/RenPy/backups/MysteryGame':
+Dump and make backups took 0.02s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.03s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.03s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Interface start took 0.19s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 83.1'
+Display Info: None
+Screen sizes: virtual=(1650, 1100) physical=(1270, 847) drawable=(2540, 1694)
 Maximum texture size: 4096x4096

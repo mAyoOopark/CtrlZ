@@ -1,30 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/scripts/Ch02.rpy", line 9, in script
-    python:
-  File "game/scripts/Ch02.rpy", line 10, in <module>
-    typewriter_effect_who(hajun, "......", cps=30)
-  File "game/scripts/variable.rpy", line 107, in typewriter_effect_who
-    renpy.hide_window()  # ← 이걸로 바꿔야 해
-AttributeError: module 'renpy.exports' has no attribute 'hide_window'
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 66, in script
+    jump chpater2_5
+ScriptError: could not find label 'chpater2_5'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/scripts/Ch02.rpy", line 9, in script
-    python:
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 834, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/python.py", line 1187, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/scripts/Ch02.rpy", line 10, in <module>
-    typewriter_effect_who(hajun, "......", cps=30)
-  File "game/scripts/variable.rpy", line 107, in typewriter_effect_who
-    renpy.hide_window()  # ← 이걸로 바꿔야 해
-AttributeError: module 'renpy.exports' has no attribute 'hide_window'
+  File "game/scripts/Ch02/Ch02explore2.rpy", line 66, in script
+    jump chpater2_5
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 1712, in execute
+    rv = renpy.game.script.lookup(target)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/script.py", line 1103, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'chpater2_5'.
 
 macOS-13.6.4-arm64-arm-64bit arm64
 Ren'Py 8.3.7.25031702
 MysteryGame 1.0
-Tue May 20 17:51:08 2025
+Tue May 27 08:24:32 2025
