@@ -21,7 +21,10 @@ image chapter1_8bg = "chapter1_8.png"
 image chapter1_9bg = "chapter1_9.png"
 
 image chapter2_1bg = "chapter2_1.png"
+image chapter2_1_1bg = "chapter2_1_1.png"
 image chapter2_2bg = "chapter2_2.png"
+image chapter2_2_1bg = "chapter2_2_1.png"
+image chapter2_2_2bg = "chapter2_2_2.png"
 image chapter2_3_1bg = "chapter2_3_1.png"
 image chapter2_3_2bg = "chapter2_3_2.png"
 image chapter2_3_3bg = "chapter2_3_3.png"
@@ -36,6 +39,12 @@ image chapter3_1_1_ibg = "chapter3_1_1_i.png"
 image chapter3_2_1bg = "chapter3_2_1.png"
 image chapter3_2_2bg = "chapter3_2_2.png"
 image chapter3_3bg = "chapter3_3.png"
+image chapter4_1bg = "chapter4_1.png"
+image chapter4_1_1bg = "chapter4_1_1.png"
+image chapter4_1_3bg = "chapter4_1_3.png"
+image chapter4_1_3_1bg = "chapter4_1_3_1.png"
+image chapter4_1_4bg = "chapter4_1_4.png"
+
 
 
 # 이미지
@@ -57,7 +66,7 @@ image hajun_wtf = "hajun_wtf.png"
 image hajun_serious = "hajun_serious.png"
 image hajun_curious = Transform("hajun_curious.png", xzoom=-1.0, zoom=0.56)
 image hajun_fightingspirit = im.FactorScale("images/hajun_fightingspirit.png", 0.56)
-image hajun_aha = "hajun_aha.png"
+
 
 image jungsik = "jungsik.png"
 image jungsik_angry = "jungsik_angry.png"
@@ -68,10 +77,6 @@ image jungsik_surprised = "jungsik_surprised.png"
 image jungsik_sad = "jungsik_sad.png"
 image jungsik_smile = "jungsik_smile.png"
 image jungsik_sigh = "jungsik_sigh.png"
-image jungsik_serious = im.FactorScale("jungsik_serious.png", 0.56)
-image jungsik_blue = im.FactorScale("jungsik_blue.png", 0.56)
-image jungsik_gentle = im.FactorScale("jungsik_gentle.png", 0.56)
-
 
 image dohyeon_asd = "dohyeon_asd.png"
 image dohyeon_angry = "dohyeon_angry.png"
@@ -85,19 +90,23 @@ image babyfarmer = "babyfarmer.png"
 image babyfarmer_flustered = "babyfarmer_flustered.png"
 image babyfarmer_low = "babyfarmer_low.png"
 
-image police_1 = "police1.png"
+image haram = "haram.png"
+image haram_flustered = "haram_flustered.png"
+image haram_low = "haram_low.png"
+image haram_teeth = "haram_teeth.png"
+image haram_angry = "haram_angry.png"
+
+image minjae = "minjae.png"
 
 # 캐릭터
 define hajun = Character("박하준")
 define jungsik = Character("남종식")
 define dohyeon = Character("최도현")
 define asd = Character("???")
-define duo = Character("박하준, 남종식")
-define police_1 = Character("경찰 1")
 define parents = Character("아이들 부모")
 define babyfarmer = Character("보육원장")
-
-
+define haram = Character("최하람")
+define minjae = Character("최민재")
 # 오디오
 
 
@@ -141,8 +150,5 @@ transform sparkle: #반짝임 효과
     repeat
 
 transform center_image:
-    xalign 0.5   
+    xalign 0.5
     yalign 0.4
-
-
-
