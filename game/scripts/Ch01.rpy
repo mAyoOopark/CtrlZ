@@ -76,6 +76,7 @@ label knock_door_event:
         menu:
             "문을 두드린다":
                 $ knock_count += 1
+                play sound "sfx_ch1_knock_door.ogg"
                 "당신은 문을 두드렸다... (현재 [knock_count]회)"
 
                 if knock_count >= 3:
@@ -91,7 +92,7 @@ label break_door_choice:
         "문을 계속 두드릴까, 부술까?"
 
         "문을 계속 두드린다":
-            play sound "sfx_ch1_knock_door.mp3"
+            play sound "sfx_ch1_knock_door.ogg"
             $ knock_count += 1
             "당신은 또 다시 문을 두드렸다... (현재 [knock_count]회)"
 
@@ -183,7 +184,7 @@ label chapter1_3:
     show hajun at left_bottom_offset
     hajun "넵!"
     hide hajun
-
+    play sound "sfx_run_man.mp3"
     jump chapter1_4
 
 label chapter1_4:

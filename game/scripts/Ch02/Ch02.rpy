@@ -1,3 +1,4 @@
+
 label chapter2_1:
     scene black
     "{cps=20}최도현 사건으로부터 8년 후"
@@ -243,8 +244,6 @@ label chapter2_4:
     jump chapter2_5
 
 label chapter2_5:
-    if visited_livingroom and visited_studyroom and visited_toilet:
-        jump chapter2_6
     "어디부터 조사해 볼까?"
     menu:
         "거실":
@@ -252,5 +251,68 @@ label chapter2_5:
         "방":
             jump chapter2_5_explore_villa_room
     jump chapter2_5
+    
+label chapter2_6:
+    
+    show hajun at left_bottom_offset
+    hajun "지금까지 너무 많은 걸 알아버린것 같아."
+    hajun "한번 정리라도 해볼까?"
+    hide hajun
+
+    jump chapter2_6_group_choice
+
+label chapter2_7:
+
+    show hajun at left_bottom_offset
+    hajun "됐어.. 여기서 얻을만한 정보는 모두 얻은 거 같군."
+    hide hajun
 
     
+    show jungsik_surprised at right_bottom_offset
+    jungsik "하준아! CCTV에 사건 당일 그 시각 때 녹화된 게 있대. 한번 보자."
+    hide jungsik_surprised
+
+    show hajun_aha at left_bottom_offset
+    hajun "맞아 CCTV! 명색이 빌라인데 없을 수가 없죠. 한번 봅시다."
+    hide hajun_aha
+
+    scene chapter2_1bg with fade
+    pause(1.0)
+
+    show jungsik_sigh at right_bottom_offset
+    jungsik "….."
+    hide jungsik_sigh
+
+    show hajun_frown at left_bottom_offset
+    hajun "….."
+    hide hajun_frown
+
+    show hajun_serious at left_bottom_offset
+    hajun "하…. 이 영상으로는 도저히 알아볼 수가 없잖아요… \n일단 용의자가 두 명인 것 빼고요…"
+    hajun "이거 말고는 다른 영상 없다고 하던가요?"
+    hide hajun_serious
+
+    show jungsik_sigh at right_bottom_offset
+    jungsik "빌라가 구식이라, 입구에 하나 달린 것 밖에 없다더구나.."
+    hide jungsik_sigh
+
+    show hajun at left_bottom_offset
+    hajun "그럼 일단, 용의자가 두 명이라는 것은 확실해졌네요."
+    hajun "그리고 이 둘… 크기가 저희랑 너무 달라보이지 않아요?"
+    hajun "마치…. '어린 애들'인 것처럼요."
+    hide hajun
+
+    show jungsik_puzzled at right_bottom_offset
+    jungsik "설마.. 어린 것들이 그럴 리가 없잖아.. 화질이 이상해서 그렇게 보이는 것일 뿐일꺼야."
+    hide jungsik_puzzled
+
+    show hajun at left_bottom_offset
+    hajun "그랬으면 좋겠네요…\n일단 저희가 할 수 있는 일은 여기까지인 것 같으니까, 그만 정리하고 가볼까요?"
+    hide hajun
+
+    show jungsik_sigh at right_bottom_offset
+    jungsik "그래.. 우리도 들어가서 쉬자.."
+    hide jungsik_sigh
+
+    scene black with fade
+    jump chapter3

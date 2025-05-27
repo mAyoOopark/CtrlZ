@@ -181,9 +181,9 @@ label chapter3_1:
     hajun "어? 잠시만.."
     hide hajun_surprised
 
-    show jungsik at right_bottom_offset
+    show jungsik_sigh at right_bottom_offset
     jungsik "..."
-    hide jungsik
+    hide jungsik_sigh
 
     show hajun at left_bottom_offset
     hajun "..."
@@ -194,10 +194,10 @@ label chapter3_1:
     hajun "어린 아이들이라구요?"
     hide hajun_surprised
 
-    show jungsik_surprised at right_bottom_offset
+    show jungsik_sigh at right_bottom_offset
     jungsik "설마설마 했는데.."
     jungsik "진짜 어린 아이들이였을 줄이야.."
-    hide jungsik_surprised
+    hide jungsik_sigh
 
     show jungsik_consider at right_bottom_offset
     jungsik "그것도 하나가 아니라 둘이나.."
@@ -206,7 +206,7 @@ label chapter3_1:
     hide chapter3_1_1_ibg
 
     show hajun_puzzled at left_bottom_offset
-    hajun "그럼 지문이 등록되지 않은 이유도, 그 집에서 어린 아이들의 머리카락이 나온 이유도..."
+    hajun "그럼 지문이 등록되지 않은 이유도,\n그 집에서 어린 아이들의 머리카락이 나온 이유도..."
     hide hajun_puzzled
 
     show jungsik_consider at right_bottom_offset
@@ -214,7 +214,7 @@ label chapter3_1:
     hide jungsik_consider
 
     show hajun at left_bottom_offset
-    hajun "그럼 우리가 해야 할 일은 이 dna로 부모를 추적해서 그 아이들이 누군지 알아야겠네요."
+    hajun "그럼 우리가 해야 할 일은 이 dna로 부모를 추적해서 \n그 아이들이 누군지 알아야겠네요."
     hide hajun
 
     show jungsik at right_bottom_offset
@@ -282,7 +282,7 @@ label chapter3_1:
     hide hajun_consider
 
     show parents at right_bottom_offset
-    parents "......"
+    parents "{cps=5}......"
     parents "최민재와 최하람이에요."
     parents "이젠 더 이상 물어보실 것 없으시죠?"
     parents "귀찮으니까 전화는 삼가해주세요. 제발"
@@ -367,10 +367,11 @@ label chapter3_2:
     show babyfarmer at right_bottom_offset
     babyfarmer "그럼요."
 
+    show babyfarmer at right_bottom_offset
+    babyfarmer "이 사진을 보시면 되실거예요"
     show chapter3_2_1bg at center_image
-    babyfarmer "이 앨범을 보시면 이 아이와 이 아이 입니다."
     hide babyfarmer
-    pause(1.0)
+    pause(3.0)
     hide chapter3_2_1bg
 
     show hajun at left_bottom_offset
@@ -384,7 +385,7 @@ label chapter3_2:
     hide babyfarmer
 
     show hajun at left_bottom_offset
-    hajun "네,수고하십시오."
+    hajun "네, 수고하십시오."
     hide hajun
     
     scene chapter3_3bg with fade
@@ -419,11 +420,12 @@ label chapter3_2:
     hajun "네? 왜요?"
     hide hajun
 
-    show jungsik_surprised at right_bottom_offset
-
     show chapter3_2_2bg at center_image    
+
+    show jungsik_surprised at right_bottom_offset
     jungsik "이거... 아까 봤던 최하람 아니냐?"
-    hide jungsik_surprised 
+    hide jungsik_surprised
+     
 
     show hajun_surprised at left_bottom_offset
     hajun "어? 잠시만"
@@ -474,7 +476,7 @@ label chapter3_3:
     hide jungsik
 
     show hajun_consider at left_bottom_offset
-    hajun "하긴.. 만약에 진짜 저 녀석이 그 사람을 죽인 범인이라면 그 전에 있던 사건의 범인도 알게 되겠죠"
+    hajun "하긴.. 만약에 진짜 저 녀석이 그 사람을 죽인 범인이라면 \n그 전에 있던 사건의 범인도 알게 되겠죠"
     hajun "그리고 사람을 아무렇지 않게 죽이고, 마약을 유통하는 곳도 알게 되겠죠."
     hide hajun_consider
 

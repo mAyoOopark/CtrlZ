@@ -27,6 +27,7 @@ image chapter2_3_2bg = "chapter2_3_2.png"
 image chapter2_3_3bg = "chapter2_3_3.png"
 image chapter2_4bg = "chapter2_4.png"
 image chapter2_5_1bg = "chapter2_5_1.png"
+image chapter2_5_2bg = "chapter2_5_2.png"
 
 
 image chapter3_1bg = "chapter3_1.png"
@@ -56,7 +57,7 @@ image hajun_wtf = "hajun_wtf.png"
 image hajun_serious = "hajun_serious.png"
 image hajun_curious = Transform("hajun_curious.png", xzoom=-1.0, zoom=0.56)
 image hajun_fightingspirit = im.FactorScale("images/hajun_fightingspirit.png", 0.56)
-
+image hajun_aha = "hajun_aha.png"
 
 image jungsik = "jungsik.png"
 image jungsik_angry = "jungsik_angry.png"

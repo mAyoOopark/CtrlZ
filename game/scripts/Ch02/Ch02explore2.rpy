@@ -2,7 +2,13 @@ default checked_villa_livingroom_칼 = False
 default checked_villa_livingroom_시신 = False 
 default checked_villa_livingroom_머리카락 = False 
 default checked_villa_livingroom_피글자 = False 
+default checked_villa_room_주사기 = False
+default checked_villa_room_교리서적 = False
+default checked_villa_room_핸드폰 = False
+default checked_villa_room_일기 = False
 
+default visited_villa_livingroom = False
+default visited_villa_room = True
 
 screen 빌라조사_종료():
     frame:
@@ -55,12 +61,60 @@ screen screen_villa_livingroom():
                     # background "#f008"  # 붉은 계열 반투명
                     # text "여기!" color "#fff"
                     action [SetVariable("is_object_locked", True), SetVariable("checked_villa_livingroom_피글자", True), Jump("villa_livingroom_피글자")]
-
         if checked_villa_livingroom_칼 and checked_villa_livingroom_피글자 and checked_villa_livingroom_시신 and checked_villa_livingroom_머리카락 :
             use 빌라조사_종료
 
+screen screen_villa_room():
+    tag menu
+    if not is_object_locked:
+        if not checked_villa_room_주사기:
+                button:
+                    xpos 380
+                    ypos 480
+                    xsize 170
+                    ysize 100
+                    background "#0000"  # 붉은 계열 반투명
+                    # background "#f008"  # 붉은 계열 반투명
+                    # text "여기!" color "#fff"
+                    action [SetVariable("is_object_locked", True), SetVariable("checked_villa_room_주사기", True), Jump("villa_room_주사기")]
+        if not checked_villa_room_교리서적:
+                button:
+                    xpos 1300
+                    ypos 515
+                    xsize 100
+                    ysize 40
+                    background "#0000"  # 붉은 계열 반투명
+                    # background "#f008"  # 붉은 계열 반투명
+                    # text "여기!" color "#fff"
+                    action [SetVariable("is_object_locked", True), SetVariable("checked_villa_room_교리서적", True), Jump("villa_room_교리서적")] 
+        if not checked_villa_room_일기:
+                button:
+                    xpos 1200
+                    ypos 480
+                    xsize 80
+                    ysize 60
+                    background "#0000"  # 붉은 계열 반투명
+                    # background "#f008"  # 붉은 계열 반투명
+                    # text "여기!" color "#fff"
+                    action [SetVariable("is_object_locked", True), SetVariable("checked_villa_room_일기", True), Jump("villa_room_일기")]
+        if not checked_villa_room_핸드폰:
+                button:
+                    xpos 1130
+                    ypos 470
+                    xsize 65
+                    ysize 50
+                    background "#0000"  # 붉은 계열 반투명
+                    # background "#f008"  # 붉은 계열 반투명
+                    # text "여기!" color "#fff"
+                    action [SetVariable("is_object_locked", True), SetVariable("checked_villa_room_핸드폰", True), Jump("villa_room_핸드폰")] 
+        if checked_villa_room_주사기 and checked_villa_room_교리서적 and checked_villa_room_일기 and checked_villa_room_핸드폰 :
+            use 빌라조사_종료
+
+
 label chapter2_5_explore_villa_livingroom:
-    $ visited_livingroom = True
+    $ visited_villa_livingroom = True
+    if checked_villa_livingroom_칼 and checked_villa_livingroom_피글자 and checked_villa_livingroom_시신 and checked_villa_livingroom_머리카락 and checked_villa_room_주사기 and checked_villa_room_교리서적 and checked_villa_room_일기 and checked_villa_room_핸드폰 :
+        jump chapter2_6
     if checked_villa_livingroom_칼 and checked_villa_livingroom_피글자 and checked_villa_livingroom_시신 and checked_villa_livingroom_머리카락 :
         "당신은 여기서 필요한 조사를 모두 마쳤습니다"
         jump chapter2_5
@@ -68,6 +122,19 @@ label chapter2_5_explore_villa_livingroom:
     "이 장소를 조사합니다. 필요한 오브젝트를 클릭하세요."
     window hide
     call screen screen_villa_livingroom
+    jump chpater2_5
+
+label chapter2_5_explore_villa_room:
+    $ visited_villa_room = True
+    if checked_villa_livingroom_칼 and checked_villa_livingroom_피글자 and checked_villa_livingroom_시신 and checked_villa_livingroom_머리카락 and checked_villa_room_주사기 and checked_villa_room_교리서적 and checked_villa_room_일기 and checked_villa_room_핸드폰 :
+        jump chapter2_6
+    if checked_villa_room_주사기 and checked_villa_room_교리서적 and checked_villa_room_일기 and checked_villa_room_핸드폰 :
+        "당신은 여기서 필요한 조사를 모두 마쳤습니다"
+        jump chapter2_5
+    scene chapter2_5_2bg
+    "이 장소를 조사합니다. 필요한 오브젝트를 클릭하세요."
+    window hide
+    call screen screen_villa_room
     jump chpater2_5
 
 label villa_livingroom_칼:
@@ -162,9 +229,9 @@ label villa_room_주사기:
     hajun "웬 주사기? 그것도 이렇게나 많이..."
     hide hajun_curious
 
-    show hajun_worried at left_bottom_offset
+    show hajun_frown at left_bottom_offset
     hajun "혹시 이거… 마약이야..?"
-    hide hajun_worried
+    hide hajun_frown
 
     show hajun_serious at left_bottom_offset
     hajun "아니야 혹시 몰라. 피해자의 지병 때문에 처방받은 약일지 몰라. 인슐린처럼 말이지. 일단 섣불리 생각하진 말자."
