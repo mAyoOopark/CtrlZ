@@ -45,6 +45,13 @@ image chapter4_1_3bg = "chapter4_1_3.png"
 image chapter4_1_3_1bg = "chapter4_1_3_1.png"
 image chapter4_1_4bg = "chapter4_1_4.png"
 
+image chpater4_2bg = "chpater4_2.png"
+image chapter4_2_abg = "chapter4_2_a.png"
+image chapter4_2_bbg = "chapter4_2_b.png"
+image chapter4_2_cbg = "chapter4_2_c.png"
+image chapter4_2_1bg = "chapter4_2_1.png"
+image chapter4_2_2bg = "chapter4_2_2.png"
+image chapter4_2_3bg = "chapter4_2_3.png"
 
 
 # 이미지
@@ -107,6 +114,7 @@ define parents = Character("아이들 부모")
 define babyfarmer = Character("보육원장")
 define haram = Character("최하람")
 define minjae = Character("최민재")
+define cultist = Character("신도들")
 # 오디오
 
 
