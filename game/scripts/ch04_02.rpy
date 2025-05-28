@@ -1,6 +1,6 @@
 default chapter4_2_a1 = False
 default chapter4_2_b1 = False
-dafault chapter4_2_c1 = False
+default chapter4_2_c1 = False
 
 
 label chapter4_2:
@@ -40,7 +40,7 @@ label chapter4_2:
     hajun "네, 출발해보죠."
     hide hajun
     
-    scece chapter4_2bg with fade
+    scene chapter4_2bg with fade
 
     show hajun at left_bottom_offset
     hajun "실내는 좀 많이 어둡네요.. 방도 많고.."
@@ -57,7 +57,7 @@ label chapter4_2:
     jump chapter4_2_m
 label chapter4_2_m:
     pause(1.0)
-    if  chapter4_2_a and chpater4_2_b and chapter4_2_c:
+    if  chapter4_2_a1 and chapter4_2_b1 and chapter4_2_c1:
         jump chapter4_2_1
     else:
         menu:
@@ -362,6 +362,10 @@ label chapter4_2_2:
    
     "나와 최하람은 카페로 향해서 커피를 시키고 자리를 잡았다."
 
+    jump chapter4_2_3
+
+label chapter4_2_3:
+
     
     scene chapter4_2_3bg with fade
     
@@ -433,6 +437,7 @@ label chapter4_2_2:
     jump chapter4_2_select
 
 label chapter4_2_select:
+    scene chapter4_2_3bg with fade
     pause(1.0)
     menu:
         "왜 그런곳에서 사는거야? 나 같으면 열심히 돈을 벌어서 그런 곳에서 안 살겠다.":
@@ -443,7 +448,7 @@ label chapter4_2_select:
             show hajun at left_bottom_offset
             hajun "(아차, 내가 잘못 말했나?)"
             hide hajun
-            show chpater4_2_3bg at shake
+            show chapter4_2_3bg at shake
             $ wrong_count += 1
             
             if wrong_count >= 3:
@@ -471,7 +476,7 @@ label chapter4_2_select:
             show hajun at left_bottom_offset
             hajun "(아차, 내가 잘못 말했나?)"
             hide hajun
-            show chpater4_2_3bg at shake
+            show chapter4_2_3bg at shake
             $ wrong_count += 1
             
             if wrong_count >= 3:
@@ -493,7 +498,7 @@ label chapter4_2_select2:
             show hajun at left_bottom_offset
             hajun "(아차, 내가 잘못 말했나?)"
             hide hajun
-            show chpater4_2_3bg at shake
+            show chapter4_2_3bg at shake
             $ wrong_count += 1
             
             if wrong_count >= 3:
@@ -513,7 +518,7 @@ label chapter4_2_select2:
             hide hajun
 
             jump chapter4_2_select3
-        "커피도 잘 먹고 있네, 밥도 그렇게 잘 먹니?"
+        "커피도 잘 먹고 있네, 밥도 그렇게 잘 먹니?":
             show haram at right_bottom_offset
             haram "..."
             hide haram
@@ -521,7 +526,7 @@ label chapter4_2_select2:
             show hajun at left_bottom_offset
             hajun "(아차, 내가 잘못 말했나?)"
             hide hajun
-            show chpater4_2_3bg at shake
+            show chapter4_2_3bg at shake
             $ wrong_count += 1
             
             if wrong_count >= 3:
@@ -542,7 +547,7 @@ label chapter4_2_select3:
             show hajun at left_bottom_offset
             hajun "(아차, 내가 잘못 말했나?)"
             hide hajun
-            show chpater4_2_3bg at shake
+            show chapter4_2_3bg at shake
             $ wrong_count += 1
             
             if wrong_count >= 3:
@@ -570,7 +575,7 @@ label chapter4_2_select3:
             show hajun at left_bottom_offset
             hajun "(아차, 내가 잘못 말했나?)"
             hide hajun
-            show chpater4_2_3bg at shake
+            show chapter4_2_3bg at shake
             $ wrong_count += 1
             
             if wrong_count >= 3:
@@ -581,20 +586,89 @@ label chapter4_2_select3:
                 jump chapter4_2_select
             jump chapter4_2_select4
 
+label chapter4_2_select4:
+    pause(1.0)
+    menu:
+        "항상 웃고 다니는 것 보니 보기는 좋네":
+            show haram at right_bottom_offset
+            haram "..."
+            hide haram
+
+            show hajun at left_bottom_offset
+            hajun "(아차, 내가 잘못 말했나?)"
+            hide hajun
+            show chapter4_2_3bg at shake
+            $ wrong_count += 1
             
+            if wrong_count >= 3:
+                scene black with fade
+                $ wrong_count = 0
+                "라이프가 모두 소진되었습니다."
+                "다시 선택지로 이동합니다."
+                jump chapter4_2_select
+            jump chapter4_2_select5
+        "넌 웃고있지만, 속으로는 힘들어보여. 힘들지만 항상 웃으면서 전도하는 모습이 별로 좋아보이지 않아. 괜찮은 것 맞지?":
+            show haram at right_bottom_offset
+            haram "...!"
+            hide haram
+
+            show hajun at left_bottom_offset
+            hajun "(좋았어, 잘 말한 것 같아.)"
+            hide hajun
+
+            jump chapter4_2_select5
+        "힘들다면 힘들다고 말해.":
+            show haram at right_bottom_offset
+            haram "..."
+            hide haram
+
+            show hajun at left_bottom_offset
+            hajun "(아차, 내가 잘못 말했나?)"
+            hide hajun
+            show chapter4_2_3bg at shake
+            $ wrong_count += 1
             
+            if wrong_count >= 3:
+                scene black with fade
+                $ wrong_count = 0
+                "라이프가 모두 소진되었습니다."
+                "다시 선택지로 이동합니다."
+                jump chapter4_2_select
+            jump chapter4_2_select5
 
+label chapter4_2_select5:
+    pause(1.0)
+    menu:
+        "네 또래 애들과 맞게 행동해. 이게 뭐하는 짓이야.":
+            show haram at right_bottom_offset
+            haram "..."
+            hide haram
 
+            show hajun at left_bottom_offset
+            hajun "(아차, 내가 잘못 말했나?)"
+            hide hajun
+            show chapter4_2_3bg at shake
+            $ wrong_count += 1
+            
+            if wrong_count >= 3:
+                scene black with fade
+                $ wrong_count = 0
+                "라이프가 모두 소진되었습니다."
+                "다시 선택지로 이동합니다."
+                jump chapter4_2_select
+            jump chapter4_2_4
+        "네 또래 애들은 공부하면서 뛰어놀 때, 이러고 있으면 속상하지 않니?":
+            show haram at right_bottom_offset
+            haram "...!"
+            hide haram
 
+            show hajun at left_bottom_offset
+            hajun "(좋았어, 잘 말한 것 같아.)"
+            hide hajun
 
+            jump chapter4_2_4
 
-
-
-
-
-
-
-
+label chapter4_2_4:
 
     show haram at right_bottom_offset
     haram "저에게…"
@@ -689,5 +763,11 @@ label chapter4_2_select3:
     hajun "(하지만 아이들을 먼저 구하면 확실하게 아이들을 구출 할 수 있겠지만, 최도현을 놓치게 되겠지.)"
     hajun "(어떻게 하는게 좋을까…?)"
     hide hajun
-
+    
+    menu:
+        "아이들에게 먼저 간다":
+            jump chapter5_3
+        "최도현에게 먼저 간다":
+            jump chapter5_4
+    
     return

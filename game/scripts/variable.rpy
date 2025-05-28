@@ -45,7 +45,7 @@ image chapter4_1_3bg = "chapter4_1_3.png"
 image chapter4_1_3_1bg = "chapter4_1_3_1.png"
 image chapter4_1_4bg = "chapter4_1_4.png"
 
-image chpater4_2bg = "chpater4_2.png"
+image chapter4_2bg = "chapter4_2.png"
 image chapter4_2_abg = "chapter4_2_a.png"
 image chapter4_2_bbg = "chapter4_2_b.png"
 image chapter4_2_cbg = "chapter4_2_c.png"
