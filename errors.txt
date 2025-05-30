@@ -2,7 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/scripts/Ch02/Ch02.rpy", line 258: Tab characters are not allowed in Ren'Py scripts.
+File "game/scripts/variable.rpy", line 93: invalid syntax
+    ç"haram.png"
+      ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Tue May 27 15:25:31 2025
+Thu May 29 22:58:38 2025
