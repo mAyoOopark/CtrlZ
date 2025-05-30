@@ -71,6 +71,7 @@ image hajun_sigh = "hajun_sigh.png"
 image hajun_happy = "hajun_happy.png"
 image hajun_wtf = "hajun_wtf.png"
 image hajun_serious = "hajun_serious.png"
+image hajun_disgust = "hajun_disgust.png"
 image hajun_curious = Transform("hajun_curious.png", xzoom=-1.0, zoom=0.56)
 image hajun_fightingspirit = im.FactorScale("images/hajun_fightingspirit.png", 0.56)
 
@@ -84,6 +85,8 @@ image jungsik_surprised = "jungsik_surprised.png"
 image jungsik_sad = "jungsik_sad.png"
 image jungsik_smile = "jungsik_smile.png"
 image jungsik_sigh = "jungsik_sigh.png"
+image jungsik_disgust = "jungsik_disgust.png"
+image jungsik_panic = "jungsik_panic.png"
 
 image dohyeon_asd = "dohyeon_asd.png"
 image dohyeon_angry = "dohyeon_angry.png"
@@ -102,6 +105,8 @@ image haram_flustered = "haram_flustered.png"
 image haram_low = "haram_low.png"
 image haram_teeth = "haram_teeth.png"
 image haram_angry = "haram_angry.png"
+image haram_happy = "haram_happy.png"
+image haram_surprised = "haram_surprised.png"
 
 image minjae = "minjae.png"
 
