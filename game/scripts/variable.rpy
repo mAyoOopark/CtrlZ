@@ -45,6 +45,13 @@ image chapter4_1_3bg = "chapter4_1_3.png"
 image chapter4_1_3_1bg = "chapter4_1_3_1.png"
 image chapter4_1_4bg = "chapter4_1_4.png"
 
+image chapter4_2bg = "chapter4_2.png"
+image chapter4_2_abg = "chapter4_2_a.png"
+image chapter4_2_bbg = "chapter4_2_b.png"
+image chapter4_2_cbg = "chapter4_2_c.png"
+image chapter4_2_1bg = "chapter4_2_1.png"
+image chapter4_2_2bg = "chapter4_2_2.png"
+image chapter4_2_3bg = "chapter4_2_3.png"
 
 
 # 이미지
@@ -64,6 +71,7 @@ image hajun_sigh = "hajun_sigh.png"
 image hajun_happy = "hajun_happy.png"
 image hajun_wtf = "hajun_wtf.png"
 image hajun_serious = "hajun_serious.png"
+image hajun_disgust = "hajun_disgust.png"
 image hajun_curious = Transform("hajun_curious.png", xzoom=-1.0, zoom=0.56)
 image hajun_fightingspirit = im.FactorScale("images/hajun_fightingspirit.png", 0.56)
 
@@ -77,6 +85,8 @@ image jungsik_surprised = "jungsik_surprised.png"
 image jungsik_sad = "jungsik_sad.png"
 image jungsik_smile = "jungsik_smile.png"
 image jungsik_sigh = "jungsik_sigh.png"
+image jungsik_disgust = "jungsik_disgust.png"
+image jungsik_panic = "jungsik_panic.png"
 
 image dohyeon_asd = "dohyeon_asd.png"
 image dohyeon_angry = "dohyeon_angry.png"
@@ -95,6 +105,8 @@ image haram_flustered = "haram_flustered.png"
 image haram_low = "haram_low.png"
 image haram_teeth = "haram_teeth.png"
 image haram_angry = "haram_angry.png"
+image haram_happy = "haram_happy.png"
+image haram_surprised = "haram_surprised.png"
 
 image minjae = "minjae.png"
 
@@ -108,6 +120,7 @@ define parents = Character("아이들 부모")
 define babyfarmer = Character("보육원장")
 define haram = Character("최하람")
 define minjae = Character("최민재")
+define cultist = Character("신도들")
 # 오디오
 
 
