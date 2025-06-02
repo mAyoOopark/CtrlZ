@@ -21,6 +21,13 @@ default visited_studyroom = False
 
 default visited_toilet = False
 
+default show_hint = False
+
+screen my_screen():
+    if show_hint:
+        text "여기를 조사할 수 있습니다."  xpos 821 ypos 920 color "#FFFFFF" size 30
+
+
 screen 조사_종료():
     frame:
         align (0.5, 0.5)
@@ -96,7 +103,7 @@ screen screen_studyroom():
             use 조사_종료
     
 screen screen_toilet():
-    tag menuD
+    tag menu
     if not is_object_locked:
         if not checked_toilet_배수구:
              button:
@@ -105,6 +112,8 @@ screen screen_toilet():
                     xsize 130
                     ysize 80
                     background "#0000"
+                    hovered SetVariable("show_hint", True)
+                    unhovered SetVariable("show_hint", False)
                     #background "#f008"  # 붉은 계열 반투명
                     #style_prefix None
                     #text "여기!" color "#fff"

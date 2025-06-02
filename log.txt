@@ -1,42 +1,18 @@
-2025-05-29 13:58:38 UTC
+2025-05-30 08:19:47 UTC
 macOS-13.6.4-arm64-arm-64bit
 Ren'Py 8.3.7.25031702
 
-Early init took 0.04s
+Early init took 0.03s
 Loading error handling took 0.02s
-Loading script took 0.09s
+Loading script took 0.13s
 Loading save slot metadata took 0.03s
 Loading persistent took 0.00s
-
-File "game/scripts/variable.rpy", line 93: invalid syntax
-    ç"haram.png"
-      ^
-DPI scale factor: 1.000000
-Interface start took 0.20s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1440, 900)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Apple'"
-Renderer: b'Apple M1'
-Version: b'2.1 Metal - 83.1'
-Display Info: None
-Screen sizes: virtual=(1650, 1100) physical=(1270, 847) drawable=(2540, 1694)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 38.66s
-Loading error handling took 0.02s
-Loading script took 0.07s
-Loading save slot metadata took 0.02s
-Loading persistent took 0.00s
-Running init code took 0.02s
+Running init code took 0.03s
 Loading analysis data took 0.01s
 Analyze and compile ATL took 0.00s
 Reloading save slot metadata took 0.02s
 Index archives took 0.00s
-Backing up script files to '/Users/joooyeon/Library/RenPy/backups/MysteryGame':
-Dump and make backups took 0.03s
+Dump and make backups took 0.02s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc took 0.02s
@@ -50,9 +26,9 @@ Analyze screens took 0.00s
 Save screen analysis took 0.00s
 Prepare screens took 0.03s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
+Save bytecode. took 0.02s
 Running _start took 0.00s
-Interface start took 0.20s
+Interface start took 0.28s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1440, 900)
@@ -62,5 +38,5 @@ Vendor: "b'Apple'"
 Renderer: b'Apple M1'
 Version: b'2.1 Metal - 83.1'
 Display Info: None
-Screen sizes: virtual=(1650, 1100) physical=(1270, 847) drawable=(2540, 1694)
+Screen sizes: virtual=(1650, 1100) physical=(820, 547) drawable=(1640, 1094)
 Maximum texture size: 4096x4096
