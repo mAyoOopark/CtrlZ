@@ -1,24 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/scripts/Ch02/Ch02.rpy", line 236, in script
-    police_1 "충성! 오셨습니까!"
-Exception: Sayer 'police_1' is not defined.
+  File "game/scripts/variable.rpy", line 200, in script
+    init python:
+  File "game/scripts/variable.rpy", line 202, in <module>
+    renpy.change_zorder("life_display", 100)
+TypeError: change_zorder() missing 1 required positional argument: 'zorder'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/scripts/Ch02/Ch02.rpy", line 236, in script
-    police_1 "충성! 오셨습니까!"
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 2586, in execute
-    Say.execute(self)
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 583, in execute
-    who = eval_who(self.who, self.who_fast)
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 472, in eval_who
-    raise Exception("Sayer '%s' is not defined." % who)
-Exception: Sayer 'police_1' is not defined.
+  File "game/scripts/variable.rpy", line 200, in script
+    init python:
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 834, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/python.py", line 1187, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/scripts/variable.rpy", line 202, in <module>
+    renpy.change_zorder("life_display", 100)
+TypeError: change_zorder() missing 1 required positional argument: 'zorder'
 
 macOS-13.6.4-arm64-arm-64bit arm64
 Ren'Py 8.3.7.25031702
 MysteryGame 1.0
-Wed Jun  4 23:21:23 2025
+Thu Jun  5 00:05:11 2025

@@ -34,7 +34,7 @@ default toilet_button_enabled = False
 default checked_message = False
 
 label start:
-    show screen life_display
+    show screen life_display onlayer screens zorder 100
     scene chapter1_1bg with fade
     show expression Solid("#0000004D") as dark_overlay
     

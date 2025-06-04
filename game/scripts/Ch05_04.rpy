@@ -131,5 +131,5 @@ label chapter5_4:
 
     pause(1.0)
 
-    return
+    $ renpy.call_in_new_context("_main_menu")
     

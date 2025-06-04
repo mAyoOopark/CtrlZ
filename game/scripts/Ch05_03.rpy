@@ -220,4 +220,4 @@ label chapter5_3:
 
     scene black with fade
 
-    return
+    $ renpy.call_in_new_context("_main_menu")

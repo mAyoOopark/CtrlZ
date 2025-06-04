@@ -2,7 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/scripts/variable.rpy", line 135: keyword argument repeated: window_style
+File "game/scripts/Ch05_03.rpy", line 223: end of line expected.
+    jump  MainMenu()
+                  ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Wed Jun  4 04:17:04 2025
+Wed Jun  4 23:50:08 2025

@@ -196,6 +196,7 @@ init:
 
 
 # 화면효과
+
 screen life_display():    #라이프
     frame:
         xalign 0.9
