@@ -1,4 +1,5 @@
 label chapter5_4:
+    show screen life_display
     show hajun_consider at left_bottom_offset
     hajun "아이들 보다는 주 범인을 잡아서 이 모든 사건을 없애는 게 더 좋을 것 같다."
     hide hajun_consider

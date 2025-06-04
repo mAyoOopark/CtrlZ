@@ -2,7 +2,7 @@
     if toilet_button_enabled:
         imagebutton:
             idle "obj_sparkle_ch1_01.png"
-            xpos 600 ypos 400
+            xpos 240 ypos 600
             xysize (200, 200)
             at sparkle
             focus_mask True
@@ -10,7 +10,7 @@
 
 label checked_message:
     $ checked_message = True
-    "거울 옆에 물에 젖은 쪽지를 발견했다. \n쪽지에는 #$@!#!$로 도망가야해...라고 적혀있었다. "
+    "거울 밑에 물에 젖은 쪽지를 발견했다. \n쪽지에는 #$@!#!$로 도망가야해...라고 적혀있었다. "
     jump chapter1_4_3
 
 default visited_chapel = False
@@ -27,7 +27,7 @@ default visited_chapter1_5_5 = False
 default qte_answers = ["dodge", "dodge", "punch", "dodge", "punch"]
 default current_qte = 0
 default success = 0
-
+default asdf = 0
 
 
 default toilet_button_enabled = False
@@ -35,13 +35,21 @@ default checked_message = False
 
 label start:
     show screen life_display
-#    jump chapter1_9
-    scene chapter1_1bg with fade # 기본 제공 배경 or "bg_restaurant.jpg"로 교체
     
+    scene chapter1_1bg with fade
+    show expression Solid("#0000004D") as dark_overlay
+    
+    play music "amb_rain.mp3" volume 0.7 fadein 1.0 loop
+    pro "20xx년  xx월 xx일 늦은 밤."
+    pro "나와 남종식 선배는 한 사이비 종교단체의 불법 행각 신고에\n xx에 위치한 xx로 출동했다."
+    pro "그 날은 유독 비가 많이 오는 아침이었다."
+    hide window with None
+    hide dark_overlay
+    scene black
+    
+    slow_c "{cps=20}이 게임은 픽션입니다. 여기에서 등장하는 소재는\n 실존하는 모든 지명, 인물, 사건, 단체, 기관과는 무관합니다."
 
-    "20xx년  xx월 xx일 늦은 밤. 나와 남종식 선배는 한 사이비 종교단체의 불법적인 행각이 벌어지고 있다는 신고를 받고 xx에 위치한 xx로 출동했다."
-    "그 날은 비가 많이 오고 있던 아침이였다."
-    
+    scene chapter1_1bg with fade
     show jungsik at right_bottom_offset
     jungsik "그러니까, 여기라는 거지?"
     hide jungsik
@@ -86,9 +94,9 @@ label knock_door_event:
 
 label break_door_choice:
     "당신은 문 앞에서 고민한다."
-    "문을 여러번 두드릴 시, 최도현이 도망갈 수 있다."
+    "문을 여러번 두드릴 시, 최도현이 틈을 타 도망갈 수도 있지 않을까?"
 
-    menu:
+    menu: 
         "문을 계속 두드릴까, 부술까?"
 
         "문을 계속 두드린다":
@@ -138,6 +146,8 @@ label bad_end1:
 label chapter1_3:
     show chapter1_2bg at shake
     play sound "sfx_ch1_break_door.mp3"
+    $ renpy.music.set_volume(0.1, delay=1.0, channel="music")
+    play audio "amb_church.mp3" volume 0.8 fadein 0.8
     scene chapter1_3bg with fade
 
     show dohyeon_asd at right_bottom_offset
@@ -198,7 +208,7 @@ label chapter1_4:
     hajun "어디서부터 확인해볼까?"
     hide hajun
 
-    "예배실과 식당, 화장실을 살펴보고 숨겨진 방으로 다시 와야한다."
+    "{i}예배실{/i}과 {i}식당{/i}, {i}화장실{/i}을 살펴보고 숨겨진 방으로 다시 와야한다."
 
     jump location_select
 
@@ -207,16 +217,16 @@ label location_select:
     scene chapter1_4 with fade
     if checked_tools and checked_menu and checked_table:
         "식당에서 중요한 단어를 얻었다"
-    if checked_message :
-        show hajun_puzzled at left_bottom_offset
-        hajun "쪽지... 앞에는 젖어 있어서 읽을 수 없었다. 도망가야한다는건 무슨 소리지...?"
-        hide hajun_puzzled
-        menu :
-            "내려가자":
-                jump chapter1_5
+        if checked_message :
+            show hajun_puzzled at left_bottom_offset
+            hajun "쪽지... 앞에는 젖어 있어서 읽을 수 없었네... \n도망 가야 한다니... 대체 무슨 소리지...?" 
+            hide hajun_puzzled
+            menu :
+                "내려가자":
+                    jump chapter1_5
 
-            "아직 좀 더 찾아보자": 
-                jump chapter1_4
+                "아직 좀 더 찾아보자": 
+                    jump chapter1_4
             
     menu:
         "어디로 이동할까?"
@@ -225,9 +235,11 @@ label location_select:
             jump chapter1_4_1
 
         "식당":
+            play sound "sfx_ch1_man_walk.mp3"
             jump chapter1_4_2
 
         "화장실":
+            play sound "sfx_ch1_man_walk.mp3"
             jump chapter1_4_3
 
         "숨겨진 방":
@@ -244,17 +256,19 @@ label chapter1_4_1:
     show hajun at left_bottom_offset
     hajun "여긴 신도들이 예배를 드리는 곳인가... 안으로 더 들어가볼까?"
     hide hajun
+    play sound "sfx_ch1_man_walk.mp3"
 
     scene chapter1_4_1bg with fade
 
-    "예배실 안으로 들어가니 앞에는 예수님 동상이 있고,많은 의자들이 있었다."
+    "예배실 안으로 들어가니 앞에는 예수님 동상이 있고"
+    extend "\n많은 의자들이 있었다."
 
     show hajun_surprised at left_bottom_offset
-    hajun "최도현 이 새끼 왜 이렇게 잘 꾸며둔거야 진짜 교회인거 같잖아"
+    hajun "최도현 이 새끼 왜 이렇게 잘 꾸며둔거야. 진짜 교회인거 같잖아."
     hide hajun_surprised
 
     show hajun_consider at left_bottom_offset
-    hajun "어디를 먼저 가볼까?"
+    hajun "어디를 먼저 조사해볼까?"
     hide hajun_consider
     jump chapter1_4_1_1
 
@@ -264,9 +278,12 @@ label chapter1_4_1_1:
             "예수님 팔에 이상한 문양이 새겨져있다. 그 외에는 중요한 건 없는 것 같다."
             jump chapter1_4_1_1
         "의자":
-            "각각 의자마다 뒤에 번호가 새겨져있다. 어디에 쓰일려나?"
+            "각각 의자마다 뒤에 번호가 새겨져있다. 어디에 쓰이려나?"
             jump chapter1_4_1_1
         "예수님 동상 뒤의 문":
+            "동상 뒤를 자세히 살펴보니 작은 문이 있는 것 같다."
+            "한 번 가보자."
+            play sound "sfx_ch1_man_walk.mp3"
             jump chapter1_4_1_2
 
 label chapter1_4_1_2:
@@ -277,7 +294,9 @@ label chapter1_4_1_2:
 label chapter1_4_1_2_1:
     menu:
         "왼쪽 문":
-            " '빨리 돈을 다 챙겨!' 라는 키워드를 발견했다."
+            play sound "sfx_ch1_open_door.mp3"
+            pause(0.2)
+            " {i}'빨리 돈을 다 챙겨!'{/i}    라는 키워드를 발견했다."
 
             show hajun_consider at left_bottom_offset
             hajun "돈을 다 챙기라는건 무슨 의미일까?"
@@ -285,16 +304,22 @@ label chapter1_4_1_2_1:
 
             show hajun at left_bottom_offset
             hajun "다시 돌아가자"
+            play sound "sfx_ch1_close_door.mp3"
             hide hajun
 
             jump location_select
         "오른쪽 문":
-             $ wrong_count += 1
-             show chapter1_4_1_2 at shake
-             "잘못된 선택으로 라이프가 1 감소했다."
-             with Pause(1.0)
-             $ life += 3
-             jump chapter1_4_1_2_1
+            call check_fail from _call_check_fail
+            play sound "sfx_ch1_open_door.mp3"
+            pause(0.2)
+            $ wrong_count += 1
+            show chapter1_4_1_2 at shake
+            play sound "sfx_life_minus.mp3"
+            play voice "sfx_punch.mp3"
+            "잘못된 선택으로 라이프가 1 감소했다."
+            $ life += 3
+            call check_fail from _call_check_fail_1
+            jump chapter1_4_1_2_1
 
 
 label chapter1_4_2:
@@ -349,24 +374,26 @@ label chapter1_4_2_check:
             jump chapter1_4_2_1
 
 label chapter1_4_3:
-    $ visited_bathroom = True
-    scene chapter1_4_3bg with fade
+    scene chapter1_4_3bg
 
     if checked_message :
+        $ toilet_button_enabled = False
         show hajun at left_bottom_offset
         hajun "화장실에서는 더 이상 할 수 있는게 없는 거 같다. 돌아가자."
         $ toilet_button_enabled = False
         jump location_select
-    show hajun at left_bottom_offset
-    hajun "화장실이군... 남자 화장실과 여자 화장실이 있어. 한번 살펴보자."
-    hide hajun
-    show screen toilet_message
-    show hajun_consider at left_bottom_offset
-    hajun "여자 화장실과 남자 화장실이 있는데 어디를 먼저 가볼까?"
-    "여자화장실은 문이 잠겨 있다."
-    "큰 거울과 칸 마다 변기들이 있다."
+    if visited_bathroom == False :
+        show hajun at left_bottom_offset
+        hajun "화장실이군... 남자 화장실과 여자 화장실이 있어. 한번 살펴보자."
+        hide hajun
+        show screen toilet_message
+        show hajun_consider at left_bottom_offset
+        hajun "여자 화장실과 남자 화장실이 있는데 어디를 먼저 가볼까?"
+        "여자화장실은 문이 잠겨 있다."
+        "큰 거울과 칸 마다 변기들이 있다."
+        hide hajun_consider
+    $ visited_bathroom = True
     $ toilet_button_enabled = True
-    hide hajun_consider
 
     if checked_message == False :
         "여기서 무언가를 더 찾아야해"
@@ -863,10 +890,12 @@ label chapter1_8:
             {"name": "오른쪽", "correct": correctness[1]}
         ]
 
-        "앞에 양갈래 길이 있다."
-        "옳은 길을 골라 빠르게 대피해야한다."
-        "잘못된 길을 고를 시 라이프가 1 감소합니다."
-        "옳은 선택은 랜덤입니다."
+        if asdf < 1:
+            $ asdf += 1
+            "앞에 양갈래 길이 있다."
+            "옳은 길을 골라 빠르게 대피해야한다."
+            "잘못된 길을 고를 시 라이프가 1 감소합니다."
+            "옳은 선택은 랜덤입니다."
 
         $ result = renpy.display_menu([
             (choices[0]["name"], 0),
@@ -892,6 +921,7 @@ label chapter1_8:
     elif wrong_count >= 3:
         scene black with fade
         $ wrong_count = 0
+        $ asdf = 0
         "잘못된 선택지를 세 번 골랐습니다."
         "라이프가 모두 소진되었습니다."
         pause 1.0

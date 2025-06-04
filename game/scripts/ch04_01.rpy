@@ -1,4 +1,5 @@
 label chapter4_1:
+    show screen life_display
     show hajun at left_bottom_offset
     hajun "형 아무래도 잡는게 맞는 거 같아."
     hide hajun

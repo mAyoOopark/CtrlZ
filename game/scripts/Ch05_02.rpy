@@ -1,4 +1,5 @@
 label chapter5_2:
+    show screen life_display
     scene chapter5_1bg with fade
 
     show hajun_hard at left_bottom_offset
@@ -64,7 +65,9 @@ label chapter5_2:
 
     scene black with fade
 
-    return
+    pause(1.0)
+
+    $ renpy.quit()
     
 
     

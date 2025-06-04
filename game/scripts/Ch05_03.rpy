@@ -1,4 +1,5 @@
 label chapter5_3:
+    show screen life_display
     scene chapter4_2_2bg with fade
 
     "형사들은 최하람이 알려준 본거지로 이동했다."
@@ -192,11 +193,11 @@ label chapter5_3:
     haram "오빠, 더 이상은 이런 일 그만 뒀으면 좋겠어.. 내가 미안해.."
     hide haram_low
 
-    show minjae_angry at right_bottom_offset
-    minjae "야 최하람 너 까지? 진짜? 두고 봐!"
-    minjae "내가 이 깜빵에서 나오면 반드시 너부터 죽여버리겠어!"
-    minjae "으아아악!!"
-    hide minjae_angry
+    show dohyeon_angry at right_bottom_offset
+    dohyeon "야 최하람 너 까지? 진짜? 두고 봐!"
+    dohyeon "내가 이 깜빵에서 나오면 반드시 너부터 죽여버리겠어!"
+    dohyeon "으아아악!!"
+    hide dohyeon_angry
 
     "결국 최도현은 그 자리에서 체포되었고, 법정 공방에 섰다."
 
@@ -220,4 +221,6 @@ label chapter5_3:
 
     scene black with fade
 
-    return
+    pause(1.0)
+
+    $ renpy.quit()

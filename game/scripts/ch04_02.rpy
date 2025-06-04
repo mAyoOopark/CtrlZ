@@ -4,6 +4,7 @@ default chapter4_2_c1 = False
 
 
 label chapter4_2:
+    show screen life_display
 
     show hajun at left_bottom_offset
     hajun "결정했어요. 미행을 해봅시다."
@@ -274,6 +275,7 @@ label chapter4_2_run:
     scene chapter4_2_1bg with fade
 
     $ success = 0
+    $ asdf = 0
 
     while success < 5 and wrong_count < 3:
 
@@ -284,11 +286,12 @@ label chapter4_2_run:
             {"name": "왼쪽", "correct": correctness[0]},
             {"name": "오른쪽", "correct": correctness[1]}
         ]
-
-        "앞에 양갈래 길이 있다."
-        "옳은 길을 골라 빠르게 대피해야한다."
-        "잘못된 길을 고를 시 라이프가 1 감소합니다."
-        "옳은 선택은 랜덤입니다."
+        if asdf < 1 :   
+            "앞에 양갈래 길이 있다."
+            "옳은 길을 골라 빠르게 대피해야한다."
+            "잘못된 길을 고를 시 라이프가 1 감소합니다."
+            "옳은 선택은 랜덤입니다."
+            $ asdf += 1
 
         $ result = renpy.display_menu([
             (choices[0]["name"], 0),
@@ -321,6 +324,7 @@ label chapter4_2_run:
     elif wrong_count >= 3:
         scene black with fade
         $ wrong_count = 0
+        $ asdf = 0
         "라이프가 모두 소진되었습니다."
         pause (1.0)
 
