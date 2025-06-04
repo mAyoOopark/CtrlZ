@@ -124,7 +124,7 @@ label chapter4_1_1:
             hajun "혹시 이거.."
             hajun "아까 전도 할 때 주던 종이들인가..?"
             hajun "'나는 하늘의 선택을 받아 하늘의 아버지가 내려주신 시련으로부터 살아 남았고,"
-            hajun "그렇기에 나는 하늘에 계신 아버지가 냐려주신 메시아다.'"
+            hajun "그렇기에 나는 하늘에 계신 아버지가 내려주신 메시아다.'"
             
             "안에 있는 종이를 모두 펼치니 약도로 보이는 종이가 바닥으로 떨어졌다."
 
@@ -306,7 +306,7 @@ label chapter4_1_4:
             hide hajun
         else:
             $ wrong_count += 1
-            show chapter4_4bg at shake
+            show chapter4_1_4bg at shake
             show hajun_surprised at left_bottom_offset
             hajun "틀렸어. 최도현은 이쪽으로 온 거 같지 않아"
             hajun "아니야, 이쪽 방향이 아니야."
