@@ -6,13 +6,14 @@ label chapter2_1:
     "{cps=20}하얀 재가 되버린 폐허 안에서는 마땅 할 증거는 찾아 볼 수 없었고"
     "{cps=20}최도현의 행방마저 불에 탄 듯이 없어졌기에\n우리는 최도현을 화재로 인한 사망으로 처리를 할 수 밖에 없었다."
     show chapter2_1bg with fade
+    play music "bgm_funScene.mp3" volume 0.7 fadein 2.0
     show hajun_determind at left_bottom_offset
     hajun "{cps=20}......"
     hide hajun_determind
 
-    show hajun_determind at right_bottom_offset
+    show jungsik_determind at right_bottom_offset
     jungsik "{cps=20} ......"
-    hide hajun_determind
+    hide jungsik_determind
 
     show hajun_angry at left_bottom_offset
     hajun "{cps=40}.....!"
@@ -33,9 +34,9 @@ label chapter2_1:
 
     show jungsik_sad at right_bottom_offset
     jungsik "야, 나 돈 없어..."
-    jungsik "용돈도 쥐꼬리 만큼 받는데, 담에 사줄게 하준아...  {cps=10}알잖아"
+    jungsik "용돈도 쥐꼬리 만큼 받는데, 담에 사줄게 하준아...  {cps=10}알잖아" 
     hide jungsik_sad
-
+ 
     show hajun_wtf at left_bottom_offset
     hajun "그런게 어딨어요!!"
     hajun "제가 저번 주부터 전부 져서 제가 점심 다 샀잖아요!!"
@@ -55,16 +56,20 @@ label chapter2_1:
     show jungsik_blue at right_bottom_offset
     jungsik "그건 좀 봐주라"
     jungsik "일단 이 전화만 받고 가자"
+    stop music fadeout 1.0
+    pause(1.0)
+    play sound "sfx_ch2_click_phone.mp3"
     hide jungsik_blue
     $ renpy.pause()
     stop sound
     
+    play music "bgm_ch2_serious.mp3" fadein 2.0
     show jungsik at right_bottom_offset
     jungsik "네, xx경찰서 강력1반 남종식입니다."
-    jungsik "네, 네"
     hide jungsik
 
     show jungsik_serious at right_bottom_offset
+    jungsik "네, 네"
     jungsik "네, 지금 바로 가보도록 하겠습니다."
     hide jungsik_serious
 
@@ -118,7 +123,7 @@ label chapter2_2:
     # (탁 탁 탁 사람 뛰는 사운드와 함께 화면 페이드 아웃)
     hide jungsik_panic
 
-    scene chapter2_2_1bg with fade  # 배경 실내로 전환 (페이드 인)
+    scene chapter2_3_1bg with fade  # 배경 실내로 전환 (페이드 인)
 
     show hajun_surprised at left_bottom_offset
     hajun "이…이게 무슨.."
@@ -132,15 +137,20 @@ label chapter2_2:
     hajun "사람을 어떻게 이런 식으로 무자비하게...."
     hide hajun_angry
 
-    show hajun at left_bottom_offset
+    stop music fadeout 3.0
+    show hajun_determind at left_bottom_offset
     hajun "후… 일단 여기를 조사해봅시다."
-    hide hajun
+    hide hajun_determind
+    play music "bgm_ch2_investigation.mp3"
     jump chapter2_3
 
 label chapter2_3:
     if visited_livingroom and visited_studyroom and visited_toilet:
         jump chapter2_4
-    "어디부터 조사해 볼까?"
+    if not visited_livingroom and not visited_studyroom and not visited_toilet:
+        "지금부터 당신은 살인사건 현장을 수색하게 됩니다."
+        "당신은 모든 증거들을 탐색할 필요는 없습니다."
+    "어디를 탐색하시겠습니까?"
     menu:
         "거실":
             jump chapter2_3_explore_livingroom

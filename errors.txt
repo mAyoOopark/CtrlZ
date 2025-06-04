@@ -2,9 +2,7 @@
 errors listed below, and try again.
 
 
-File "game/scripts/variable.rpy", line 93: invalid syntax
-    ç"haram.png"
-      ^
+File "game/scripts/variable.rpy", line 135: keyword argument repeated: window_style
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Thu May 29 22:58:38 2025
+Wed Jun  4 04:17:04 2025

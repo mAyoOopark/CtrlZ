@@ -93,6 +93,10 @@ image jungsik_smile = "jungsik_smile.png"
 image jungsik_sigh = "jungsik_sigh.png"
 image jungsik_disgust = "jungsik_disgust.png"
 image jungsik_panic = "jungsik_panic.png"
+image jungsik_blue =  im.FactorScale("images/jungsik_blue.png", 0.56)
+image jungsik_serious =im.FactorScale("images/jungsik_serious.png", 0.56)
+image jungsik_gentle = im.FactorScale("images/jungsik_gentle.png", 0.56)
+image jungsik_determind = "jungsik_determind.png"
 
 image dohyeon_asd = "dohyeon_asd.png"
 image dohyeon_angry = "dohyeon_angry.png"
@@ -124,12 +128,17 @@ image minjae_hard = "minjae_hard.png"
 image kids = "kids.png"
 image judge = "judge.png"
 image police_1 = "police1.png"
+
 # 캐릭터
+define narrator = Character(None, what_style="narrator")
+define pro = Character(None, what_style="prologue_text", window_style="prologue_window")
+define slow_c = Character(None, window_subtitle="slow_c", what_style="centered_slow",  window_background=None, window_style="centered_window")
 define hajun = Character("박하준")
 define jungsik = Character("남종식")
 define dohyeon = Character("최도현")
 define asd = Character("???")
-define duo = Character("박하준, 최도현")
+define duo = Character("R박하준, 최도현")
+define police_1 = Character("경찰관1")
 define parents = Character("아이들 부모")
 define babyfarmer = Character("보육원장")
 define haram = Character("최하람")
@@ -138,6 +147,51 @@ define cultist = Character("신도들")
 define police = Character("경찰관")
 define kid = Character("아이들")
 define judge = Character("판사")
+
+# 대사스타일
+
+init:
+    style prologue_text:
+        font "Kimjungchul_Font/otf/KimjungchulMyungjo-Regular.otf"
+        size 33
+        color "#505050"
+        line_spacing 20
+        xalign 0.5
+        ypos 1.0
+        yalign 0.0
+        text_align 0.5
+        layout "subtitle"
+
+    style prologue_window:
+        background "gui/textbox_pro.png"
+        xalign 0.5
+        ypos 0.4
+
+## 나레이터
+init 999:
+    style narrator:
+        font "Kimjungchul_Font/otf/KimjungchulMyungjo-Regular.otf"
+        size 33
+        color "#505050"
+        line_spacing 10
+        text_align 0.5
+        xmaximum 1000
+        xalign 0.5
+        yalign 0.5
+
+
+init:
+    style centered_slow:
+        font "Kimjungchul_Font/otf/KimjungchulGothic-Regular.otf"
+        size 32
+        color "#ffffff"
+        xalign 0.0
+        text_align 0.5
+    style centered_window:
+        background None
+        xalign 0.5
+        yalign 0.5
+
 # 오디오
 
 

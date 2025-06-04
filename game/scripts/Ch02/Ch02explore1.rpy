@@ -146,7 +146,7 @@ screen screen_toilet():
 label chapter2_3_explore_livingroom:
     $ visited_livingroom = True
     scene chapter2_3_1bg
-    "이 장소를 조사합니다. 필요한 오브젝트를 클릭하세요."
+    "거실을 조사합니다. 클릭하여 수사를 진행하세요."
     window hide
     call screen screen_livingroom
     jump chpater2_3
@@ -155,7 +155,7 @@ label chapter2_3_explore_livingroom:
 label chapter2_3_explore_studyroom:
     $ visited_studyroom = True
     scene chapter2_3_2bg
-    "이 장소를 조사합니다. 필요한 오브젝트를 클릭하세요."
+    "서재를 조사합니다. 클릭하여 수사를 진행하세요."
     window hide
     call screen screen_studyroom
     jump chapter2_3
@@ -164,7 +164,7 @@ label chapter2_3_explore_studyroom:
 label chapter2_3_explore_toilet:
     $ visited_toilet = True
     scene chapter2_3_3bg
-    "이 장소를 조사합니다. 필요한 오브젝트를 클릭하세요."
+    "화장실을 조사합니다. 클릭하여 수사를 진행하세요."
     window hide
     call screen screen_toilet
     jump chapter2_3
@@ -174,7 +174,7 @@ label livingroom_시신:
     hajun "죽은지 며칠 된듯해. 부패상태를 봐서는 3~4일은 된거 같군. \n사인은 수많은 자상때문에 생긴 과다출혈로 인한 쇼크사로 추측 해볼 수 있어."
     hide hajun
     show hajun at left_bottom_offset onlayer master
-    hajun "하지만 이상해. 사람을 죽일거였으면, 급소를 찔러 한번에 죽여야 할 것인데, 어째서?"
+    hajun "하지만 이상해. 사람을 죽일거였으면,\nR급소를 찔러 한번에 죽여야 할 것인데, 어째서?"
     hide hajun
     show hajun_serious at left_bottom_offset onlayer master
     hajun "고문을 행한 것처럼 의자에 앉혀서 천천히 죽여갔다는 것인데…."
@@ -183,7 +183,7 @@ label livingroom_시신:
     hajun "마치 8년전 고문실에서 봤던 매듭법이랑 비슷해."
     hide hajun_serious
     show hajun_serious at left_bottom_offset
-    hajun "그러고 보니 거기에도 바닥에 피가 고여서 마른 느낌이 아니라 피가 주위로 마구 튄 느낌이었지."
+    hajun "그러고 보니 거기에도 바닥에 피가 고여서 마른 느낌이 아니라 \n난도질 당한 듯 주위로 마구 튄 느낌이었지."
     hide hajun_serious
     show hajun_serious at left_bottom_offset
     hajun "지금 여기 처럼…."
@@ -217,10 +217,10 @@ label livingroom_창문:
     hajun "창문이다. 되게 큰 통유리야."
     hide hajun
     show hajun at left_bottom_offset
-    hajun "창문에는 피해자의 혈흔이 묻어있어. 얼마나 많은 피를 흘렸는지 눈감고도 알 정도야."
+    hajun "창문에는 피해자의 혈흔이 묻어있어.\n얼마나 많은 피를 흘렸는지 눈감고도 알 정도야."
     hide hajun
     show hajun at left_bottom_offset
-    hajun "하지만, 피해자의 혈흔 말고는 달리 눈에 띄는 건 없네, 조사하는덴 큰 도움이 없을 거 같아."
+    hajun "하지만, 피해자의 혈흔 말고는 달리 눈에 띄는 건 없네,\n조사하는덴 큰 도움이 없을 거 같아."
     hide hajun
     $ is_object_locked = False
     jump chapter2_3_explore_livingroom
@@ -260,16 +260,13 @@ label studyroom_일기:
     hajun "일기다. 아마도 이 살인사건에 관한 이야기를 적어 두지 않았을까?"
     hide hajun
     show hajun at left_bottom_offset
-    hajun "보자…'오늘은 아이스크림을 먹었다. 맛있었다. 또먹고싶다'…."
+    hajun "보자…'오늘은 아이스크림을 먹었다. \n맛있었다. 또먹고싶다'…."
     hide hajun
     show hajun at left_bottom_offset
-    hajun "'길 가다가 귀여운 강아지를 봤다. 한번쓰다듬어 보고 싶었지만 강아지가 도망쳤다.'"
+    hajun "'길 가다가 귀여운 강아지를 봤다.\n 한번쓰다듬어 보고 싶었지만 강아지가 도망쳤다.'"
     hide hajun
     show hajun at left_bottom_offset
-    hajun "이게… 성인남성의 일기장..? 사는 곳과 나이에 안맞게 굉장히 순수한 사람이였군…."
-    hide hajun
-    show hajun at left_bottom_offset
-    hajun "침대다. 푹신해 보이네."
+    hajun "이게… 성인남성의 일기장..?\n 사는 곳과 나이에 안맞게 굉장히 순수한 사람이였군…."
     hide hajun
     $ is_object_locked = False
     jump chapter2_3_explore_studyroom
@@ -277,6 +274,7 @@ label studyroom_일기:
 
 label studyroom_침대:
     show hajun at left_bottom_offset
+    hajun "침대다. 푹신해 보이네."
     hajun "아마도 피해자는 자신이 죽을 날이 다가올지도 모른채 여기서 자고 일어났겠지.."
     hide hajun
     show hajun at left_bottom_offset

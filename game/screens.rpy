@@ -94,18 +94,22 @@ style frame:
 ## https://www.renpy.org/doc/html/screen_special.html#say
 
 screen say(who, what):
+    if _window_subtitle == "slow_c":
+        text what:
+            style "centered_slow"
 
-    window:
-        id "window"
-
-        if who is not None:
-
-            window:
-                id "namebox"
-                style "namebox"
-                text who id "who"
-
-        text what id "what"
+    else:
+        window:
+            id "window"
+    
+            if who is not None:
+            
+                window:
+                    id "namebox"
+                    style "namebox"
+                    text who id "who"
+    
+            text what id "what"
 
 
     ## 사이드 이미지가 있는 경우 글자 위에 표시합니다. 휴대폰 환경에서는 보이지

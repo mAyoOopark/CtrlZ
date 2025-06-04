@@ -19,6 +19,10 @@ define config.check_conflicting_properties = True
 ## GUI 설정 변수
 ################################################################################
 
+## 줄간격을 조정합니다.
+init :
+    style say_dialogue:
+        line_spacing 12
 
 ## 색상 ##########################################################################
 ##
@@ -130,8 +134,8 @@ define gui.namebox_tile = False
 
 ## 텍스트박스에서 대사의 위치입니다. These can be a whole number of pixels
 ## relative to the left or top side of the textbox, or 0.5 to center.
-define gui.dialogue_xpos = 350
-define gui.dialogue_ypos = 75
+define gui.dialogue_xpos = 400
+define gui.dialogue_ypos = 80
 
 ## 픽셀값에서 대사의 최대 너비입니다.
 define gui.dialogue_width = 1100
@@ -139,6 +143,7 @@ define gui.dialogue_width = 1100
 ## 대사 글자의 수평 정렬입니다. 이것은 0.0으로 좌측 정렬, 0.5로 중앙, 그리고 1.0
 ## 으로 우측 정렬이 될 수 있습니다.
 define gui.dialogue_text_xalign = 0.0
+
 
 
 ## 버튼들 #########################################################################
