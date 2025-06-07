@@ -1,4 +1,5 @@
 label chapter4_1:
+    show screen life_display
     show hajun at left_bottom_offset
     hajun "형 아무래도 잡는게 맞는 거 같아."
     hide hajun
@@ -277,49 +278,59 @@ label chapter4_1_4:
     "미니게임을 통과했을 때와 하지 못했을 때의 진행 스토리가 다릅니다."
     "신중히 플레이해주시길 바랍니다."
     $ success = 0
+    $ wrong = 0
+    $ max_attempts = 4
+    $ attempt = 0
+    $ first = 0
 
-    while success < 5 and wrong_count < 3:
+    while attempt < max_attempts and wrong < 3:
+        $ attempt += 1
 
-        $ from random import shuffle
-        $ correctness = [True, False]
-        $ shuffle(correctness)
-        $ choices = [
-            {"name": "왼쪽", "correct": correctness[0]},
-            {"name": "오른쪽", "correct": correctness[1]}
-        ]
-
-        "앞에 양갈래 길이 있다."
-        "옳은 길을 골라 빠르게 대피해야한다."
-        "잘못된 길을 고를 시 라이프가 1 감소합니다."
-        "옳은 선택은 랜덤입니다."
+        if first < 1:
+            $ first += 1
+            "앞에 양갈래 길이 있다."
+            "옳은 길을 골라 빠르게 대피해야한다."
+            "잘못된 길을 고를 시 라이프가 1 감소합니다."
+            "옳은 선택은 랜덤입니다."
 
         $ result = renpy.display_menu([
-            (choices[0]["name"], 0),
-            (choices[1]["name"], 1)
-        ])
+            ("왼쪽", "왼쪽"),
+            ("오른쪽", "오른쪽"),
+        ])    
+        $ correct = (attempt in [1, 2])  # 원하는 정답 위치로 조정 가능
+        $ is_correct = (result == "왼쪽") if correct else (result == "오른쪽")
 
-        if choices[result]["correct"]:
+        if is_correct:
             $ success += 1
-            show hajun at left_bottom_offset
-            hajun "좋았어. 저기 최민재가 보인다!"
-            hajun "이쪽이다. 최민재! 거기서!"
-            hide hajun
+
+            if success == 1:
+                show hajun_surprised at left_bottom_offset
+                hajun "좋았어. 저기 최민재가 보인다!"
+                hide hajun_surprised
+            elif success == 2:
+                show hajun_surprised at left_bottom_offset
+                hajun "이쪽이다. 최민재! 거기 서!"
+                hide hajun_surprised
+                jump chapter5_1
         else:
-            $ wrong_count += 1
-            show chapter4_1_4bg at shake
-            show hajun_surprised at left_bottom_offset
-            hajun "틀렸어. 최도현은 이쪽으로 온 거 같지 않아"
-            hajun "아니야, 이쪽 방향이 아니야."
-            hide hajun_surprised
+            $ wrong += 1
+            #$ wrong_count += 1
 
-    if success >= 5:
-        jump chapter5_1
-    elif wrong_count >= 3:
-        scene black with fade
-        $ wrong_count = 0
-        "잘못된 선택지를 세 번 골랐습니다."
-        "라이프가 모두 소진되었습니다."
-        pause 1.0
+            if wrong == 1:
+                show hajun_surprised at left_bottom_offset, shake
+                hajun "틀렸어. 최도현은 여기에 온거 같지 않아." 
+                hide hajun_surprised
+            elif wrong == 2:
+                show hajun_surprised at left_bottom_offset, shake
+                hajun "아니야, 이쪽 방향이 아니야."
+                hide hajun_surprisedz
+                jump chapter5_2
 
-        jump chapter5_2
+#        if wrong_count >= 3:
+#            scene black with fade
+#            $ wrong_count = 0
+#            $ life = 3
+#            "잘못된 선택지를 세 번 골랐습니다."
+#            "라이프가 모두 소진되었습니다."
+#            pause 1.0
 

@@ -4,6 +4,7 @@ default saw_hair = False
 
 
 label chapter3:
+    show screen life_display
     scene black with fade
     "사건 조사를 끝낸 며칠 뒤"
     "국과수의 감식 결과가 나오게 되었다."

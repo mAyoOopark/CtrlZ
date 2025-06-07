@@ -1,26 +1,34 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/scripts/variable.rpy", line 200, in script
-    init python:
-  File "game/scripts/variable.rpy", line 202, in <module>
-    renpy.change_zorder("life_display", 100)
-TypeError: change_zorder() missing 1 required positional argument: 'zorder'
+  File "game/scripts/Ch01.rpy", line 341, in script
+    scene chapter1_4_1_leftdoor_keywordbg with shake
+TypeError: got an unexpected keyword argument 'old_widget'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/scripts/variable.rpy", line 200, in script
-    init python:
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 834, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/python.py", line 1187, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/scripts/variable.rpy", line 202, in <module>
-    renpy.change_zorder("life_display", 100)
-TypeError: change_zorder() missing 1 required positional argument: 'zorder'
+  File "game/scripts/Ch01.rpy", line 341, in script
+    scene chapter1_4_1_leftdoor_keywordbg with shake
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 1374, in execute
+    renpy.exports.with_statement(trans, paired=paired)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/exports/statementexports.py", line 257, in with_statement
+    return renpy.game.interface.do_with(trans, paired, clear=clear)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/core.py", line 1581, in do_with
+    return self.interact(trans_pause=True,
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/core.py", line 2218, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/core.py", line 2669, in interact_core
+    trans = instantiate_transition(None, old_root, layers_root)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/core.py", line 2578, in instantiate_transition
+    trans = self.ongoing_transition[layer](
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/atl.py", line 623, in __call__
+    new_scope = signature.apply(args, kwargs, partial=True, apply_defaults=False)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/parameter.py", line 384, in apply
+    raise TypeError(
+TypeError: got an unexpected keyword argument 'old_widget'
 
 macOS-13.6.4-arm64-arm-64bit arm64
 Ren'Py 8.3.7.25031702
 MysteryGame 1.0
-Thu Jun  5 00:05:11 2025
+Sat Jun  7 20:45:20 2025

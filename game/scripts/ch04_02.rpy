@@ -4,6 +4,7 @@ default chapter4_2_c1 = False
 
 
 label chapter4_2:
+    show screen life_display
 
     show hajun at left_bottom_offset
     hajun "결정했어요. 미행을 해봅시다."
@@ -257,9 +258,9 @@ label chapter4_2_1:
 
     "우리는 나갈려던 찰나, 어두운 시야 때문에 보이지 않는 주사기를 밟고 생각보다 큰 소음에 신도들이 눈치를 채고 밖으로 한 둘 씩 나왔다."
 
-    show dohyeon_asd at right_bottom_offset
+    show cultists at right_bottom_offset
     cultist "거기!! 누구야!!"
-    hide dohyeon_asd
+    hide cultists
 
     show jungsik_surprised at right_bottom_offset
     jungsik "아이씨 큰일났다, 튀어!!"
@@ -270,62 +271,77 @@ label chapter4_2_1:
     hide hajun_surprised
 
     jump chapter4_2_run
+
 label chapter4_2_run:
     scene chapter4_2_1bg with fade
-
     $ success = 0
+    $ wrong = 0
+    $ max_attempts = 5
+    $ attempt = 0
 
-    while success < 5 and wrong_count < 3:
-
-        $ from random import shuffle
-        $ correctness = [True, False]
-        $ shuffle(correctness)
-        $ choices = [
-            {"name": "왼쪽", "correct": correctness[0]},
-            {"name": "오른쪽", "correct": correctness[1]}
-        ]
-
-        "앞에 양갈래 길이 있다."
-        "옳은 길을 골라 빠르게 대피해야한다."
-        "잘못된 길을 고를 시 라이프가 1 감소합니다."
-        "옳은 선택은 랜덤입니다."
+    while attempt < max_attempts and wrong < 3:
+        $ attempt += 1
 
         $ result = renpy.display_menu([
-            (choices[0]["name"], 0),
-            (choices[1]["name"], 1)
+            ("왼쪽", "왼쪽"),
+            ("오른쪽", "오른쪽"),
         ])
 
-        if choices[result]["correct"]:
+        # 정답 조건을 적절히 설정 (예: 짝수는 왼쪽이 정답)
+        $ correct = (attempt in [1, 2, 4])  # 원하는 시퀀스로 설정 가능
+        $ is_correct = (result == "왼쪽") if correct else (result == "오른쪽")
+
+        if is_correct:
             $ success += 1
-            show hajun_wtf at left_bottom_offset
-            hajun "형님 여기에요!"
-            hide hajun_wtf
 
-            show jungsik at right_bottom_offset
-            jungsik "오케이! 계속 쭉쭉 가!"
-            hide jungsik
-            
+            if success == 1:
+                show hajun_surprised at left_bottom_offset
+                hajun "형님 여기에요!"  # (다급한 표정)
+                hide hajun_surprised
+                show jungsik_angry at right_bottom_offset
+                jungsik "오케이! 계속 쭉쭉 가!"
+                hide jungsik_angry
+            elif success == 2:
+                show hajun_surprised at left_bottom_offset
+                hajun "형님! 이쪽 길이에요!"  # (다급한 표정)
+                hide hajun_surprised
+                show jungsik at right_bottom_offset
+                jungsik "좋았어!"
+                hide jungsik  # (기본 표정)
+                jump chapter4_2_2
         else:
-            $ wrong_count += 1
-            show chapter4_2_1bg at shake
+            $ wrong += 1
+
+            if wrong == 1:
+                show hajun_surprised at left_bottom_offset
+                hajun "형님 이 길이 아닌가봐요!"  # (다급한 표정)
+                hide hajun_surprised
+                show jungsik_angry at right_bottom_offset
+                jungsik "일단 다른 길을 찾아봐!"
+                hide jungsik_angry
+            elif wrong == 2:
+                show hajun_surprised at left_bottom_offset
+                hajun "길을 잃은거 같은데요?"  # (당황한 표정)
+                hide hajun_surprised
+                show jungsik_angry at right_bottom_offset
+                jungsik "당황하지 말고 계속 찾아봐!"  # (다급한 표정)
+                hide jungsik_angry
+        if wrong >= 3:
+            show scene black
+            show cultists with flash
+            cultist "잡았다 이 이단놈들!!!"  # (다급한 표정)
+            hide cultists
             show hajun_surprised at left_bottom_offset
-            hajun "형님 이 길이 아닌가봐요!"
+            hajun "형님이라도 도망쳐요!"  # (다급한 표정)
             hide hajun_surprised
-
-            show jungsik at right_bottom_offset
-            jungsik "일단 다른 길을 찾아봐!"
-            hide jungsik
-
-    if success >= 5:
-        jump chapter4_2_2
-    elif wrong_count >= 3:
-        scene black with fade
-        $ wrong_count = 0
-        "라이프가 모두 소진되었습니다."
-        pause (1.0)
-
-        jump chapter4_2_run
-
+            narrator "이미 남종식 선배는 신도들의 일격에 쓰러져 기절해있었다."
+            show hajun_angry at left_bottom_offset
+            hajun "(화난 표정)이 새끼들이…!!"
+            hide hajun_angry
+            with fade
+            narrator "그렇게 우리는 신도들에게 붙잡혀서 지하에 감금 당했다. 다시 탈출 전으로 시작."
+            "다시 옳은 선택지를 고르세요."
+            jump chapter4_2_run  # 실패 시 재시작
     
 label chapter4_2_2:
     scene chapter4_2_2bg with fade

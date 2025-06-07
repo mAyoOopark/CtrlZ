@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/scripts/Ch05_03.rpy", line 223: end of line expected.
-    jump  MainMenu()
-                  ^
+File "game/scripts/Ch02/Ch02goupChoice.rpy", line 177: is not terminated with a newline. (Check strings and parenthesis.)
+(Perhaps you left out a " at the end of the first line.)
+        hajun "그리고 결국, 그것을 훔친 곳의 사람들에게 살해당한 것 같아.
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Wed Jun  4 23:50:08 2025
+Sat Jun  7 22:36:35 2025

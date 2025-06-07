@@ -22,93 +22,78 @@ screen screen_villa_livingroom():
     tag menu
     if not is_object_locked:
         if not checked_villa_livingroom_시신:
-                button:
-                    xpos 950
-                    ypos 723
-                    xsize 450
-                    ysize 130
-                    background "#0000"  # 붉은 계열 반투명
-                    # background "#f008"  # 붉은 계열 반투명
-                    # text "여기!" color "#fff"
-                    action [SetVariable("is_object_locked", True), SetVariable("checked_villa_livingroom_시신", True), Jump("villa_livingroom_시신")]
+            imagebutton:
+                xpos 1300
+                ypos 800
+                idle "gui/btn_idle.png"
+                hover "gui/btn_hover.png"
+                action [SetVariable("is_object_locked", True), SetVariable("checked_villa_livingroom_시신", True), Jump("villa_livingroom_시신")]
+
         if not checked_villa_livingroom_칼:
-                button:
-                    xpos 737
-                    ypos 915
-                    xsize 60
-                    ysize 60
-                    background "#0000"  # 붉은 계열 반투명
-                    # background "#f008"  # 붉은 계열 반투명
-                    # text "여기!" color "#fff"
-                    action [SetVariable("is_object_locked", True), SetVariable("checked_villa_livingroom_칼", True), Jump("villa_livingroom_칼")] 
+            imagebutton:
+                xpos 737
+                ypos 915
+                idle "gui/btn_idle.png"
+                hover "gui/btn_hover.png"
+                action [SetVariable("is_object_locked", True), SetVariable("checked_villa_livingroom_칼", True), Jump("villa_livingroom_칼")]
+
         if not checked_villa_livingroom_머리카락:
-                button:
-                    xpos 1050
-                    ypos 850
-                    xsize 150
-                    ysize 75
-                    background "#0000"  # 붉은 계열 반투명
-                    # background "#f008"  # 붉은 계열 반투명
-                    # text "여기!" color "#fff"
-                    action [SetVariable("is_object_locked", True), SetVariable("checked_villa_livingroom_머리카락", True), Jump("villa_livingroom_머리카락")]
+            imagebutton:
+                xpos 1050
+                ypos 850
+                idle "gui/btn_idle.png"
+                hover "gui/btn_hover.png"
+                action [SetVariable("is_object_locked", True), SetVariable("checked_villa_livingroom_머리카락", True), Jump("villa_livingroom_머리카락")]
+
         if not checked_villa_livingroom_피글자:
-                button:
-                    xpos 515
-                    ypos 200
-                    xsize 400
-                    ysize 120
-                    background "#0000"  # 붉은 계열 반투명
-                    # background "#f008"  # 붉은 계열 반투명
-                    # text "여기!" color "#fff"
-                    action [SetVariable("is_object_locked", True), SetVariable("checked_villa_livingroom_피글자", True), Jump("villa_livingroom_피글자")]
-        if checked_villa_livingroom_칼 and checked_villa_livingroom_피글자 and checked_villa_livingroom_시신 and checked_villa_livingroom_머리카락 :
+            imagebutton:
+                xpos 650
+                ypos 200
+                idle "gui/btn_idle.png"
+                hover "gui/btn_hover.png"
+                action [SetVariable("is_object_locked", True), SetVariable("checked_villa_livingroom_피글자", True), Jump("villa_livingroom_피글자")]
+
+        if checked_villa_livingroom_칼 and checked_villa_livingroom_피글자 and checked_villa_livingroom_시신 and checked_villa_livingroom_머리카락:
             use 빌라조사_종료
 
 screen screen_villa_room():
     tag menu
     if not is_object_locked:
         if not checked_villa_room_주사기:
-                button:
-                    xpos 380
-                    ypos 480
-                    xsize 170
-                    ysize 100
-                    background "#0000"  # 붉은 계열 반투명
-                    # background "#f008"  # 붉은 계열 반투명
-                    # text "여기!" color "#fff"
-                    action [SetVariable("is_object_locked", True), SetVariable("checked_villa_room_주사기", True), Jump("villa_room_주사기")]
+            imagebutton:
+                xpos 420
+                ypos 480
+                idle "gui/btn_idle.png"
+                hover "gui/btn_hover.png"
+                action [SetVariable("is_object_locked", True), SetVariable("checked_villa_room_주사기", True), Jump("villa_room_주사기")]
+
         if not checked_villa_room_교리서적:
-                button:
-                    xpos 1300
-                    ypos 515
-                    xsize 100
-                    ysize 40
-                    background "#0000"  # 붉은 계열 반투명
-                    # background "#f008"  # 붉은 계열 반투명
-                    # text "여기!" color "#fff"
-                    action [SetVariable("is_object_locked", True), SetVariable("checked_villa_room_교리서적", True), Jump("villa_room_교리서적")] 
+            imagebutton:
+                xpos 1300
+                ypos 500
+                idle "gui/btn_idle.png"
+                hover "gui/btn_hover.png"
+                action [SetVariable("is_object_locked", True), SetVariable("checked_villa_room_교리서적", True), Jump("villa_room_교리서적")]
+
         if not checked_villa_room_일기:
-                button:
-                    xpos 1200
-                    ypos 480
-                    xsize 80
-                    ysize 60
-                    background "#0000"  # 붉은 계열 반투명
-                    # background "#f008"  # 붉은 계열 반투명
-                    # text "여기!" color "#fff"
-                    action [SetVariable("is_object_locked", True), SetVariable("checked_villa_room_일기", True), Jump("villa_room_일기")]
+            imagebutton:
+                xpos 1200
+                ypos 480
+                idle "gui/btn_idle.png"
+                hover "gui/btn_hover.png"
+                action [SetVariable("is_object_locked", True), SetVariable("checked_villa_room_일기", True), Jump("villa_room_일기")]
+
         if not checked_villa_room_핸드폰:
-                button:
-                    xpos 1130
-                    ypos 470
-                    xsize 65
-                    ysize 50
-                    background "#0000"  # 붉은 계열 반투명
-                    # background "#f008"  # 붉은 계열 반투명
-                    # text "여기!" color "#fff"
-                    action [SetVariable("is_object_locked", True), SetVariable("checked_villa_room_핸드폰", True), Jump("villa_room_핸드폰")] 
-        if checked_villa_room_주사기 and checked_villa_room_교리서적 and checked_villa_room_일기 and checked_villa_room_핸드폰 :
+            imagebutton:
+                xpos 1100
+                ypos 470
+                idle "gui/btn_idle.png"
+                hover "gui/btn_hover.png"
+                action [SetVariable("is_object_locked", True), SetVariable("checked_villa_room_핸드폰", True), Jump("villa_room_핸드폰")]
+
+        if checked_villa_room_주사기 and checked_villa_room_교리서적 and checked_villa_room_일기 and checked_villa_room_핸드폰:
             use 빌라조사_종료
+
 
 
 label chapter2_5_explore_villa_livingroom:
@@ -119,7 +104,7 @@ label chapter2_5_explore_villa_livingroom:
         "당신은 여기서 필요한 조사를 모두 마쳤습니다"
         jump chapter2_5
     scene chapter2_5_1bg
-    "이 장소를 조사합니다. 필요한 오브젝트를 클릭하세요."
+    "거실을 조사합니다. 필요한 오브젝트를 클릭하세요."
     window hide
     call screen screen_villa_livingroom
     jump chpater2_5
@@ -132,7 +117,7 @@ label chapter2_5_explore_villa_room:
         "당신은 여기서 필요한 조사를 모두 마쳤습니다"
         jump chapter2_5
     scene chapter2_5_2bg
-    "이 장소를 조사합니다. 필요한 오브젝트를 클릭하세요."
+    "침실을 조사합니다. 필요한 오브젝트를 클릭하세요."
     window hide
     call screen screen_villa_room
     jump chpater2_5
@@ -147,7 +132,7 @@ label villa_livingroom_칼:
     hide hajun_serious
 
     show hajun_serious at left_bottom_offset
-    hajun "분명히 증거품으로 사용 될꺼야. 국과수로 넘기자.."
+    hajun "분명히 증거품으로 사용 될거야. 국과수로 넘기자.."
     hide hajun_serious
 
     $ is_object_locked = False
@@ -160,11 +145,11 @@ label villa_livingroom_시신:
     hide hajun_serious
 
     show hajun_serious at left_bottom_offset
-    hajun "피해자의 신상으로는 이 집에 사는 주인이며 18살 여자로 보여. 이 어린 나이에 무슨 죄가 있다고…"
+    hajun "피해자의 신상으로는 이 집에 사는 주인이며 18살 여자로 보여.\n이 어린 나이에 무슨 죄가 있다고…"
     hide hajun_serious
 
     show hajun_surprised at left_bottom_offset
-    hajun "잠시만.. 이 시체도.. 며칠 전 사건과 같이 의자에 묶인 상태에서 수십 번을 찌르고 베어서 죽었어."
+    hajun "잠시만.. 이 시체도.. 며칠 전 사건과 같이 의자에 묶인 상태에서\n수십 번을 찌르고 베어서 죽었어."
     hide hajun_surprised
 
     show hajun_serious at left_bottom_offset
@@ -181,7 +166,7 @@ label villa_livingroom_시신:
 
 label villa_livingroom_머리카락:
     show hajun at left_bottom_offset
-    hajun "서랍 밑에도 뭔가가 있지 않을까..?"
+    hajun "시신 밑에 뭔가 떨어져 있어..."
     hide hajun
 
     show hajun at left_bottom_offset
@@ -189,7 +174,7 @@ label villa_livingroom_머리카락:
     hide hajun
 
     show hajun_serious at left_bottom_offset
-    hajun "피해자의 머리카락 길이랑 비교해 봤을 때, 이건 피해자의 머리 길이랑 같지 않아."
+    hajun "피해자의 머리카락 길이랑 비교해 봤을 때, \n이건 피해자의 머리 길이랑 같지 않아."
     hide hajun_serious
 
     show hajun_serious at left_bottom_offset
@@ -202,7 +187,8 @@ label villa_livingroom_머리카락:
 
 label villa_livingroom_피글자:
     show hajun_serious at left_bottom_offset
-    hajun "뭐야, 이게…. '주께선 너를 아셨으나, 네가 주를 부인하였도다.'?"
+    hajun "뭐야, 이게..."
+    extend "{i}'주께선 너를 아셨으나, 네가 주를 부인하였도다.'{\i}?"
     hide hajun_serious
 
     show hajun_serious at left_bottom_offset
@@ -234,7 +220,9 @@ label villa_room_주사기:
     hide hajun_frown
 
     show hajun_serious at left_bottom_offset
-    hajun "아니야 혹시 몰라. 피해자의 지병 때문에 처방받은 약일지 몰라. 인슐린처럼 말이지. 일단 섣불리 생각하진 말자."
+    hajun "아니야 혹시 몰라.  "
+    extend "피해자의 지병 때문에 처방받은 약일지 몰라.\n인슐린처럼 말이지."
+    extend "일단 섣불리 생각하진 말자."
     hide hajun_serious
 
     show hajun_serious at left_bottom_offset

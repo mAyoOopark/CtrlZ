@@ -1,5 +1,6 @@
 
 label chapter2_1:
+    show screen life_display
     scene black
     "{cps=20}최도현 사건으로부터 8년 후"
     "{cps=20}나와 종식이 형은 그 사건을 마무리 짓기위해\n화재가 진압 된 후 끝까지 조사하여 쫓아봤지만"
@@ -145,9 +146,9 @@ label chapter2_2:
     jump chapter2_3
 
 label chapter2_3:
-    if visited_livingroom and visited_studyroom and visited_toilet:
+    if visited_livingroom and visited_studyroom:
         jump chapter2_4
-    if not visited_livingroom and not visited_studyroom and not visited_toilet:
+    if not visited_livingroom and not visited_studyroom:
         "지금부터 당신은 살인사건 현장을 수색하게 됩니다."
         "당신은 모든 증거들을 탐색할 필요는 없습니다."
     "어디를 탐색하시겠습니까?"
@@ -156,8 +157,6 @@ label chapter2_3:
             jump chapter2_3_explore_livingroom
         "서재":
             jump chapter2_3_explore_studyroom
-        "화장실":
-            jump chapter2_3_explore_toilet
     jump chapter2_3
 
 label chapter2_4:
@@ -170,7 +169,7 @@ label chapter2_4:
     show hajun at left_bottom_offset
     hajun "메모 해놔야겠어."
     hajun "기억이 안날 때마다 한번씩 봐야겠어."
-    hajun "일단, 돌아가자. 더 이상 내가 확인 해볼게 없네. 나머지 팀들에게 도움을 청해야겠어."
+    hajun "일단, 돌아가자. 더 이상 내가 확인 해볼게 없네. 나머지 팀원들에게\n도움을 청해야겠어."
     hajun "형님, 돌아갑시다. 우리 둘이서 할게 없어요."
     hide hajun
 
@@ -179,7 +178,7 @@ label chapter2_4:
     hide jungsik
 
     scene chapter2_1bg with fade
-    "그렇게 며칠이 지난 후, 우리는 또 다시 살인사건이 벌어진 곳으로 찾아가게 됐다."
+    "그렇게 며칠이 지난 후, 우리는 또 다시 살인사건이 벌어진 곳으로\n찾아가게 됐다."
     
     show jungsik_serious at right_bottom_offset
     jungsik "하준아, 가자."
@@ -206,7 +205,7 @@ label chapter2_4:
     hide hajun_surprised
 
     show jungsik_serious at right_bottom_offset
-    jungsik "게다가, 그때 주택에서 발견된 시신이랑 비슷한 방법으로 죽은거 같아. 한번 찾아가 보자."
+    jungsik "게다가, 그때 주택에서 발견된 시신이랑 비슷한 방법으로 죽은거 같아.\n한번 찾아가 보자."
     hide jungsik_serious
 
     show hajun_serious at left_bottom_offset
@@ -241,8 +240,8 @@ label chapter2_4:
     hide jungsik
 
     show police_1 at center
-    police_1 "네, 상황보고 하자면 신고내용으로 4일 전부터 아무런 인기척이 없었으며 갑자기 악취가 났다고 합니다."
-    police_1 "그래서 출동 해본 결과 시신은 부패되어있었고, 사인은 수많은 자상으로 인해 과다출혈이 일어나서 쇼크사 한 걸로 보입니다."
+    police_1 "네, 상황보고 하자면 신고내용으로 4일 전부터\n아무런 인기척이 없었으며 갑자기 악취가 났다고 합니다."
+    police_1 "그래서 출동 해본 결과 시신은 부패되어있었고,\n사인은 수많은 자상으로 인해 과다출혈이 일어나서 쇼크사 한 걸로 보입니다."
     hide police_1
 
     show hajun_serious at left_bottom_offset

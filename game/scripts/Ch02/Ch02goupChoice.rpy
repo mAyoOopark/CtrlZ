@@ -118,7 +118,7 @@ label choice_menu:
 
 label story_group1:
     show hajun_serious at left_bottom_offset
-    hajun "아마 이 칼로 피해자를 죽였겠지. 아주 잔인하게. 사인은 과다출혈로 인한 쇼크사인 것 같아."
+    hajun "아마 이 칼로 피해자를 죽였겠지. 아주 잔인하게.\n사인은 과다출혈로 인한 쇼크사인 것 같아."
     hide hajun_serious
 
     show hajun_serious at left_bottom_offset
@@ -126,11 +126,11 @@ label story_group1:
     hide hajun_serious
 
     show hajun_serious at left_bottom_offset
-    hajun "찌르고, 베고 수십 번을 반복한 것과 의자에 포박하여 고문하듯이 죽인 것이 말이야."
+    hajun "{i}{color=#B22222}찌르고, 베고 수십 번을 반복한 것{/i}{/color}과 {i}{color=#B22222}의자에 포박하여 고문하듯이 죽인 것{/color}{/i}"
     hide hajun_serious
 
     show hajun_serious at left_bottom_offset
-    hajun "아마도, 두 사건 다 동일인물인 것이 확실해. 일어난 지 얼마 뒤에 또 일어난 걸 보면 말이야."
+    hajun "아마도, 두 사건 모두 동일인물의 소행일 가능성이 커. \n짧은 시간 안에 비슷한 일이 반복됐잖아."
     hide hajun_serious
     call choice_menu from _call_choice_menu
     return
@@ -138,50 +138,52 @@ label story_group1:
 label story_group2:
     
     show hajun at left_bottom_offset
-    hajun "집에 있는 교리서적 그리고 종교적 의미를 담고 있는 피로 쓰인 글씨. 아마도 종교살인이 아닐까?"
+    hajun "집에 있는 교리서적 그리고 종교적 의미를 담고 있는 피로 쓰인 글씨.\n아마도 종교살인이 아닐까?"
     hide hajun
 
     show hajun at left_bottom_offset
-    hajun "지금이 21세기인데 한국에서 종교 살인이라니…"
+    hajun "21세기에 종교 살인이라니…"
     hide hajun
 
     show hajun at left_bottom_offset
-    hajun "아마도 종교인이 살해한 것으로 보여. 하지만 대체 어떤 사이비 종교길래 이런 방식으로 살인을 저지른 거지?"
+    hajun "대체 어떤 사이비 종교길래 이런 방식으로 살인을 저지른 거지?"
     hide hajun
 
     show hajun_serious at left_bottom_offset
     hajun "결코 평범한 사이비 종교는 아니야. 매우 수상해."
     hide hajun_serious
 
+    # show hajun_serious at left_bottom_offset
+    # hajun "그리고 이 범행 수법은 얼마 전에\n주택에서 일어났던 살인사건과 똑같아,"
+    # hide hajun_serious
+
     show hajun_serious at left_bottom_offset
-    hajun "그리고 이 범행 수법은 얼마 전에 주택에서 일어났던 살인사건과 똑같아,"
+    hajun "{i}{color=#B22222}'주께선 너를 아셨으나, 네가 주를 부인하였도다.'{/color}{/i} 라…"
+    extend "\n피해자는 이 종교에 속해 있다가, 뭔가 금기를 어긴 모양이군."
     hide hajun_serious
 
     show hajun_serious at left_bottom_offset
-    hajun "'주께선 너를 아셨으나, 네가 주를 부인하였도다.'라니… 그럼 피해자는 이 종교에 몸담았다가, 이단 짓을 벌였다는 것인가?"
-    hide hajun_serious
-
-    show hajun_serious at left_bottom_offset
-    hajun "그리고 이 교리서적, 저번에 수사했던 집에서도 있었지. 이것 또한 연관되어 있는 증거라고 볼 수 있어."
+    hajun "그리고 이 {i}교리서적{/i}, 저번에 수사했던 집에서도 있었지.\n이것 또한 연관되어 있는 증거라고 볼 수 있어."
     hide hajun_serious
     call choice_menu from _call_choice_menu_1
     return
 
 label story_group3:
     show hajun at left_bottom_offset
-    hajun "일기장의 내용으로 봐서는 어떤 곳에서 훔쳐온 이 주사기, 즉 마약으로 사람들에게 판 것 같아."
+    hajun "일기장에 적힌 걸 보니... 이 주사기, 단순한 의료용이 아니야.\n{i}{color=#B22222}어딘가에서 훔쳐온 걸로{/color}{/i} 사람들에게 팔았던 모양이야."
     hide hajun
 
     show hajun at left_bottom_offset
-    hajun "그리고, 훔쳐온 곳의 사람들에게서 죽은 것 같아."
+    hajun "그리고 결국, 그것을 훔친 곳의 사람들에게 살해당한 것 같아."
     hide hajun
 
     show hajun at left_bottom_offset
-    hajun "그렇지만 그냥 죽인 것도 아니고 이렇게 고통스럽게… 이럴 만한 이유가 있을까..?"
+    hajun "하지만 그냥 죽인 게 아니야. 이렇게 잔혹하게 죽일 만큼…\n뭔가 이유가 있었겠지."
     hide hajun
 
     show hajun_serious at left_bottom_offset
-    hajun "이 마약 때문에 죽일 정도라면, 절대 작은 단체일 수는 없을 거야. 아마도 매우 큰 단체일 것이 분명하지."
+    hajun "단순한 보복이라고 하기엔, 이건 너무 계획적이야."
+    hajun "그렇게까지 해야 했다면, 상대는 절대 작은 조직이 아냐. \n{i}{color=#B22222}규모가 큰, 그리고 위험한 단체{/color}{\i}  일 가능성이 커."
     hide hajun_serious
     call choice_menu from _call_choice_menu_2
     return

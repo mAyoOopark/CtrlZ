@@ -1,4 +1,5 @@
 label chapter5_1:
+    show screen life_display
     scene chapter5_1bg with fade
 
     show hajun_angry at left_bottom_offset

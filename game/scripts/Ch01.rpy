@@ -11,6 +11,7 @@
 label checked_message:
     $ checked_message = True
     "거울 밑에 물에 젖은 쪽지를 발견했다. \n쪽지에는 #$@!#!$로 도망가야해...라고 적혀있었다. "
+    "거울 밑에 물에 젖은 쪽지를 발견했다. \n쪽지에는 #$@!#!$로 도망가야해...라고 적혀있었다. "
     jump chapter1_4_3
 
 default visited_chapel = False
@@ -27,7 +28,7 @@ default visited_chapter1_5_5 = False
 default qte_answers = ["dodge", "dodge", "punch", "dodge", "punch"]
 default current_qte = 0
 default success = 0
-
+default asdf = 0
 
 
 default toilet_button_enabled = False
@@ -147,6 +148,8 @@ label chapter1_3:
     play sound "sfx_ch1_break_door.mp3"
     $ renpy.music.set_volume(0.1, delay=1.0, channel="music")
     play audio "amb_church.mp3" volume 0.8 fadein 0.8
+    $ renpy.music.set_volume(0.1, delay=1.0, channel="music")
+    play audio "amb_church.mp3" volume 0.8 fadein 0.8
     scene chapter1_3bg with fade
 
     show dohyeon_asd at right_bottom_offset
@@ -159,6 +162,7 @@ label chapter1_3:
     asd "자매님들 조금만 더 밖에서 기다려 주시겠어요?"
     hide dohyeon_asd
     
+    play sound "sfx_ch1_runaway.mp3" volume 5.0
     "???는 자리를 도망치듯 빠르게 말하며 달려갔다."
     
     show jungsik_consider at right_bottom_offset
@@ -223,6 +227,13 @@ label location_select:
             menu :
                 "내려가자":
                     jump chapter1_5
+        if checked_message :
+            show hajun_puzzled at left_bottom_offset
+            hajun "쪽지... 앞에는 젖어 있어서 읽을 수 없었네... \n도망 가야 한다니... 대체 무슨 소리지...?" 
+            hide hajun_puzzled
+            menu :
+                "내려가자":
+                    jump chapter1_5
 
                 "아직 좀 더 찾아보자": 
                     jump chapter1_4
@@ -263,7 +274,7 @@ label chapter1_4_1:
     extend "\n많은 의자들이 있었다."
 
     show hajun_surprised at left_bottom_offset
-    hajun "최도현 이 새끼 왜 이렇게 잘 꾸며둔거야. 진짜 교회인거 같잖아."
+    hajun "최도현 이 새끼 왜 이렇게 잘 꾸며둔거야.. 진짜 교회인거 같잖아.."
     hide hajun_surprised
 
     show hajun_consider at left_bottom_offset
@@ -295,18 +306,12 @@ label chapter1_4_1_2_1:
         "왼쪽 문":
             play sound "sfx_ch1_open_door.mp3"
             pause(0.2)
-            " {i}'빨리 돈을 다 챙겨!'{/i}    라는 키워드를 발견했다."
-
-            show hajun_consider at left_bottom_offset
-            hajun "돈을 다 챙기라는건 무슨 의미일까?"
-            hide hajun_consider
-
-            show hajun at left_bottom_offset
-            hajun "다시 돌아가자"
-            play sound "sfx_ch1_close_door.mp3"
-            hide hajun
-
-            jump location_select
+            "안쪽으로 희미한 불빛이 비춰온다."
+            "들어가볼까?"
+            menu:
+                "들어가본다":
+                    play sound "sfx_ch1_man_walk.mp3"
+                    jump chapter1_4_1_2_1_leftdoor
         "오른쪽 문":
             call check_fail from _call_check_fail
             play sound "sfx_ch1_open_door.mp3"
@@ -320,6 +325,31 @@ label chapter1_4_1_2_1:
             call check_fail from _call_check_fail_1
             jump chapter1_4_1_2_1
 
+label chapter1_4_1_2_1_leftdoor:
+    scene chapter1_4_1_leftdoorbg with fade
+    show hajun_frown at left_bottom_offset
+    hajun "여긴 왜 이렇게 으스스하지 뭔가 튀어 나올 거 같은 느낌인데...?"
+    hajun "벽에 먼지가 너무 많은걸? 좀 털어 볼까?"
+    hide hajun_frown
+    menu: 
+        "벽의 먼지를 턴다.":
+            play sound "sfx_ch1_sweep_dust.mp3"
+            pause(1.5)
+            jump chapter1_4_1_2_1_keyword
+
+label chapter1_4_1_2_1_keyword:
+    scene chapter1_4_1_leftdoor_keywordbg
+    show hajun_surprised at left_bottom_offset
+    hajun " 저...저게 뭐야....!!"
+    hide hajun_surprised
+    "벽에는 피로 묻은 글씨가 적혀 있다."
+    "{i}왜 우리만 빼 놓고...  {color=#ff0000}{size=40}빨리 돈을 다 챙겨!!{/size}{/color} 라고 말씀 하시는거지...{/i}"
+    show hajun_surprised at left_bottom_offset
+    hajun "{i}{color=#ff0000}{size=40}빨리 돈을 다 챙기라고...?{/i}{/size}{/color} 저게 무슨 의미지.."
+    hide hajun_surprised
+    "박하준은 생각에 잠기며 방을 나왔다."
+    play sound "sfx_ch1_close_door.mp3"
+    jump location_select
 
 label chapter1_4_2:
     $ visited_dining = True
@@ -381,6 +411,18 @@ label chapter1_4_3:
         hajun "화장실에서는 더 이상 할 수 있는게 없는 거 같다. 돌아가자."
         $ toilet_button_enabled = False
         jump location_select
+    if visited_bathroom == False :
+        show hajun at left_bottom_offset
+        hajun "화장실이군... 남자 화장실과 여자 화장실이 있어. 한번 살펴보자."
+        hide hajun
+        show screen toilet_message
+        show hajun_consider at left_bottom_offset
+        hajun "여자 화장실과 남자 화장실이 있는데 어디를 먼저 가볼까?"
+        "여자화장실은 문이 잠겨 있다."
+        "큰 거울과 칸 마다 변기들이 있다."
+        hide hajun_consider
+    $ visited_bathroom = True
+    $ toilet_button_enabled = True
     if visited_bathroom == False :
         show hajun at left_bottom_offset
         hajun "화장실이군... 남자 화장실과 여자 화장실이 있어. 한번 살펴보자."
@@ -878,51 +920,52 @@ label chapter1_7 :
 label chapter1_8:
     scene chapter1_8bg with fade
     $ success = 0
+    $ correct_path = ["왼쪽", "오른쪽", "오른쪽"]
+    $ current_index = 0
 
-    while success < 5 and wrong_count < 3:
-
-        $ from random import shuffle
-        $ correctness = [True, False]
-        $ shuffle(correctness)
-        $ choices = [
-            {"name": "왼쪽", "correct": correctness[0]},
-            {"name": "오른쪽", "correct": correctness[1]}
-        ]
-
-        "앞에 양갈래 길이 있다."
-        "옳은 길을 골라 빠르게 대피해야한다."
+    if asdf < 1:
+        $ asdf += 1
+        "앞에 세 갈래 길이 있다."
+        "옳은 길을 골라 빠르게 대피해야 한다."
         "잘못된 길을 고를 시 라이프가 1 감소합니다."
-        "옳은 선택은 랜덤입니다."
+        "이번 선택은 고정된 순서로 진행됩니다."
 
+    while success < 3 and wrong_count < 3:
+        $ current_correct = correct_path[current_index]
         $ result = renpy.display_menu([
-            (choices[0]["name"], 0),
-            (choices[1]["name"], 1)
+            ("왼쪽", "왼쪽"),
+            ("직진", "직진"),
+            ("오른쪽", "오른쪽"),
         ])
 
-        if choices[result]["correct"]:
+        $ current_index = success
+
+        if result == current_correct:
             $ success += 1
+            $ current_index += 1
             show hajun at left_bottom_offset
-            hajun "여기가 맞는 길이야"
-            hajun "좋았어.. 이대로만 계속.."
+            hajun "여기가 맞는 길이야."
+            hajun "좋았어... 이대로만 계속 가면 돼."
             hide hajun
         else:
             $ wrong_count += 1
             show chapter1_8 at shake
             show hajun_surprised at left_bottom_offset
             hajun "으악! 불이 온 몸을 덮을 뻔 했잖아!"
-            hajun "틀렸어, 여기로 갔다간 통구기가 되고 말거야."
+            hajun "틀렸어, 여기로 갔다간 통구이가 되고 말 거야."
             hide hajun_surprised
 
-    if success >= 5:
-        jump chapter1_9
-    elif wrong_count >= 3:
-        scene black with fade
-        $ wrong_count = 0
-        "잘못된 선택지를 세 번 골랐습니다."
-        "라이프가 모두 소진되었습니다."
-        pause 1.0
+        if success == 3:
+            jump chapter1_9
+        elif wrong_count >= 3:
+            scene black with fade
+            $ wrong_count = 0
+            $ asdf = 0
+            "잘못된 선택지를 세 번 골랐습니다."
+            "라이프가 모두 소진되었습니다."
+            pause 1.0
+            jump chapter1_8
 
-        jump chapter1_8
 
 label chapter1_9:
     scene chapter1_9bg with fade

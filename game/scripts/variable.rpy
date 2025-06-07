@@ -5,6 +5,8 @@ image chapter1_3bg = "chapter1_3.png"
 image chapter1_4bg = "chapter1_4.png"
 image chapter1_4_1bg = "chapter1_4_1.png"
 image chapter1_4_1_2bg = "chapter1_4_1_2.png"
+image chapter1_4_1_leftdoorbg = "chapter1_4_1_leftdoor.png"
+image chapter1_4_1_leftdoor_keywordbg = "chapter1_4_1_leftdoor_keyword.png"
 image chapter1_4_2bg = "chapter1_4_2.png"
 image chapter1_4_2_Abg = "chapter1_4_2_A.png"
 image chapter1_4_3bg = "chapter1_4_3.png"
@@ -128,6 +130,7 @@ image minjae_hard = "minjae_hard.png"
 image kids = "kids.png"
 image judge = "judge.png"
 image police_1 = "police1.png"
+image cultists = im.FactorScale("images/cultists.png", 0.7)
 
 # 캐릭터
 define narrator = Character(None, what_style="narrator")
@@ -137,7 +140,7 @@ define hajun = Character("박하준")
 define jungsik = Character("남종식")
 define dohyeon = Character("최도현")
 define asd = Character("???")
-define duo = Character("R박하준, 최도현")
+define duo = Character("박하준, 최도현")
 define police_1 = Character("경찰관1")
 define parents = Character("아이들 부모")
 define babyfarmer = Character("보육원장")
@@ -196,6 +199,8 @@ init:
 
 
 # 화면효과
+
+define flash = Fade(0.1, 0.0, 0.1, color="#fff")
 
 screen life_display():    #라이프
     frame:
