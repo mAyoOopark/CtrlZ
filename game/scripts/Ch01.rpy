@@ -1,22 +1,5 @@
-﻿screen toilet_message:
-    if toilet_button_enabled:
-        imagebutton:
-            idle "obj_sparkle_ch1_01.png"
-            xpos 240 ypos 600
-            xysize (200, 200)
-            at sparkle
-            focus_mask True
-            action [Jump("checked_message")]
-
-label checked_message:
-    $ checked_message = True
-    "거울 밑에 물에 젖은 쪽지를 발견했다. \n쪽지에는 #$@!#!$로 도망가야해...라고 적혀있었다. "
-    "거울 밑에 물에 젖은 쪽지를 발견했다. \n쪽지에는 #$@!#!$로 도망가야해...라고 적혀있었다. "
-    jump chapter1_4_3
-
-default visited_chapel = False
+﻿default visited_chapel = False
 default visited_dining = False
-default visited_bathroom = False
 default checked_tools = False
 default checked_menu = False
 default checked_table = False
@@ -30,8 +13,6 @@ default current_qte = 0
 default success = 0
 default asdf = 0
 
-
-default toilet_button_enabled = False
 default checked_message = False
 
 label start:
@@ -39,7 +20,8 @@ label start:
     scene chapter1_1bg with fade
     show expression Solid("#0000004D") as dark_overlay
     
-    play music "amb_rain.mp3" volume 0.7 fadein 1.0 loop
+    play amb "amb_rain.mp3" volume 0.5 fadein 1.0 loop
+    play music "bgm_ch1.mp3" volume 0.7
     pro "20xx년  xx월 xx일 늦은 밤."
     pro "나와 남종식 선배는 한 사이비 종교단체의 불법 행각 신고에\n xx에 위치한 xx로 출동했다."
     pro "그 날은 유독 비가 많이 오는 아침이었다."
@@ -122,23 +104,44 @@ label bad_end1:
     hide jungsik_puzzled
 
     show hajun_consider at left_bottom_offset
-    hajun "분명 맞는데...."
-    hajun "돌아가서 다시 한번 알아보죠."
+    hajun "분명 맞는데... 제보의 위치와 일치하는데..."
+    hajun "……이상하네요. 돌아가서 다시 확인해보죠."
     hide hajun_consider
 
     show jungsik_sad at right_bottom_offset
-    jungsik "에이씨 이게뭐야"
-    jungsik "너때문에 헛발짚었네"
+    jungsik "하... 이게 뭐냐 진짜."
+    jungsik "너 때문에 완전히 헛탕쳤네."
+    hide jungsik_sad
     
+    stop music fadeout 1.0
+    stop amb fadeout 1.0
     scene black with fade
-    
-    "증거를 가지고 다시 찾아갔을 땐 모든 것이 불에 타고 있었다."
-    "모든 증거가 사라지고, 최도현 또한 사라지고 없었다."
+    pause(1.0)
+
+    play sound "sfx_ch1_wind.mp3"
+    "며칠 뒤, 다시 그 장소를 찾았을 땐—"
+    "남아 있던 건 까맣게 타버린 잔해뿐이었다."
+
+    pause(1.0)
+
+    play amb "sfx_ch1_fire_crackle.mp3" volume 0.7
+    "그 안에 있던 모든 증거, 그리고 최도현까지..."
+    "그 흔적마저 연기처럼 사라져 있었다."
+
+    scene black with fade
+    pause(1.5)
+
+    play sound "sfx_gameover.mp3"
+    pro "\n{size=40}Bad End : 시작조차 못한 수사.{/size}"
+    stop amb fadeout 2.0
+    stop sound fadeout 2.0
     
     with Pause(2.0)
     
     "선택지로 다시 되돌아갑니다."
-    
+
+    play amb "amb_rain.mp3" volume 0.8 fadein 0.8 loop
+    play music "bgm_ch1.mp3" volume 0.7
     jump knock_door_event
     
     return
@@ -146,10 +149,7 @@ label bad_end1:
 label chapter1_3:
     show chapter1_2bg at shake
     play sound "sfx_ch1_break_door.mp3"
-    $ renpy.music.set_volume(0.1, delay=1.0, channel="music")
-    play audio "amb_church.mp3" volume 0.8 fadein 0.8
-    $ renpy.music.set_volume(0.1, delay=1.0, channel="music")
-    play audio "amb_church.mp3" volume 0.8 fadein 0.8
+    play amb "amb_church.mp3" volume 0.8 fadein 0.8 loop
     scene chapter1_3bg with fade
 
     show dohyeon_asd at right_bottom_offset
@@ -211,49 +211,33 @@ label chapter1_4:
     hajun "어디서부터 확인해볼까?"
     hide hajun
 
-    "{i}예배실{/i}과 {i}식당{/i}, {i}화장실{/i}을 살펴보고 숨겨진 방으로 다시 와야한다."
+    "예배실과 식당을 살펴보고 숨겨진 방으로 다시 와야한다."
 
     jump location_select
+
+define check_mg_restaurant = False
 
 # ✅ 장소 선택 메뉴
 label location_select:
     scene chapter1_4 with fade
-    if checked_tools and checked_menu and checked_table:
+    if checked_tools and checked_menu and checked_table and not check_mg_restaurant:
         "식당에서 중요한 단어를 얻었다"
-        if checked_message :
-            show hajun_puzzled at left_bottom_offset
-            hajun "쪽지... 앞에는 젖어 있어서 읽을 수 없었네... \n도망 가야 한다니... 대체 무슨 소리지...?" 
-            hide hajun_puzzled
-            menu :
-                "내려가자":
-                    jump chapter1_5
-        if checked_message :
-            show hajun_puzzled at left_bottom_offset
-            hajun "쪽지... 앞에는 젖어 있어서 읽을 수 없었네... \n도망 가야 한다니... 대체 무슨 소리지...?" 
-            hide hajun_puzzled
-            menu :
-                "내려가자":
-                    jump chapter1_5
-
-                "아직 좀 더 찾아보자": 
-                    jump chapter1_4
+        $check_mg_restaurant = True
             
     menu:
         "어디로 이동할까?"
 
         "예배실":
+            play sound "sfx_ch2_investigation.mp3" volume 0.5
             jump chapter1_4_1
 
         "식당":
-            play sound "sfx_ch1_man_walk.mp3"
+            play sound "sfx_ch2_investigation.mp3" volume 0.5
+            play sound2 "sfx_ch1_man_walk.mp3"
             jump chapter1_4_2
 
-        "화장실":
-            play sound "sfx_ch1_man_walk.mp3"
-            jump chapter1_4_3
-
         "숨겨진 방":
-            if visited_chapel and visited_dining and visited_bathroom:
+            if visited_chapel and visited_dining:
                 jump chapter1_4_4
             else:
                 jump room_secret_locked
@@ -285,12 +269,15 @@ label chapter1_4_1:
 label chapter1_4_1_1:
     menu:
         "예수님 동상":
+            play sound "sfx_ch2_investigation.mp3" volume 0.5
             "예수님 팔에 이상한 문양이 새겨져있다. 그 외에는 중요한 건 없는 것 같다."
             jump chapter1_4_1_1
         "의자":
+            play sound "sfx_ch2_investigation.mp3" volume 0.5
             "각각 의자마다 뒤에 번호가 새겨져있다. 어디에 쓰이려나?"
             jump chapter1_4_1_1
         "예수님 동상 뒤의 문":
+            play sound "sfx_ch2_investigation.mp3" volume 0.5
             "동상 뒤를 자세히 살펴보니 작은 문이 있는 것 같다."
             "한 번 가보자."
             play sound "sfx_ch1_man_walk.mp3"
@@ -312,7 +299,8 @@ label chapter1_4_1_2_1:
             "들어가볼까?"
             menu:
                 "들어가본다":
-                    play sound "sfx_ch1_man_walk.mp3"
+                    play sound "sfx_ch2_investigation.mp3" volume 0.5
+                    play sound2 "sfx_ch1_man_walk.mp3"
                     jump chapter1_4_1_2_1_leftdoor
         "오른쪽 문":
             call check_fail from _call_check_fail
@@ -347,17 +335,20 @@ label chapter1_4_1_2_1_leftdoor:
             jump chapter1_4_1_2_1_keyword
 
 label chapter1_4_1_2_1_keyword:
-    scene chapter1_4_1_leftdoor_keywordbg
+    scene chapter1_4_1_leftdoor_keywordbg at shake
+    play sound2 "sfx_shake.mp3"
     show hajun_surprised at left_bottom_offset
     hajun " 저...저게 뭐야....!!"
     hide hajun_surprised
     "벽에는 피로 묻은 글씨가 적혀 있다."
-    "{i}왜 우리만 빼 놓고...  {color=#ff0000}{size=40}빨리 돈을 다 챙겨!!{/size}{/color} 라고 말씀 하시는거지...{/i}"
+    "{i}왜 우리만 빼 놓고...  {color=#803232}{size=40}빨리 돈을 다 챙겨!!{/size}{/color} 라고 말씀 하시는거지...{/i}"
     show hajun_surprised at left_bottom_offset
-    hajun "{i}{color=#ff0000}{size=40}빨리 돈을 다 챙기라고...?{/i}{/size}{/color} 저게 무슨 의미지.."
+    hajun "{i}{color=#803232}{size=40}빨리 돈을 다 챙기라고...?{/i}{/size}{/color}   저게 무슨 의미지..."
     hide hajun_surprised
+    pause (1.0)
     "박하준은 생각에 잠기며 방을 나왔다."
     play sound "sfx_ch1_close_door.mp3"
+    play sound2 "sfx_ch1_man_walk.mp3"
     jump location_select
 
 label chapter1_4_2:
@@ -378,14 +369,19 @@ label chapter1_4_2_1:
         "조리도구":
             $ checked_tools = True
             $ wrong_count += 1
+            play sound "sfx_ch2_investigation.mp3" volume 0.5
+            play audio "sfx_punch.mp3"
+            play sound2 "sfx_life_minus.mp3"
             show chapter1_4_2bg at shake
             "날카로운 칼에 긁혀서 상처가 생겼다."
             "잘못된 선택으로 라이프가 1 감소했다."
             with Pause(1.0)
             jump chapter1_4_2_check
         "메뉴판":
+            play sound "sfx_ch2_investigation.mp3" volume 0.5
             $ checked_menu = True
             scene chapter1_4_2_Abg
+            play sound "sfx_shake.mp3" volume 0.8
             show chapter1_4_2_Abg at shake
            
             " 메뉴판에 문구가 생성되었다."
@@ -393,6 +389,7 @@ label chapter1_4_2_1:
             "'??시까지 가야해...' 라는 문구가 써있다"
             jump chapter1_4_2_2
         "식탁":
+            play sound "sfx_ch2_investigation.mp3" volume 0.5
             $ checked_table = True
             "음식을 가지고 와서 앉아서 먹는 곳이다."
             jump chapter1_4_2_check
@@ -407,48 +404,10 @@ label chapter1_4_2_2:
 label chapter1_4_2_check:
         if checked_menu and checked_table:
             "식당에서는 더 이상 할게 없는 것 같다"
+            play sound2 "sfx_ch1_man_walk.mp3"
             jump location_select
         else:
             jump chapter1_4_2_1
-
-label chapter1_4_3:
-    scene chapter1_4_3bg
-
-    if checked_message :
-        $ toilet_button_enabled = False
-        show hajun at left_bottom_offset
-        hajun "화장실에서는 더 이상 할 수 있는게 없는 거 같다. 돌아가자."
-        $ toilet_button_enabled = False
-        jump location_select
-    if visited_bathroom == False :
-        show hajun at left_bottom_offset
-        hajun "화장실이군... 남자 화장실과 여자 화장실이 있어. 한번 살펴보자."
-        hide hajun
-        show screen toilet_message
-        show hajun_consider at left_bottom_offset
-        hajun "여자 화장실과 남자 화장실이 있는데 어디를 먼저 가볼까?"
-        "여자화장실은 문이 잠겨 있다."
-        "큰 거울과 칸 마다 변기들이 있다."
-        hide hajun_consider
-    $ visited_bathroom = True
-    $ toilet_button_enabled = True
-    if visited_bathroom == False :
-        show hajun at left_bottom_offset
-        hajun "화장실이군... 남자 화장실과 여자 화장실이 있어. 한번 살펴보자."
-        hide hajun
-        show screen toilet_message
-        show hajun_consider at left_bottom_offset
-        hajun "여자 화장실과 남자 화장실이 있는데 어디를 먼저 가볼까?"
-        "여자화장실은 문이 잠겨 있다."
-        "큰 거울과 칸 마다 변기들이 있다."
-        hide hajun_consider
-    $ visited_bathroom = True
-    $ toilet_button_enabled = True
-
-    if checked_message == False :
-        "여기서 무언가를 더 찾아야해"
-        "오브젝트들을 탐색해보자"
-        jump chapter1_4_3
 
 # ✅ 숨겨진 방: 조건 미달 시
 label room_secret_locked:
@@ -462,10 +421,10 @@ label room_secret_locked:
 # ✅ 숨겨진 방: 조건 만족 시
 label chapter1_4_4:
     
-    "3곳을 전부 확인했다."
+    "2곳을 전부 확인했다."
 
     show hajun_consider at left_bottom_offset
-    hajun "3곳에서 얻은건 어디로 몇시까지 돈을 가지고 간다는건데..."
+    hajun "2곳에서 얻은건 어디로 몇시까지 돈을 가지고 간다는건데..."
     hide hajun_consider
 
     show hajun_surprised at left_bottom_offset
@@ -474,12 +433,14 @@ label chapter1_4_4:
 
     menu:
         "내려가자" :
+            play sound "sfx_ch2_investigation.mp3" volume 0.5
+            play sound2 "sfx_ch1_man_walk.mp3"
             show hajun_determind at left_bottom_offset
             hajun "빠르게 숨겨진 문으로 내려가보자."
             hide hajun_determind
 
             show hajun at left_bottom_offset
-            hajun "선배님 1층 조사하는 중에 최도현의 행동이 너무 수상해서 지하실로 가보겠습니다."
+            hajun "선배님 1층 조사하는 중에 최도현의 행동이 너무 수상해서\n지하실로 가보겠습니다."
             hide hajun
 
             show jungsik at right_bottom_offset
@@ -513,11 +474,12 @@ label chapter1_5:
     show hajun_smile at left_bottom_offset
     hajun "종식 선배가 조심하라 했지만, 뭔 일 나겠어?"
     hide hajun_smile
-    
+    stop music fadeout 2.0
     jump chapter1_5_1
 
 label chapter1_5_1:
     scene chapter1_5_1bg with fade
+    play music "bgm_ch1_trace.mp3" fadein 2.0 
     with Pause(1.0)
     "총 방이 4개가 있다."
     "각 방 안에는 열쇠 조각과 본드가 들어있다."
@@ -529,12 +491,20 @@ label chapter1_5_1:
 label chapter1_5_1location:
         menu:
             "서재":
+                play sound "sfx_ch2_investigation.mp3" volume 0.5
+                play sound2 "sfx_ch1_man_walk.mp3"
                 jump chapter1_5_2
             "창고":
+                play sound "sfx_ch2_investigation.mp3" volume 0.5
+                play sound2 "sfx_ch1_man_walk.mp3"
                 jump chapter1_5_3
             "고문실":
+                play sound "sfx_ch2_investigation.mp3" volume 0.5
+                play sound2 "sfx_ch1_man_walk.mp3"
                 jump chapter1_5_4
             "감옥":
+                play sound "sfx_ch2_investigation.mp3" volume 0.5
+                play sound2 "sfx_ch1_man_walk.mp3"
                 jump chapter1_5_5
 
 label chapter1_5_1_check :
@@ -563,11 +533,14 @@ label chapter1_5_2:
     hide hajun
     menu:
         "책에 튀어나온 것을 살펴본다.":
+            play sound "sfx_ch2_investigation.mp3" volume 0.5
             show hajun at left_bottom_offset
             hajun "이건 뭐지..? 무슨 조각 같은데?"
+            play sound2 "sfx_item.mp3"
             hajun "일단 가지고 있자."
             hide hajun
-            
+
+            play sound2 "sfx_ch1_man_walk.mp3"
             scene chapter1_5_1 with fade
             jump chapter1_5_1_check
 
@@ -592,12 +565,14 @@ label chapter1_5_3:
 
     menu:
         "바닥에 떨어진 본드를 살펴본다.":
+            play sound "sfx_ch2_investigation.mp3" volume 0.5
             show hajun at left_bottom_offset
             hajun "본드...."
             hajun "뭔가 맞출 수 있을 것 같아"
+            play sound2 "sfx_item.mp3"
             hajun "일단 가져가자"
             hide hajun
-
+            play sound2 "sfx_ch1_man_walk.mp3"
             scene chapter1_5_1 with fade
             jump chapter1_5_1_check
 
@@ -625,12 +600,15 @@ label chapter1_5_4:
 
     menu:
         "바닥에 떨어진 쇳조각을 살펴본다":
+            play sound "sfx_ch2_investigation.mp3" volume 0.5
             show hajun at left_bottom_offset
             hajun "쇳조각..."
-            hajun "뭔가 맞출 수 있는게 있지 않을까?"
+            hajun "뭔가 맞출 수 있는 게 있지 않을까?"
+            play sound2 "sfx_item.mp3"
             hajun "가져가자"
             hide hajun
 
+            play sound2 "sfx_ch1_man_walk.mp3"
             scene chapter1_5_1bg with fade
             jump chapter1_5_1_check
 
@@ -655,14 +633,16 @@ label chapter1_5_5:
 
     menu:
         "바닥에 떨어진 반짝이는 것을 살펴본다":
+            play sound "sfx_ch2_investigation.mp3" volume 0.5
             show hajun at left_bottom_offset
             hajun "퍼즐처럼 쪼개진 듯한 쇳조각..."
             hajun "나중에 뭔가 할 수 있을지도 몰라"
+            play sound2 "sfx_item.mp3"
             hajun "가져가자"
             hide hajun
-            
+            play sound2 "sfx_ch1_man_walk.mp3"
+            pause (2.0)
             scene chapter1_5_1bg with fade
-
             jump chapter1_5_1_check
 
 label chapter1_5_6:
@@ -673,26 +653,32 @@ label chapter1_5_6:
     hide hajun
     menu:
         "맞춰본다":
+            play sound "sfx_ch2_investigation.mp3" volume 0.5
             show hajun at left_bottom_offset
             hajun "맞춰보자"
             hide hajun
 
             jump chapter1_5_7
 
-label chapter1_5_7:
-    show hajun_surprised at left_bottom_offset
-    hajun "이건... 열쇠잖아?"
+label chapter1_5_7:  
+    play sound "sfx_shake.mp3"
+    scene chapter1_5_1bg at short_shake
+    show hajun_surprised at left_bottom_offset, short_shake
+    hajun "이건... 열쇠잖아?" 
     hide hajun_surprised
 
     show hajun at left_bottom_offset
     hajun "이걸로 저 끝에 있는 방을 열 수 있지 않을까?"
     hajun "저기에 분명히 최도현이 있을거야"
     hajun "들어갈까?"
+    hide hajun
     
     menu:
         "들어간다":
+            play sound "sfx_ch2_investigation.mp3" volume 0.5
             show hajun at left_bottom_offset
             hajun "들어가자"
+            play sound2 "sfx_ch1_man_walk.mp3"
             hide hajun
 
             jump chapter1_6
@@ -704,19 +690,32 @@ label chapter1_6:
     hajun "여기 왜 이렇게 어두워..?"
     hajun "여기.."
     hajun "이게 전등 스위치인가?"
+    play sound "sfx_ch1_light_on.mp3"
     hide hajun
 
     scene chapter1_6bg with fade
 
+    stop music fadeout 2.0
     "불이 켜지며 보일러실 비밀통로로 빠져나가려고 하는 최도현을 발견했다."
-
-    show hajun_angry at left_bottom_offset
-    hajun "야 최도현!!"
+    play music "bgm_ch1_battle.mp3" volume 0.7 fadein 1.0
+    show hajun_angry at left_bottom_offset, shake
+    play  sound "sfx_shake.mp3" volume 0.5
+    hajun "{size=40}야!!!!!!{/size}"
+    show hajun_angry at left_bottom_offset, short_shake
+    play  sound "sfx_shake.mp3" volume 0.5
+    extend "  {size=60}최{/size}"
+    show hajun_angry at left_bottom_offset, short_shake
+    play  sound "sfx_shake.mp3" volume 0.7
+    extend "{size=60}도{/size}"
+    show hajun_angry at left_bottom_offset, short_shake
+    play  sound "sfx_shake.mp3" volume 1.0
+    extend "{size=60}현!!{/size}"
     hide hajun_angry
 
-    show hajun at left_bottom_offset
-    hajun "내가 여기까지 오면서 살펴봤는데, 여기 정상적인 곳은 아니더라?"
-    hide hajun
+    show hajun_frown at left_bottom_offset
+    hajun "내가 여기까지 오면서 살펴봤는데,"
+    extend "여기 정상적인 곳은 아니더라?"
+    hide hajun_frown
 
     show hajun_frown at left_bottom_offset
     hajun "대체 무슨 일을 벌이고 있는거냐?"
@@ -738,13 +737,14 @@ label chapter1_6:
     hajun "너한테 여기에 있었던 이야기 좀 들어봐야겠다 이 새끼야."
     hide hajun
 
-    show dohyeon_angry at right_bottom_offset
+    show dohyeon_angry at right_bottom_offset, shake
+    play sound "sfx_shake.mp3"
     dohyeon "이놈이고 저놈이고.."
     hide dohyeon_angry
 
-    show dohyeon at right_bottom_offset
+    show dohyeon_unpleasant at right_bottom_offset
     dohyeon "왜 이렇게 날 방해하는거지?"
-    hide dohyeon
+    hide dohyeon_unpleasant
 
     show dohyeon_hammer at right_bottom_offset
     dohyeon "그냥 못본 척 하고 돌아가면 안되냐?"
@@ -757,15 +757,24 @@ label chapter1_6:
     hajun "너에 대해서 들을 말이 많아"
     hide hajun_determind
 
-    show dohyeon_angry at right_bottom_offset
-    dohyeon "아아아!"
-    dohyeon "망할 사탄새끼가!!!!"
-    dohyeon "그냥 여기서 죽여주마!!!"
+    scene chapter1_6bg at shake
+    show dohyeon_angry at right_bottom_offset, shake
+    play  sound "sfx_big_shake.mp3" volume 0.7
+    dohyeon "{color=#803232}{size=40}아{/size}{size=50}아{/size}{size=60}아!{/size}{/color}"
+
+    show dohyeon_angry at right_bottom_offset, shake
+    dohyeon "{color=#803232}{size=50}망할 사탄새끼가!!!!{/size}{/color}"
+
+    scene chapter1_6bg at crazy_shake
+    show dohyeon_angry at right_bottom_offset, crazy_shake
+    play  sound "sfx_big_shake.mp3" volume 0.7
+    dohyeon "{color=#803232}{size=40}그냥{/size} {size=50}여기서{/size} {size=60} 죽여주마!!!{/size}{/color}"
     hide dohyeon_angry
 
-    show hajun_determind at left_bottom_offset
+    scene chapter1_6bg with fade
+    show hajun_laugh at left_bottom_offset
     hajun "그럼 널 때려눕히고 데려가야겠다"
-    hide hajun_determind
+    hide hajun_laugh
     "3번 틀린 선택 시 다시 선택지로 돌아옵니다."
     "옳은 선택지를 3초 안에 골라주세요."
 
@@ -780,8 +789,6 @@ label chapter1_qte_event:
     if current_qte >= len(qte_answers):
         $ current_qte = 0
     
-    
-
     
     $ action_texts = [
         "최도현이 배트를 휘둘렀다!",
@@ -801,21 +808,27 @@ label chapter1_qte_event:
     if _return == correct_answer:
         $ success += 1
         show hajun_laugh at left_bottom_offset
+        show dohyeon_hurts at right_bottom_offset, shake
+        play sound "sfx_punch.mp3"
         hajun "하! 이거지!"
         hajun "좋았어.. 좀만 더!"
+        hide dohyeon_hurts
         hide hajun_laugh
         
     else:
         $ wrong_count += 1
-        show hajun_frown at left_bottom_offset
+        show hajun_hurts at left_bottom_offset, shake
+        show dohyeon_angry at right_bottom_offset
+        play sound "sfx_punch.mp3"
+        play sound2 "sfx_life_minus.mp3"
         hajun "윽... 이새끼가..."
         hajun "큭.. 똑바로 해야겠어..."
         hide hajun_frown
+        hide dohyeon_angry
         if wrong_count >= 3:
-            $ life = 3
-            $ current_qte = 0
-            $ success = 0
-            $ wrong_count = 0
+            stop music fadeout 1.0
+            stop sound fadeout 1.0
+            play sound "sfx_gameover.mp3"
             "라이프가 모두 소진되었습니다."
             pause 1.0
             jump chapter1_6_fail
@@ -858,8 +871,14 @@ label chapter1_6_fail:
     "최도현은 제압하지 못한 박하준은 바닥에 쓰러졌다."
     "박하준은 의식을 잃어가며, 최도현이 도망가는 소리가 들렸다."
     pause 1.0
+    $ life = 3
+    $ current_qte = 0
+    $ success = 0
+    $ wrong_count = 0
     "3번 틀린 선택 시 다시 선택지로 돌아옵니다."
     "옳은 선택지를 3초 안에 골라주세요."
+    play music "bgm_ch1_battle.mp3" fadein 1.0
+    play amb "amb_church.mp3"
     jump chapter1_qte_event
 
 label chapter1_7 :
@@ -867,11 +886,12 @@ label chapter1_7 :
     hajun "윽!"
     hide hajun_frown
 
-    show dohyeon_angry at right_bottom_offset
+    show dohyeon_angry at right_bottom_offset, shake
     dohyeon "지옥으로 가라!!!"
     dohyeon "사탄 새끼야!!"
     hide dohyeon_angry
 
+    play sound "sfx_ch1_run_dh.mp3" volume 1.5
     show jungsik_angry at right_bottom_offset
     jungsik "위험해!!!"
     hide jungsik_angry
@@ -891,18 +911,22 @@ label chapter1_7 :
     hajun "그래도 덕분에 잘 잡아놨잖아요.."
     hide hajun_cough
 
-    show dohyeon_angry at right_bottom_offset
+    show dohyeon_angry at right_bottom_offset, shake
     dohyeon "또야 또.."
     dohyeon "날 방해하는 사탄의 자식이 또 왔네?"
+    show dohyeon_angry at right_bottom_offset, crazy_shake
     dohyeon "둘 다 여기서 죽여주마!"
     hide dohyeon_angry
 
-
-    "그때 최도현의 해머가 천장의 가스파이프를 한번 더 가격하며 튀어나온 불똥이 튀었다."
+    play sound "sfx_ch1_swing.mp3" 
+    "그때 최도현의 해머가 천장의 가스파이프를 한번 더 가격하며\n튀어나온 불똥이 튀었다."
+    play amb "sfx_ch1_fire_crackle.mp3" volume 0.3
     "가스통에서 새어나온 가스에 불이 붙어 폭발이 일어났다."
     show chapter1_6bg at shake
+    stop music fadeout 2.0
     scene black with fade
-    "폭발의 영향으로 잠시 기절했다 깨어난 후 주변을 둘러보자 방이 불에 휩싸여있었다."
+    play music "bgm_escape.mp3" fadein 1.0
+    "폭발의 영향으로 잠시 기절했다 깨어난 후 주변을 둘러보자\n방이 불에 휩싸여있었다."
     "또한, 최도현은 보이지 않았다."
     scene chapter1_7bg with fade
 
@@ -950,6 +974,7 @@ label chapter1_8:
         $ current_index = success
 
         if result == current_correct:
+            play sound "sfx_ch1_run_straight.mp3" volume 3.0
             $ success += 1
             $ current_index += 1
             show hajun at left_bottom_offset
@@ -958,6 +983,8 @@ label chapter1_8:
             hide hajun
         else:
             $ wrong_count += 1
+            play sound "sfx_punch.mp3"
+            play sound2 "sfx_life_minus.mp3"
             show chapter1_8 at shake
             show hajun_surprised at left_bottom_offset
             hajun "으악! 불이 온 몸을 덮을 뻔 했잖아!"
@@ -972,6 +999,7 @@ label chapter1_8:
             $ asdf = 0
             "잘못된 선택지를 세 번 골랐습니다."
             "라이프가 모두 소진되었습니다."
+            "다시 선택지로 되돌아갑니다."
             pause 1.0
             jump chapter1_8
 
@@ -994,14 +1022,20 @@ label chapter1_9:
             hajun "선배 꽉 잡으세요!"
             hide hajun
 
+            play sound "sfx_ch1_run_straight.mp3" volume 3.0 
             "하준과 종식은 불길로 뛰어들었다."
 
-            show hajun_puzzled at left_bottom_offset
+            play sound "sfx_big_shake.mp3"
+            scene chapter1_9bg at shake
+            show hajun_puzzled at left_bottom_offset, crazy_shake
             hajun "으아아악! 살려줘!"
             hide hajun_puzzled
 
             "그렇게 나와 선배는 불 속에서 불을 키우는 장작이 되어버렸다."
-            
+
+            pause 1.0
+            pro "\n{size=40}Bad End2 : 무모한 돌파{/size}"
+
             scene black with fade
 
             pause 1.0
@@ -1020,8 +1054,12 @@ label chapter1_10:
     hajun "그래, 화장실 같은"
     hide hajun
 
+    play sound "sfx_ch1_run_straight.mp3" volume 3.0 
+    stop music fadeout 5.0
     scene chapter1_4_3_1bg with fade
-
+    $ renpy.music.set_volume(0.3, channel='amb')
+    play voice "amb_toilet.mp3" loop
+    play music "bgm_fail.mp3" fadein 1.0
     show hajun at left_bottom_offset
     hajun "여기 화장실에 숨어 있어야겠어."
     hajun "물이 충분하니까 불을 피하기엔 좋을거야."
@@ -1046,18 +1084,25 @@ label chapter1_10:
     hide jungsik_despair
 
     show hajun_sad at left_bottom_offset
-    hajun "..."
-    hajun "모르겠어요.."
+    hajun "{cps=1}..."
+    hajun "{cps=10}모르겠어요..."
     hide hajun_sad
 
+    play sound "sfx_calling.mp3"
+    pause 2.0
+    stop sound
     scene black with fade
 
     "신고를 받고 온 119는 화재를 진압했고 우리를 구해주었다."
-    "나는 어깨에 작은 화상을 입은 것 말고는 다친 곳은 없었으며 선배도 멀쩡했다."
-    "하지만 그 교회에서는 최도현의 흔적을 찾을 수 없었으며 체포하지도 못했다."
-    "나와 선배는 최도현의 그 화재에서 빠져나오지 못해 재가 되어버렸다고 생각을 하기로 했다."
-    "그렇게 사이비 종교 사건은 막을 내리게 된다."
+    "나는 어깨에 작은 화상을 입은 것 말고는 다친 곳은 없었으며\n다행히 선배도 멀쩡했다."
+    "하지만 불타버린 교회 안에서 최도현의 흔적은 끝내 발견되지 않았다."
+    "잔해 속에서 그의 시신은 찾을 수 없었지만, 수사당국은 그가 화재로 \n사망한 것으로 결론지었다."
+    "그렇게 사이비 종교 사건은 일단락되었고, 사건은 종결 처리되었다."
+    "…그러나 나는 아직도 가끔 생각한다.\n"
+    extend "{i}{size=32}정말로,   {/i}{/size}" 
+    extend "{i}{color=#803232}{size=32}그가 그 안에서 죽은 게 맞을까?{/i}{/color}{/size}"
 
+    stop music fadeout 2.0
+    stop amb fadeout 1.0
     pause 1.0
-    
     jump chapter2_1

@@ -211,7 +211,7 @@ screen choice(items):
 
     vbox:
         for i in items:
-            textbutton i.caption action i.action
+            textbutton i.caption action [Play("sound", "audio/sfx_ch2_investigation.mp3"), Pause(0.1), i.action]
 
 
 style choice_vbox is vbox
@@ -227,6 +227,7 @@ style choice_vbox:
 
 style choice_button is default:
     properties gui.button_properties("choice_button")
+    activate_sound "audio/sfx_ch2_investigation.mp3"
 
 style choice_button_text is default:
     properties gui.text_properties("choice_button")

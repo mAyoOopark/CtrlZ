@@ -8,6 +8,7 @@ label chapter2_1:
     "{cps=20}최도현의 행방마저 불에 탄 듯이 없어졌기에\n우리는 최도현을 화재로 인한 사망으로 처리를 할 수 밖에 없었다."
     show chapter2_1bg with fade
     play music "bgm_funScene.mp3" volume 0.7 fadein 2.0
+    play amb "amb_office.mp3" loop
     show hajun_determind at left_bottom_offset
     hajun "{cps=20}......"
     hide hajun_determind
@@ -23,6 +24,7 @@ label chapter2_1:
     jungsik "{cps=40} .....!"
 
     duo "{cps=40}가위... 바위..."
+    play sound "sfx_shake.mp3"
     show chapter2_1bg at shake
     duo "{cps=60}보!" 
 
@@ -64,7 +66,7 @@ label chapter2_1:
     $ renpy.pause()
     stop sound
     
-    play music "bgm_ch2_serious.mp3" fadein 2.0
+    play music "bgm_ch2_serious.mp3" volume 1.5 fadein 2.0
     show jungsik at right_bottom_offset
     jungsik "네, xx경찰서 강력1반 남종식입니다."
     hide jungsik
@@ -96,6 +98,7 @@ label chapter2_1:
     hide hajun_fightingspirit
     
     scene black with fade
+    stop amb fadeout 1.0
     play sound "sfx_ch2_car_ignition.ogg"
     pause (2.0)
     jump chapter2_2
@@ -143,7 +146,7 @@ label chapter2_2:
     show hajun_determind at left_bottom_offset
     hajun "후… 일단 여기를 조사해봅시다."
     hide hajun_determind
-    play music "bgm_ch2_investigation.mp3"
+    play music "bgm_ch2_investigation.mp3" volume 2.0
     jump chapter2_3
 
 label chapter2_3:
@@ -178,6 +181,7 @@ label chapter2_4:
     show jungsik at right_bottom_offset
     jungsik "그래. 돌아가자. 더 이상 우리가 할 수 있는 일은 없는 듯 하네."
     hide jungsik
+    play amb "amb_office.mp3" loop
     stop music fadeout 2.0
 
     scene chapter2_1bg with fade
@@ -210,13 +214,13 @@ label chapter2_4:
     show jungsik_serious at right_bottom_offset
     jungsik "게다가, 그때 주택에서 발견된 시신이랑 비슷한 방법으로 \n죽은거 같아. 한번 찾아가 보자."
     hide jungsik_serious
-
+    stop amb fadeout 2.0
     show hajun_serious at left_bottom_offset
     hajun "네. 바로 찾아 갑시다."
     hide hajun_serious
 
+    play amb "amb_strongwind.mp3" fadein 0.5  
     scene chapter2_4bg with fade
-    play audio "amb_strongwind.mp3" fadein 0.5 volume 0.8   
     show jungsik_serious at right_bottom_offset
     jungsik "여기다. 동네가 매우 낡아 보이네."
     hide jungsik_serious
@@ -233,8 +237,9 @@ label chapter2_4:
     hajun "네, 그럽시다."
     hide hajun
     scene chapter2_5_1bg with fade
+    stop amb fadeout 1.0
 
-    $ renpy.music.set_volume(0.0, channel='audio')
+    play amb "amb_room.mp3"
     show police_1 at center
     police_1 "충성! 오셨습니까!"
     hide police_1
@@ -314,22 +319,22 @@ label chapter2_7:
     show hajun at left_bottom_offset
     hajun "그럼 일단, 용의자가 두 명이라는 것은 확실해졌네요."
     hajun "그리고 이 둘… 크기가 저희랑 너무 달라보이지 않아요?"
-    hajun "마치…. '어린 애들'인 것처럼요."
+    hajun "마치…. {color=#803232}{i}'어린 애들'{/size}{/i}  인 것처럼요."
     hide hajun
 
     show jungsik_puzzled at right_bottom_offset
-    jungsik "설마.. 어린 것들이 그럴 리가 없잖아.. 화질이 이상해서 그렇게 보이는 것일 뿐일꺼야."
+    jungsik "설마.. 어린 것들이 그럴 리가 없잖아.. \n화질이 이상해서 그렇게 보이는 것일 뿐일꺼야."
     hide jungsik_puzzled
 
     show hajun at left_bottom_offset
-    hajun "그랬으면 좋겠네요…\n일단 저희가 할 수 있는 일은 여기까지인 것 같으니까, 그만 정리하고 가볼까요?"
+    hajun "그랬으면 좋겠네요… 일단 저희가 할 수 있는 일은 \n여기까지인 것 같으니까, 그만 정리하고 가볼까요?"
     hide hajun
 
     show jungsik_sigh at right_bottom_offset
     jungsik "그래.. 우리도 들어가서 쉬자.."
     hide jungsik_sigh
 
-    stop music
-    stop audio
+    stop music fadeout 2.0
+    stop amb fadeout 2.0
     scene black with fade
     jump chapter3

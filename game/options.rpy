@@ -48,13 +48,15 @@ define build.name = "MysteryGame_Ch01"
 define config.has_sound = True
 define config.has_music = True
 define config.has_voice = True
+init python:
+    renpy.music.register_channel("amb", mixer="sfx", loop=True, tight=True)
+    renpy.music.register_channel("sound2", mixer="sfx", loop=False, tight=True)
 
 ## 사용자가 음향 또는 음성 채널에서 테스트 사운드를 재생할 수 있게 하려면 아래
 ## 줄의 주석을 제거하고 이를 사용하여 재생할 샘플 사운드를 설정하십시오.
 
 # define config.sample_sound = "sample-sound.ogg"
 # define config.sample_voice = "sample-voice.ogg"
-
 
 ## 플레이어가 주 메뉴에 있을 때 재생할 오디오 파일을 설정하려면 다음 줄의 주석
 ## 처리를 제거하십시오. 이 파일은 중지되거나 다른 파일이 재생 될 때까지 계속 재

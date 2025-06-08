@@ -83,7 +83,7 @@ image hajun_curious = Transform("hajun_curious.png", xzoom=-1.0, zoom=0.56)
 image hajun_fightingspirit = im.FactorScale("images/hajun_fightingspirit.png", 0.56)
 image hajun_hard = "hajun_hard.png"
 image hajun_aha = "hajun_aha.png"
-
+image hajun_hurts = "hajun_hurts.png"
 
 image jungsik = "jungsik.png"
 image jungsik_angry = "jungsik_angry.png"
@@ -109,6 +109,8 @@ image dohyeon_hammer = "dohyeon_hammer.png"
 image dohyeon_flustered = "dohyeon_flustered.png"
 image dohyeon_furious = "dohyeon_furious.png"
 image dohyeon_scoff = "dohyeon_scoff.png"
+image dohyeon_unpleasant = im.FactorScale("images/Dohyeon_unpleasant.png", 0.74)
+image dohyeon_hurts = "dohyeon_hurts.png"
 
 image parents = "parents.png"
 
@@ -136,6 +138,7 @@ image cultists = im.FactorScale("images/cultists.png", 0.7)
 # 캐릭터
 define narrator = Character(None, what_style="narrator")
 define pro = Character(None, what_style="prologue_text", window_style="prologue_window")
+define book = Character(None, what_style="book_text", window_style="book_window")
 define slow_c = Character(None, window_subtitle="slow_c", what_style="centered_slow",  window_background=None, window_style="centered_window")
 define hajun = Character("박하준")
 define jungsik = Character("남종식")
@@ -166,10 +169,27 @@ init:
         text_align 0.5
         layout "subtitle"
 
+    style book_text:
+        font "Kimjungchul_Font/otf/KimjungchulMyungjo-Bold.otf"
+        size 33
+        color "#505050"
+        line_spacing 35
+        xalign 0.5
+        ypos 1.87
+        yalign 0.0
+        text_align 0.5
+        layout "subtitle"
+
+
     style prologue_window:
         background "gui/textbox_pro.png"
         xalign 0.5
         ypos 0.4
+
+    style book_window:
+        background "gui/book.png"
+        xalign 0.5
+        ypos 0.2
 
 ## 나레이터
 init 999:
@@ -229,12 +249,25 @@ transform right_bottom_offset:     # 캐릭터를 오른쪽 아래에 위치
     xanchor 1.0
     yanchor 1.0
 
+transform short_shake:      #찗은 흔들림효과
+    xoffset -10
+    linear 0.05 xoffset 10
+    linear 0.05 xoffset -5
+    linear 0.05 xoffset 0
+
 transform shake:         # 화면 흔들림 효과
     linear 0.05 xoffset -20 yoffset -15
     linear 0.05 xoffset 20 yoffset 15
     linear 0.05 xoffset -15 yoffset 20
     linear 0.05 xoffset 15 yoffset -20
     linear 0.05 xoffset 0 yoffset 0
+
+transform crazy_shake:
+    linear 0.03 xoffset -10
+    linear 0.03 xoffset 10
+    linear 0.03 yoffset -10
+    linear 0.03 yoffset 10
+    repeat
 
 transform sparkle: #반짝임 효과
     linear 0.5 alpha 0.5

@@ -2,9 +2,7 @@
 errors listed below, and try again.
 
 
-File "game/options.rpy", line 53: invalid syntax
-    define config.channels = config.channels + ["ambience", "heartbeat"]
-            ^
+File "game/scripts/Ch02/Ch02goupChoice.rpy", line 98: Indentation mismatch.
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Sun Jun  8 11:05:06 2025
+Mon Jun  9 07:42:40 2025

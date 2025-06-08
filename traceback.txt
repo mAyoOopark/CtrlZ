@@ -1,28 +1,24 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/options.rpy", line 52, in script
-    init python:
-  File "game/options.rpy", line 53, in <module>
-    config.channels = config.channels + ["ambience", "heartbeat"]
-Exception: config.channels is not a known configuration variable.
+  File "game/scripts/Ch02/Ch02.rpy", line 11, in script
+    paly amb "amb_office.mp3"
+Exception: Sayer 'paly' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/options.rpy", line 52, in script
-    init python:
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 834, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/python.py", line 1187, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/options.rpy", line 53, in <module>
-    config.channels = config.channels + ["ambience", "heartbeat"]
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/defaultstore.py", line 93, in __getattr__
-    raise Exception('config.%s is not a known configuration variable.' % (name))
-Exception: config.channels is not a known configuration variable.
+  File "game/scripts/Ch02/Ch02.rpy", line 11, in script
+    paly amb "amb_office.mp3"
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 2586, in execute
+    Say.execute(self)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 583, in execute
+    who = eval_who(self.who, self.who_fast)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 472, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who)
+Exception: Sayer 'paly' is not defined.
 
 macOS-13.6.4-arm64-arm-64bit arm64
 Ren'Py 8.3.7.25031702
 MysteryGame 1.0
-Sun Jun  8 11:05:34 2025
+Mon Jun  9 07:09:51 2025

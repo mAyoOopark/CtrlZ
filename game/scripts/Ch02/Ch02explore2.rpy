@@ -10,12 +10,19 @@ default checked_villa_room_일기 = False
 default visited_villa_livingroom = False
 default visited_villa_room = True
 
+style end_button is default:
+    activate_sound "sfx_glassy_sound.mp3"
+
+style select_button is default:
+    activate_sound "sfx_ch2_investigation.mp3"
+
 screen 빌라조사_종료():
     frame:
         align (0.5, 0.5)
         padding (10, 10)
         background "#0008"
         textbutton "조사를 마쳤다면 이 버튼을 누르세요":
+            style "end_button"
             action Jump("chapter2_5")
 
 screen screen_villa_livingroom():
@@ -273,25 +280,17 @@ label villa_room_일기:
     hajun "이 사건과 관련이 있을지도 몰라. 일단 한번 살펴볼까?"
     hide hajun
 
-    play sound "sfx_ch2_flippage.mp3"
-    show hajun at left_bottom_offset
-    hajun "『오늘, 청소 중에 마약이 보관되어있는 곳을 봐버린 것 같다. 여기 있기도 지긋지긋한데.. 저거 가지고 나가서 돈이라도 벌어봐?』"
-    hide hajun
+    play sound2 "sfx_ch2_flippage.mp3"
+    book "『오늘, 청소 중에 마약이 보관되어있는 곳을 봐버린 것 같다.\n여기 있기도 지긋지긋한데.. 저거 가지고 나가서 돈이라도 벌어봐?』"
 
-    play sound "sfx_ch2_flippage.mp3"
-    show hajun at left_bottom_offset
-    hajun "『들고 나왔다! 그리고 하루 만에 거래도 성공했어! 벌써 수중에 이만한 돈이… 일단 숨을 만한 집을 사야겠어. 이정도 돈이면 충분해!』"
-    hide hajun
+    play sound2 "sfx_ch2_flippage.mp3"
+    book "『들고 나왔다! 그리고 하루 만에 거래도 성공했어! 벌써 수중에 \n이만한 돈이… 일단 숨을 만한 집을 사야겠어. 이정도 돈이면 충분해!』"
 
-    play sound "sfx_ch2_flippage.mp3"
-    show hajun at left_bottom_offset
-    hajun "『요즘, 거래를 하러 밖에 나가다 보면 이상한 사람들과 자주 마주치는 것 같다. 왠지 나를 쳐다보는 사람들도 있는 거 같고.. 피해망상일까? 혹시 그 사람들은 아니겠지..?』"
-    hide hajun
+    play sound2 "sfx_ch2_flippage.mp3"
+    book "『요즘, 거래를 하러 밖에 나가다 보면 이상한 사람들과 자주 마주치는 것 같다.\n왠지 나를 쳐다보는 사람들도 있는 거 같고.. 피해망상일까?\n혹시 그 사람들은 아니겠지..?』"
 
-    play sound "sfx_ch2_flippage.mp3"
-    show hajun at left_bottom_offset
-    hajun "『요즘 집에 계속 모르는 사람이 문을 두드려.. 대체 누군거야?? 혹시 여기에 있는 걸 알아차린건가? 어떡하지??』"
-    hide hajun
+    play sound2 "sfx_ch2_flippage.mp3"
+    book "『요즘 집에 계속 모르는 사람이 문을 두드려.. 대체 누군거야??\n혹시 여기에 있는 걸 알아차린건가? 어떡하지??』"
 
     show hajun_serious at left_bottom_offset
     hajun "….."

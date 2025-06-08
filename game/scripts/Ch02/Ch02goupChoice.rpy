@@ -74,6 +74,7 @@ screen choose_items():
                     spacing 10
                     for item in all_items[i:i+3]:
                         textbutton item:
+                            style "end_button"
                             action Function(toggle_selection, item)
                             selected item in selections
                             xsize 200
@@ -87,11 +88,13 @@ screen choose_items():
 
             if 2 <= len(selections) <= 3:
                 textbutton "확인":
+                    style "select_button"
                     action Function(validate_selection)
                     xsize 150
                     ysize 50
 
             textbutton "취소":
+                style "select_button"
                 action Function(selections.clear)
                 xsize 150
                 ysize 50

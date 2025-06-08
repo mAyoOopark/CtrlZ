@@ -29,6 +29,7 @@ screen 조사_종료():
         padding (10, 10)
         background "#0008"
         textbutton "조사를 마쳤다면 이 버튼을 누르세요":
+            style "end_button"
             action Jump("chapter2_3")
 
 
@@ -202,13 +203,12 @@ label studyroom_일기:
     play sound "sfx_ch2_investigation.mp3"
     show hajun at left_bottom_offset
     hajun "일기다. 아마도 이 살인사건에 관한 이야기를 적어 두지 않았을까?"
-    hide hajun
-    show hajun at left_bottom_offset
     hajun "보자…"
-    hajun "{i}'오늘은 아이스크림을 먹었다. 맛있었다. 또먹고싶다...'{/i}"
     hide hajun
-    show hajun at left_bottom_offset
-    hajun "{i}'길 가다가 귀여운 강아지를 봤다.\n한번쓰다듬어 보고 싶었지만 강아지가 도망쳤다.'{/i}"
+    play sound "sfx_ch2_flippage.mp3"
+    book "{i}'오늘은 아이스크림을 먹었다. 맛있었다. 또먹고싶다...'{/i}"
+    play sound "sfx_ch2_flippage.mp3"
+    book "{i}'길 가다가 귀여운 강아지를 봤다.\n한번쓰다듬어 보고 싶었지만 강아지가 도망쳤다.'{/i}"
     hide hajun
     show hajun at left_bottom_offset
     hajun "이게… 성인남성의 일기장..?\n사는 곳과 나이에 안맞게 굉장히 순수한 사람이였군…."
