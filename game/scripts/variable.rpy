@@ -82,6 +82,7 @@ image hajun_disgust = "hajun_disgust.png"
 image hajun_curious = Transform("hajun_curious.png", xzoom=-1.0, zoom=0.56)
 image hajun_fightingspirit = im.FactorScale("images/hajun_fightingspirit.png", 0.56)
 image hajun_hard = "hajun_hard.png"
+image hajun_aha = "hajun_aha.png"
 
 
 image jungsik = "jungsik.png"

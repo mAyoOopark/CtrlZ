@@ -119,7 +119,7 @@ label chapter4_2_a:
     hide hajun
 
     show jungsik at right_bottom_offset
-    jungsik "여기서 더 지체하면 큰일날거 같아. 이제 슬슬 나가자."
+    jungsik "여기서 더 지체하면 큰일날 거 같아. 이제 슬슬 나가자."
     hide jungsik
 
     show hajun at left_bottom_offset
@@ -275,9 +275,9 @@ label chapter4_2_1:
 label chapter4_2_run:
     scene chapter4_2_1bg with fade
     $ success = 0
-    $ wrong = 0
     $ max_attempts = 5
     $ attempt = 0
+    $ wrong = 0
 
     while attempt < max_attempts and wrong < 3:
         $ attempt += 1
@@ -310,9 +310,11 @@ label chapter4_2_run:
                 hide jungsik  # (기본 표정)
                 jump chapter4_2_2
         else:
+            $ wrong_count += 1
             $ wrong += 1
 
             if wrong == 1:
+                show chapter4_2_1bg at shake
                 show hajun_surprised at left_bottom_offset
                 hajun "형님 이 길이 아닌가봐요!"  # (다급한 표정)
                 hide hajun_surprised
@@ -320,13 +322,14 @@ label chapter4_2_run:
                 jungsik "일단 다른 길을 찾아봐!"
                 hide jungsik_angry
             elif wrong == 2:
+                show chapter4_2_1bg at shake
                 show hajun_surprised at left_bottom_offset
                 hajun "길을 잃은거 같은데요?"  # (당황한 표정)
                 hide hajun_surprised
                 show jungsik_angry at right_bottom_offset
                 jungsik "당황하지 말고 계속 찾아봐!"  # (다급한 표정)
                 hide jungsik_angry
-        if wrong >= 3:
+        if wrong_count >= 3:
             show scene black
             show cultists with flash
             cultist "잡았다 이 이단놈들!!!"  # (다급한 표정)
@@ -341,6 +344,8 @@ label chapter4_2_run:
             with fade
             narrator "그렇게 우리는 신도들에게 붙잡혀서 지하에 감금 당했다. 다시 탈출 전으로 시작."
             "다시 옳은 선택지를 고르세요."
+
+            $ wrong_count = 0
             jump chapter4_2_run  # 실패 시 재시작
     
 label chapter4_2_2:
@@ -498,6 +503,7 @@ label chapter4_2_3:
     jump chapter4_2_select
 
 label chapter4_2_select:
+    $ y_select = 0
     scene chapter4_2_3bg with fade
     pause(1.0)
     menu:
@@ -527,15 +533,49 @@ label chapter4_2_select:
             show hajun at left_bottom_offset
             hajun "네가 사는 곳을 봤어.. 그런 곳에서 사는 건 힘들지 않니?"
             hide hajun
+            $ y_select += 1
+            if y_select == 1:
+                show haram at right_bottom_offset
+                haram "경찰관님이 저에 대해서 뭘 알아요."
+                hide haram
 
-            show haram at right_bottom_offset
-            haram "...!"
-            hide haram
+                show hajun at left_bottom_offset
+                hajun "(조금 흔들린 거 같아. 설득이 되고 있을지도 모르겠어)"
+                hide hajun
+            elif y_select == 2:
+                show haram at right_bottom_offset
+                haram "저도 이러고 싶지 않았단 말이에요"
+                hide haram
 
-            show hajun at left_bottom_offset
-            hajun "(좋았어, 잘 말한 것 같아.)"
-            hide hajun
+                show hajun at left_bottom_offset
+                hajun "(목소리가 떨리고 있어. 어느정도 내 이야기가 효과가 있는 거 같아)"
+                hide hajun
+            elif y_select == 3:
+                show haram at right_bottom_offset
+                haram "많이.. 많이 힘들었어요"
+                hide haram
 
+                show hajun at left_bottom_offset
+                hajun "(자신의 속사정을 이야기 하기 시작했어. 곧 설득 될 것 같아.)"
+                hide hajun
+            elif y_select == 4:
+                show haram at right_bottom_offset
+                haram "누군가가 저를 도와줬음 좋겠어요.."
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(좋았어, 거의 다 왔어.)"
+                hide hajun
+            elif y_select == 5:
+                show haram at right_bottom_offset
+                haram "저를 도와주실 수 있을까요..?"
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(좋았어, 설득됐어.)"
+                hide hajun
+
+                jump chapter4_2_4
             jump chapter4_2_select2
         "너 거지야?":
 
@@ -590,15 +630,50 @@ label chapter4_2_select2:
             show hajun at left_bottom_offset
             hajun "힘들지 않니? 밥을 잘 챙겨먹고 있어? 어릴때는 잘 먹고 다녀야해"
             hide hajun
+            $ y_select += 1
 
-            show haram at right_bottom_offset
-            haram "...!"
-            hide haram
+            if y_select == 1:
+                show haram at right_bottom_offset
+                haram "경찰관님이 저에 대해서 뭘 알아요."
+                hide haram
 
-            show hajun at left_bottom_offset
-            hajun "(좋았어, 잘 말한 것 같아.)"
-            hide hajun
+                show hajun at left_bottom_offset
+                hajun "(조금 흔들린 거 같아. 설득이 되고 있을지도 모르겠어)"
+                hide hajun
+            elif y_select == 2:
+                show haram at right_bottom_offset
+                haram "저도 이러고 싶지 않았단 말이에요"
+                hide haram
 
+                show hajun at left_bottom_offset
+                hajun "(목소리가 떨리고 있어. 어느정도 내 이야기가 효과가 있는 거 같아)"
+                hide hajun
+            elif y_select == 3:
+                show haram at right_bottom_offset
+                haram "많이.. 많이 힘들었어요"
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(자신의 속사정을 이야기 하기 시작했어. 곧 설득 될 것 같아.)"
+                hide hajun
+            elif y_select == 4:
+                show haram at right_bottom_offset
+                haram "누군가가 저를 도와줬음 좋겠어요.."
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(좋았어, 거의 다 왔어.)"
+                hide hajun
+            elif y_select == 5:
+                show haram at right_bottom_offset
+                haram "저를 도와주실 수 있을까요..?"
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(좋았어, 설득됐어.)"
+                hide hajun
+
+                jump chapter4_2_4
             jump chapter4_2_select3
         "커피도 잘 먹고 있네, 밥도 그렇게 잘 먹니?":
             show hajun at left_bottom_offset
@@ -652,15 +727,49 @@ label chapter4_2_select3:
             hajun "네가 사는 곳을 조사해봤어, 따뜻한 물도 안나오고 시설도 부실하던데.."
             hajun "힘들지 않니?"
             hide hajun
+            $ y_select += 1
+            if y_select == 1:
+                show haram at right_bottom_offset
+                haram "경찰관님이 저에 대해서 뭘 알아요."
+                hide haram
 
-            show haram at right_bottom_offset
-            haram "...!"
-            hide haram
+                show hajun at left_bottom_offset
+                hajun "(조금 흔들린 거 같아. 설득이 되고 있을지도 모르겠어)"
+                hide hajun
+            elif y_select == 2:
+                show haram at right_bottom_offset
+                haram "저도 이러고 싶지 않았단 말이에요"
+                hide haram
 
-            show hajun at left_bottom_offset
-            hajun "(좋았어, 잘 말한 것 같아.)"
-            hide hajun
+                show hajun at left_bottom_offset
+                hajun "(목소리가 떨리고 있어. 어느정도 내 이야기가 효과가 있는 거 같아)"
+                hide hajun
+            elif y_select == 3:
+                show haram at right_bottom_offset
+                haram "많이.. 많이 힘들었어요"
+                hide haram
 
+                show hajun at left_bottom_offset
+                hajun "(자신의 속사정을 이야기 하기 시작했어. 곧 설득 될 것 같아.)"
+                hide hajun
+            elif y_select == 4:
+                show haram at right_bottom_offset
+                haram "누군가가 저를 도와줬음 좋겠어요.."
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(좋았어, 거의 다 왔어.)"
+                hide hajun
+            elif y_select == 5:
+                show haram at right_bottom_offset
+                haram "저를 도와주실 수 있을까요..?"
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(좋았어, 설득됐어.)"
+                hide hajun
+
+                jump chapter4_2_4
             jump chapter4_2_select4
         "집에서 물도 안나와? 대체 어디서 지내는거야?":
             show hajun at left_bottom_offset
@@ -715,15 +824,49 @@ label chapter4_2_select4:
             hajun "넌 웃고있지만, 속으로는 힘들어보여."
             hajun "힘들지만 항상 웃으면서 전도하는 모습이 별로 좋아보이지 않아. 괜찮은 것 맞지?"
             hide hajun
+            $ y_select += 1
+            if y_select == 1:
+                show haram at right_bottom_offset
+                haram "경찰관님이 저에 대해서 뭘 알아요."
+                hide haram
 
-            show haram at right_bottom_offset
-            haram "...!"
-            hide haram
+                show hajun at left_bottom_offset
+                hajun "(조금 흔들린 거 같아. 설득이 되고 있을지도 모르겠어)"
+                hide hajun
+            elif y_select == 2:
+                show haram at right_bottom_offset
+                haram "저도 이러고 싶지 않았단 말이에요"
+                hide haram
 
-            show hajun at left_bottom_offset
-            hajun "(좋았어, 잘 말한 것 같아.)"
-            hide hajun
+                show hajun at left_bottom_offset
+                hajun "(목소리가 떨리고 있어. 어느정도 내 이야기가 효과가 있는 거 같아)"
+                hide hajun
+            elif y_select == 3:
+                show haram at right_bottom_offset
+                haram "많이.. 많이 힘들었어요"
+                hide haram
 
+                show hajun at left_bottom_offset
+                hajun "(자신의 속사정을 이야기 하기 시작했어. 곧 설득 될 것 같아.)"
+                hide hajun
+            elif y_select == 4:
+                show haram at right_bottom_offset
+                haram "누군가가 저를 도와줬음 좋겠어요.."
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(좋았어, 거의 다 왔어.)"
+                hide hajun
+            elif y_select == 5:
+                show haram at right_bottom_offset
+                haram "저를 도와주실 수 있을까요..?"
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(좋았어, 설득됐어.)"
+                hide hajun
+
+                jump chapter4_2_4
             jump chapter4_2_select5
         "힘들다면 힘들다고 말해.":
             show hajun at left_bottom_offset
@@ -772,21 +915,56 @@ label chapter4_2_select5:
                 "라이프가 모두 소진되었습니다."
                 "다시 선택지로 이동합니다."
                 jump chapter4_2_select
-            jump chapter4_2_4
+            jump chapter4_2_select6
         "네 또래 애들은 공부하면서 뛰어 놀 때, 이러고 있으면 속상하지 않니?":
             show hajun at left_bottom_offset
             hajun "네 또래 애들은 공부하면서 뛰어 놀 때, 이러고 있으면 속상하지 않니?"
             hide hajun
 
-            show haram at right_bottom_offset
-            haram "...!"
-            hide haram
+            $ y_select += 1
+            if y_select == 1:
+                show haram at right_bottom_offset
+                haram "경찰관님이 저에 대해서 뭘 알아요."
+                hide haram
 
-            show hajun at left_bottom_offset
-            hajun "(좋았어, 잘 말한 것 같아.)"
-            hide hajun
+                show hajun at left_bottom_offset
+                hajun "(조금 흔들린 거 같아. 설득이 되고 있을지도 모르겠어)"
+                hide hajun
+            elif y_select == 2:
+                show haram at right_bottom_offset
+                haram "저도 이러고 싶지 않았단 말이에요"
+                hide haram
 
-            jump chapter4_2_4
+                show hajun at left_bottom_offset
+                hajun "(목소리가 떨리고 있어. 어느정도 내 이야기가 효과가 있는 거 같아)"
+                hide hajun
+            elif y_select == 3:
+                show haram at right_bottom_offset
+                haram "많이.. 많이 힘들었어요"
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(자신의 속사정을 이야기 하기 시작했어. 곧 설득 될 것 같아.)"
+                hide hajun
+            elif y_select == 4:
+                show haram at right_bottom_offset
+                haram "누군가가 저를 도와줬음 좋겠어요.."
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(좋았어, 거의 다 왔어.)"
+                hide hajun
+            elif y_select == 5:
+                show haram at right_bottom_offset
+                haram "저를 도와주실 수 있을까요..?"
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(좋았어, 설득됐어.)"
+                hide hajun
+
+                jump chapter4_2_4
+            jump chapter4_2_select6
         "네 또래 아이들은 지금 다들 미래를 생각하고 있는데 여기서 뭐하는거니?":
             show hajun at left_bottom_offset
             hajun "네 또래 아이들은 지금 다들 미래를 생각하고 있는데 여기서 뭐하는거니?"
@@ -812,7 +990,295 @@ label chapter4_2_select5:
                 "라이프가 모두 소진되었습니다."
                 "다시 선택지로 이동합니다."
                 jump chapter4_2_select
+            jump chapter4_2_select6
+label chapter4_2_select6:
+    pause(1.0)
+    menu:
+        "여기서 이런거 하는건 부모님은 아시니?":
+            show hajun at left_bottom_offset
+            hajun "여기서 이런 거 하는건 부모님은 아시니?"
+            hide hajun
+
+            show haram at right_bottom_offset
+            haram "..."
+            hide haram
+
+            show hajun at left_bottom_offset
+            hajun "(아차, 내가 잘못 말했나?)"
+            hide hajun
+            show chapter4_2_3bg at shake
+            $ wrong_count += 1
+            
+            if wrong_count >= 3:
+                scene black with fade
+                $ wrong_count = 0
+                "라이프가 모두 소진되었습니다."
+                "다시 선택지로 이동합니다."
+                jump chapter4_2_select
+            jump chapter4_2_select7
+        "여기서 이러고 있으면 너를 챙겨주는 사람이 많이 힘들지 않을까..?":
+            show hajun_serious at left_bottom_offset
+            hajun "여기서 이러고 있으면 너를 챙겨주는 사람이 많이 힘들지 않을까..?"
+            hide hajun_serious
+
+            $ y_select += 1
+            if y_select == 1:
+                show haram at right_bottom_offset
+                haram "경찰관님이 저에 대해서 뭘 알아요."
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(조금 흔들린 거 같아. 설득이 되고 있을지도 모르겠어)"
+                hide hajun
+            elif y_select == 2:
+                show haram at right_bottom_offset
+                haram "저도 이러고 싶지 않았단 말이에요"
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(목소리가 떨리고 있어. 어느정도 내 이야기가 효과가 있는 거 같아)"
+                hide hajun
+            elif y_select == 3:
+                show haram at right_bottom_offset
+                haram "많이.. 많이 힘들었어요"
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(자신의 속사정을 이야기 하기 시작했어. 곧 설득 될 것 같아.)"
+                hide hajun
+            elif y_select == 4:
+                show haram at right_bottom_offset
+                haram "누군가가 저를 도와줬음 좋겠어요.."
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(좋았어, 거의 다 왔어.)"
+                hide hajun
+            elif y_select == 5:
+                show haram at right_bottom_offset
+                haram "저를 도와주실 수 있을까요..?"
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(좋았어, 설득됐어.)"
+                hide hajun
+
+                jump chapter4_2_4
+            jump chapter4_2_select7
+        "어린 아이가 지금 성장 해야하는 시기에 이게 뭐니?":
+            show hajun_angry at left_bottom_offset
+            hajun "어린 아이가 지금 성장 해야하는 시기에 이게 뭐니?"
+            hide hajun_angry
+            
+            show haram at right_bottom_offset
+            haram "..."
+            hide haram
+
+            show hajun at left_bottom_offset
+            hajun "(아차, 내가 잘못 말했나?)"
+            hide hajun
+            show chapter4_2_3bg at shake
+            $ wrong_count += 1
+            
+            if wrong_count >= 3:
+                scene black with fade
+                $ wrong_count = 0
+                "라이프가 모두 소진되었습니다."
+                "다시 선택지로 이동합니다."
+                jump chapter4_2_select
+            jump chapter4_2_select7
+label chapter4_2_select7:
+    pause(1.0)
+    menu:
+        "네 오빠가 지금 너를 위해서 노력하는데 너는 왜 공부를 안하고 있니?":
+            show hajun_frown at left_bottom_offset
+            hajun "네 오빠가 지금 너를 위해서 노력하는데 너는 왜 공부를 안하고 있니?"
+            hide hajun_frown
+
+            show haram at right_bottom_offset
+            haram "..."
+            hide haram
+
+            show hajun at left_bottom_offset
+            hajun "(아차, 내가 잘못 말했나?)"
+            hide hajun
+            show chapter4_2_3bg at shake
+            $ wrong_count += 1
+            
+            if wrong_count >= 3:
+                scene black with fade
+                $ wrong_count = 0
+                "라이프가 모두 소진되었습니다."
+                "다시 선택지로 이동합니다."
+                jump chapter4_2_select
+            jump chapter4_2_select8
+        "네 오빠도 지금 많이 힘들거야. 경찰 아저씨들이 도와줄게, 같이갈래?":
+            show hajun_aha at left_bottom_offset
+            hajun "네 오빠도 지금 많이 힘들거야. 경찰 아저씨들이 도와줄게, 같이갈래?"
+            hide hajun_aha
+
+            $ y_select += 1
+            if y_select == 1:
+                show haram at right_bottom_offset
+                haram "경찰관님이 저에 대해서 뭘 알아요."
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(조금 흔들린 거 같아. 설득이 되고 있을지도 모르겠어)"
+                hide hajun
+            elif y_select == 2:
+                show haram at right_bottom_offset
+                haram "저도 이러고 싶지 않았단 말이에요"
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(목소리가 떨리고 있어. 어느정도 내 이야기가 효과가 있는 거 같아)"
+                hide hajun
+            elif y_select == 3:
+                show haram at right_bottom_offset
+                haram "많이.. 많이 힘들었어요"
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(자신의 속사정을 이야기 하기 시작했어. 곧 설득 될 것 같아.)"
+                hide hajun
+            elif y_select == 4:
+                show haram at right_bottom_offset
+                haram "누군가가 저를 도와줬음 좋겠어요.."
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(좋았어, 거의 다 왔어.)"
+                hide hajun
+            elif y_select == 5:
+                show haram at right_bottom_offset
+                haram "저를 도와주실 수 있을까요..?"
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(좋았어, 설득됐어.)"
+                hide hajun
+
+                jump chapter4_2_4
+            jump chapter4_2_select8
+        "여기서 이러지 말고 경찰서에 가서 모든 얘기를 좀 듣자":
+            show hajun_frown at left_bottom_offset
+            hajun "여기서 이러지 말고 경찰서에 가서 모든 얘기를 좀 듣자"
+            hide hajun_frown
+            show haram at right_bottom_offset
+            haram "..."
+            hide haram
+
+            show hajun at left_bottom_offset
+            hajun "(아차, 내가 잘못 말했나?)"
+            hide hajun
+            show chapter4_2_3bg at shake
+            $ wrong_count += 1
+            
+            if wrong_count >= 3:
+                scene black with fade
+                $ wrong_count = 0
+                "라이프가 모두 소진되었습니다."
+                "다시 선택지로 이동합니다."
+                jump chapter4_2_select
+            jump chapter4_2_select8
+label chapter4_2_select8:
+    pause(1.0)
+    menu:
+        "그러게 왜 모르는 사람을 따라가?":
+            show hajun at left_bottom_offset
+            hajun "그러게 왜 모르는 사람을 따라가?"
+            hide hajun
+
+            show haram at right_bottom_offset
+            haram "..."
+            hide haram
+
+            show hajun at left_bottom_offset
+            hajun "(아차, 내가 잘못 말했나?)"
+            hide hajun
+            show chapter4_2_3bg at shake
+            $ wrong_count += 1
+            
+            if wrong_count >= 3:
+                scene black with fade
+                $ wrong_count = 0
+                "라이프가 모두 소진되었습니다."
+                "다시 선택지로 이동합니다."
+                jump chapter4_2_select
             jump chapter4_2_4
+        "많이 힘든 시기에 그래도 잘 버텨줬구나. 이제는 아저씨들이 해줄게. 걱정하지마":
+            show hajun at left_bottom_offset
+            hajun "많이 힘든 시기에 그래도 잘 버텨줬구나. 이제는 아저씨들이 해줄게. 걱정하지마"
+            hide hajun
+
+            $ y_select += 1
+            if y_select == 1:
+                show haram at right_bottom_offset
+                haram "경찰관님이 저에 대해서 뭘 알아요."
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(조금 흔들린 거 같아. 설득이 되고 있을지도 모르겠어)"
+                hide hajun
+            elif y_select == 2:
+                show haram at right_bottom_offset
+                haram "저도 이러고 싶지 않았단 말이에요"
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(목소리가 떨리고 있어. 어느정도 내 이야기가 효과가 있는 거 같아)"
+                hide hajun
+            elif y_select == 3:
+                show haram at right_bottom_offset
+                haram "많이.. 많이 힘들었어요"
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(자신의 속사정을 이야기 하기 시작했어. 곧 설득 될 것 같아.)"
+                hide hajun
+            elif y_select == 4:
+                show haram at right_bottom_offset
+                haram "누군가가 저를 도와줬음 좋겠어요.."
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(좋았어, 거의 다 왔어.)"
+                hide hajun
+            elif y_select == 5:
+                show haram at right_bottom_offset
+                haram "저를 도와주실 수 있을까요..?"
+                hide haram
+
+                show hajun at left_bottom_offset
+                hajun "(좋았어, 설득됐어.)"
+                hide hajun
+
+                jump chapter4_2_4
+            jump chapter4_2_4
+        "빨리 말 안할거야?":
+            show hajun_angry at left_bottom_offset
+            hajun "빨리 말 안할거야?"
+            hide hajun_angry
+            show haram at right_bottom_offset
+            haram "..."
+            hide haram
+
+            show hajun at left_bottom_offset
+            hajun "(아차, 내가 잘못 말했나?)"
+            hide hajun
+            show chapter4_2_3bg at shake
+            $ wrong_count += 1
+            
+            if wrong_count >= 3:
+                scene black with fade
+                $ wrong_count = 0
+                "라이프가 모두 소진되었습니다."
+                "다시 선택지로 이동합니다."
+                jump chapter4_2_select
+            jump chapter4_2_4
+    
+
             
 
 label chapter4_2_4:

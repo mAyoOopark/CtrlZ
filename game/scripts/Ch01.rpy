@@ -297,11 +297,13 @@ label chapter1_4_1_1:
             jump chapter1_4_1_2
 
 label chapter1_4_1_2:
+    $ right_door_check = 0
     scene chapter1_4_1_2bg with fade
     "2가지의 문이 나왔다."
     jump chapter1_4_1_2_1
 
 label chapter1_4_1_2_1:
+    
     menu:
         "왼쪽 문":
             play sound "sfx_ch1_open_door.mp3"
@@ -316,11 +318,18 @@ label chapter1_4_1_2_1:
             call check_fail from _call_check_fail
             play sound "sfx_ch1_open_door.mp3"
             pause(0.2)
+            if right_door_check >= 1:
+                show hajun at left_bottom_offset
+                hajun "이곳은 이미 확인했다. 왼쪽 문을 확인해보자."
+                hide hajun
+                
+                jump chapter1_4_1_2_1
             $ wrong_count += 1
             show chapter1_4_1_2 at shake
             play sound "sfx_life_minus.mp3"
             play voice "sfx_punch.mp3"
             "잘못된 선택으로 라이프가 1 감소했다."
+            $ right_door_check += 1
             $ life += 3
             call check_fail from _call_check_fail_1
             jump chapter1_4_1_2_1
