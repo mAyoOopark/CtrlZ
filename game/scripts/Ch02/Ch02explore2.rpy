@@ -123,6 +123,7 @@ label chapter2_5_explore_villa_room:
     jump chpater2_5
 
 label villa_livingroom_칼:
+    play sound "sfx_ch2_investigation.mp3" volume 0.5 
     show hajun_serious at left_bottom_offset
     hajun "이건 분명히 살인 범행 도구겠지."
     hide hajun_serious
@@ -140,6 +141,7 @@ label villa_livingroom_칼:
 
 
 label villa_livingroom_시신:
+    play sound "sfx_ch2_investigation.mp3" volume 0.5 
     show hajun_serious at left_bottom_offset
     hajun "피해자의 시신이야. 정말 끔찍하군…"
     hide hajun_serious
@@ -165,6 +167,7 @@ label villa_livingroom_시신:
 
 
 label villa_livingroom_머리카락:
+    play sound "sfx_ch2_investigation.mp3" volume 0.5 
     show hajun at left_bottom_offset
     hajun "시신 밑에 뭔가 떨어져 있어..."
     hide hajun
@@ -186,6 +189,7 @@ label villa_livingroom_머리카락:
 
 
 label villa_livingroom_피글자:
+    play sound "sfx_ch2_investigation.mp3" volume 0.5 
     show hajun_serious at left_bottom_offset
     hajun "뭐야, 이게..."
     extend "{i}'주께선 너를 아셨으나, 네가 주를 부인하였도다.'{\i}?"
@@ -211,6 +215,7 @@ label villa_livingroom_피글자:
     jump chapter2_5_explore_villa_livingroom
 
 label villa_room_주사기:
+    play sound "sfx_ch2_investigation.mp3" volume 0.5 
     show hajun_curious at left_bottom_offset
     hajun "웬 주사기? 그것도 이렇게나 많이..."
     hide hajun_curious
@@ -223,8 +228,7 @@ label villa_room_주사기:
     hajun "아니야 혹시 몰라.  "
     extend "피해자의 지병 때문에 처방받은 약일지 몰라.\n인슐린처럼 말이지."
     extend "일단 섣불리 생각하진 말자."
-    hide hajun_serious
-
+    hide hajun_seriousR
     show hajun_serious at left_bottom_offset
     hajun "이것도 성분 조사를 요청해야겠어."
     hide hajun_serious
@@ -234,6 +238,7 @@ label villa_room_주사기:
 
 
 label villa_room_핸드폰:
+    play sound "sfx_ch2_investigation.mp3" volume 0.5 
     show hajun at left_bottom_offset
     hajun "핸드폰이네. 아마도 피해자의 핸드폰인 거 같아."
     hide hajun
@@ -243,7 +248,7 @@ label villa_room_핸드폰:
     hide hajun
 
     show hajun at left_bottom_offset
-    hajun "잠시만… 모두 뭔가를 구매 요청을 하기 위한 문자야."
+    hajun "잠시만… 모두 뭔가를 {color=#803232}구매 요청{/color} 하기 위한 문자야."
     hide hajun
 
     show hajun_serious at left_bottom_offset
@@ -259,6 +264,7 @@ label villa_room_핸드폰:
 
 
 label villa_room_일기:
+    play sound "sfx_ch2_investigation.mp3" volume 0.5 
     show hajun at left_bottom_offset
     hajun "이거는.. 일기잖아? 피해자의 이름이 적혀있는 걸 봐선 피해자의 것으로 보여."
     hide hajun
@@ -267,18 +273,22 @@ label villa_room_일기:
     hajun "이 사건과 관련이 있을지도 몰라. 일단 한번 살펴볼까?"
     hide hajun
 
+    play sound "sfx_ch2_flippage.mp3"
     show hajun at left_bottom_offset
     hajun "『오늘, 청소 중에 마약이 보관되어있는 곳을 봐버린 것 같다. 여기 있기도 지긋지긋한데.. 저거 가지고 나가서 돈이라도 벌어봐?』"
     hide hajun
 
+    play sound "sfx_ch2_flippage.mp3"
     show hajun at left_bottom_offset
     hajun "『들고 나왔다! 그리고 하루 만에 거래도 성공했어! 벌써 수중에 이만한 돈이… 일단 숨을 만한 집을 사야겠어. 이정도 돈이면 충분해!』"
     hide hajun
 
+    play sound "sfx_ch2_flippage.mp3"
     show hajun at left_bottom_offset
     hajun "『요즘, 거래를 하러 밖에 나가다 보면 이상한 사람들과 자주 마주치는 것 같다. 왠지 나를 쳐다보는 사람들도 있는 거 같고.. 피해망상일까? 혹시 그 사람들은 아니겠지..?』"
     hide hajun
 
+    play sound "sfx_ch2_flippage.mp3"
     show hajun at left_bottom_offset
     hajun "『요즘 집에 계속 모르는 사람이 문을 두드려.. 대체 누군거야?? 혹시 여기에 있는 걸 알아차린건가? 어떡하지??』"
     hide hajun
@@ -302,6 +312,8 @@ label villa_room_일기:
 
 
 label villa_room_교리서적:
+    play sound "sfx_ch2_investigation.mp3" volume 0.5 
+    play sound "sfx_ch2_flippage.mp3"
     show hajun at left_bottom_offset
     hajun "이건…잠시만…"
     hide hajun
