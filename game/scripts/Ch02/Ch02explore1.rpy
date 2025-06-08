@@ -109,6 +109,7 @@ label chapter2_3_explore_studyroom:
 
 
 label livingroom_시신:
+    play sound "sfx_ch2_investigation.mp3"
     show hajun at left_bottom_offset onlayer master
     hajun "죽은지 며칠 된듯해. 부패상태를 봐서는 3~4일은 된거 같군. \n사인은 수많은 자상때문에 생긴 과다출혈로 인한 쇼크사로 추측 해볼 수 있어."
     hide hajun
@@ -135,6 +136,7 @@ label livingroom_시신:
 
 
 label livingroom_TV:
+    play sound "sfx_ch2_investigation.mp3"
     show hajun at left_bottom_offset
     hajun "집도 크더니, TV도 되게 크네."
     hide hajun
@@ -152,6 +154,7 @@ label livingroom_TV:
 
 
 label livingroom_창문:
+    play sound "sfx_ch2_investigation.mp3"
     show hajun at left_bottom_offset
     hajun "창문이다. 되게 큰 통유리야."
     hide hajun
@@ -166,6 +169,7 @@ label livingroom_창문:
 
 
 label studyroom_책:
+    play sound "sfx_ch2_investigation.mp3"
     show hajun at left_bottom_offset
     hajun "책이다. 가죽으로 재단되있는 것 같군. 아무래도 성경인거같아."
     hide hajun
@@ -195,6 +199,7 @@ label studyroom_책:
 
 
 label studyroom_일기:
+    play sound "sfx_ch2_investigation.mp3"
     show hajun at left_bottom_offset
     hajun "일기다. 아마도 이 살인사건에 관한 이야기를 적어 두지 않았을까?"
     hide hajun
@@ -213,6 +218,7 @@ label studyroom_일기:
 
 
 label studyroom_침대:
+    play sound "sfx_ch2_investigation.mp3" 
     show hajun at left_bottom_offset
     hajun "침대다. 푹신해 보이네."
     hajun "아마도 피해자는 자신이 죽을 날이 다가올지도 모른채 여기서 자고 일어났겠지.."

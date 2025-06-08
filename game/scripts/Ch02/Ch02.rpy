@@ -97,7 +97,7 @@ label chapter2_1:
     
     scene black with fade
     play sound "sfx_ch2_car_ignition.ogg"
-    $ renpy.pause()
+    pause (2.0)
     jump chapter2_2
 
 label chapter2_2:
@@ -117,15 +117,16 @@ label chapter2_2:
     hajun "형님, 여기 대문이 열려있어요! 대체 무슨일이!!"
     hide hajun_surprised
 
+    play sound "sfx_ch2_hajun_run.mp3"
     "나는 살인사건임을 짐작하고 대문을 박차고 들어갔다."
-
     show jungsik_panic at right_bottom_offset
     jungsik "야! 또 혼자 들어가면 어떡해!!"
+    play sound "sfx_ch2_jungsik_walk.mp3" volume 2.0
     # (탁 탁 탁 사람 뛰는 사운드와 함께 화면 페이드 아웃)
     hide jungsik_panic
 
     scene chapter2_3_1bg with fade  # 배경 실내로 전환 (페이드 인)
-
+    play audio "amb_room.mp3" loop
     show hajun_surprised at left_bottom_offset
     hajun "이…이게 무슨.."
     hide hajun_surprised
@@ -151,6 +152,7 @@ label chapter2_3:
     if not visited_livingroom and not visited_studyroom:
         "지금부터 당신은 살인사건 현장을 수색하게 됩니다."
         "당신은 모든 증거들을 탐색할 필요는 없습니다."
+        "당신은 탐색을 마친 후 『탐색 종료』 버튼을 눌러 조사를 마칠 수 있습니다."
     "어디를 탐색하시겠습니까?"
     menu:
         "거실":
@@ -176,6 +178,7 @@ label chapter2_4:
     show jungsik at right_bottom_offset
     jungsik "그래. 돌아가자. 더 이상 우리가 할 수 있는 일은 없는 듯 하네."
     hide jungsik
+    stop music fadeout 2.0
 
     scene chapter2_1bg with fade
     "그렇게 며칠이 지난 후, 우리는 또 다시 살인사건이 벌어진 곳으로\n찾아가게 됐다."
@@ -205,7 +208,7 @@ label chapter2_4:
     hide hajun_surprised
 
     show jungsik_serious at right_bottom_offset
-    jungsik "게다가, 그때 주택에서 발견된 시신이랑 비슷한 방법으로 죽은거 같아.\n한번 찾아가 보자."
+    jungsik "게다가, 그때 주택에서 발견된 시신이랑 비슷한 방법으로 \n죽은거 같아. 한번 찾아가 보자."
     hide jungsik_serious
 
     show hajun_serious at left_bottom_offset
@@ -213,7 +216,7 @@ label chapter2_4:
     hide hajun_serious
 
     scene chapter2_4bg with fade
-
+    play audio "amb_strongwind.mp3" fadein 0.5 volume 0.8   
     show jungsik_serious at right_bottom_offset
     jungsik "여기다. 동네가 매우 낡아 보이네."
     hide jungsik_serious
@@ -231,10 +234,12 @@ label chapter2_4:
     hide hajun
     scene chapter2_5_1bg with fade
 
+    $ renpy.music.set_volume(0.0, channel='audio')
     show police_1 at center
     police_1 "충성! 오셨습니까!"
     hide police_1
 
+    play music "bgm_ch2_investigation.mp3"
     show jungsik at right_bottom_offset
     jungsik "그래, 상황은?"
     hide jungsik
@@ -249,7 +254,6 @@ label chapter2_4:
     hajun "대체.. 무슨 일이 벌어지고 있는거지..?"
     hajun "그럼… 조사를 시작해보자."
     hide hajun_serious
-
     jump chapter2_5
 
 label chapter2_5:
@@ -265,7 +269,8 @@ label chapter2_6:
     
     show hajun at left_bottom_offset
     hajun "지금까지 너무 많은 걸 알아버린것 같아."
-    hajun "한번 정리라도 해볼까?"
+    hajun "모은 단서들을 토대로\n"
+    extend "한번 정리라도 해볼까?"
     hide hajun
 
     jump chapter2_6_group_choice
@@ -286,6 +291,7 @@ label chapter2_7:
     hide hajun_aha
 
     scene chapter2_1bg with fade
+    play sound "sfx_ch2_cctv.mp3"
     pause(1.0)
 
     show jungsik_sigh at right_bottom_offset
@@ -323,5 +329,7 @@ label chapter2_7:
     jungsik "그래.. 우리도 들어가서 쉬자.."
     hide jungsik_sigh
 
+    stop music
+    stop audio
     scene black with fade
     jump chapter3
