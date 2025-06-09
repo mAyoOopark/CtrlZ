@@ -61,7 +61,7 @@ label chapter3choice:
 
             show jungsik_consider at right_bottom_offset
             jungsik "혹시나 하는 생각인데"
-            jungsik "어린 아이들이 저지른 일이 아닐까 생각이 든다."
+            jungsik "{i}{color=#803232}{size=30}어린 아이들{/size}{/color}{/i}이 저지른 일이 아닐까 생각이 든다."
             hide jungsik
 
             show hajun_puzzled at left_bottom_offset

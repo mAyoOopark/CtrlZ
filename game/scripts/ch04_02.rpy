@@ -700,28 +700,6 @@ label chapter4_2_select2:
 label chapter4_2_select3:
     pause(1.0)
     menu:
-        "잘 씻고 다녀라, 냄새나니까":
-            show hajun at left_bottom_offset
-            hajun "잘 씻고 다녀라, 냄새나니까"
-            hide hajun
-
-            show haram at right_bottom_offset
-            haram "..."
-            hide haram
-
-            show hajun at left_bottom_offset
-            hajun "(아차, 내가 잘못 말했나?)"
-            hide hajun
-            show chapter4_2_3bg at shake
-            $ wrong_count += 1
-            
-            if wrong_count >= 3:
-                scene black with fade
-                $ wrong_count = 0
-                "라이프가 모두 소진되었습니다."
-                "다시 선택지로 이동합니다."
-                jump chapter4_2_select
-            jump chapter4_2_select4
         "네가 사는 곳을 조사해봤어, 따뜻한 물도 안나오고 시설도 부실하던데.. 힘들지 않니?":
             show hajun at left_bottom_offset
             hajun "네가 사는 곳을 조사해봤어, 따뜻한 물도 안나오고 시설도 부실하던데.."
@@ -771,6 +749,29 @@ label chapter4_2_select3:
 
                 jump chapter4_2_4
             jump chapter4_2_select4
+        "잘 씻고 다녀라, 냄새나니까":
+            show hajun at left_bottom_offset
+            hajun "잘 씻고 다녀라, 냄새나니까"
+            hide hajun
+
+            show haram at right_bottom_offset
+            haram "..."
+            hide haram
+
+            show hajun at left_bottom_offset
+            hajun "(아차, 내가 잘못 말했나?)"
+            hide hajun
+            show chapter4_2_3bg at shake
+            $ wrong_count += 1
+            
+            if wrong_count >= 3:
+                scene black with fade
+                $ wrong_count = 0
+                "라이프가 모두 소진되었습니다."
+                "다시 선택지로 이동합니다."
+                jump chapter4_2_select
+            jump chapter4_2_select4
+        
         "집에서 물도 안나와? 대체 어디서 지내는거야?":
             show hajun at left_bottom_offset
             hajun "집에서 물도 안나와? 대체 어디서 지내는거야?"
@@ -801,6 +802,28 @@ label chapter4_2_select4:
             show hajun_smile at left_bottom_offset
             hajun "항상 웃고 다니는 것 보니 보기는 좋네"
             hide hajun_smile
+
+            show haram at right_bottom_offset
+            haram "..."
+            hide haram
+
+            show hajun at left_bottom_offset
+            hajun "(아차, 내가 잘못 말했나?)"
+            hide hajun
+            show chapter4_2_3bg at shake
+            $ wrong_count += 1
+            
+            if wrong_count >= 3:
+                scene black with fade
+                $ wrong_count = 0
+                "라이프가 모두 소진되었습니다."
+                "다시 선택지로 이동합니다."
+                jump chapter4_2_select
+            jump chapter4_2_select5
+        "힘들다면 힘들다고 말해.":
+            show hajun at left_bottom_offset
+            hajun "힘들다면 힘들다고 말해"
+            hide hajun
 
             show haram at right_bottom_offset
             haram "..."
@@ -868,54 +891,10 @@ label chapter4_2_select4:
 
                 jump chapter4_2_4
             jump chapter4_2_select5
-        "힘들다면 힘들다고 말해.":
-            show hajun at left_bottom_offset
-            hajun "힘들다면 힘들다고 말해"
-            hide hajun
-
-            show haram at right_bottom_offset
-            haram "..."
-            hide haram
-
-            show hajun at left_bottom_offset
-            hajun "(아차, 내가 잘못 말했나?)"
-            hide hajun
-            show chapter4_2_3bg at shake
-            $ wrong_count += 1
-            
-            if wrong_count >= 3:
-                scene black with fade
-                $ wrong_count = 0
-                "라이프가 모두 소진되었습니다."
-                "다시 선택지로 이동합니다."
-                jump chapter4_2_select
-            jump chapter4_2_select5
 
 label chapter4_2_select5:
     pause(1.0)
     menu:
-        "네 또래 애들과 맞게 행동해. 이게 뭐하는 짓이야.":
-            show hajun at left_bottom_offset
-            hajun "네 또래 애들과 맞게 행동해. 이게 뭐하는 짓이야"
-            hide hajun
-
-            show haram at right_bottom_offset
-            haram "..."
-            hide haram
-
-            show hajun at left_bottom_offset
-            hajun "(아차, 내가 잘못 말했나?)"
-            hide hajun
-            show chapter4_2_3bg at shake
-            $ wrong_count += 1
-            
-            if wrong_count >= 3:
-                scene black with fade
-                $ wrong_count = 0
-                "라이프가 모두 소진되었습니다."
-                "다시 선택지로 이동합니다."
-                jump chapter4_2_select
-            jump chapter4_2_select6
         "네 또래 애들은 공부하면서 뛰어 놀 때, 이러고 있으면 속상하지 않니?":
             show hajun at left_bottom_offset
             hajun "네 또래 애들은 공부하면서 뛰어 놀 때, 이러고 있으면 속상하지 않니?"
@@ -964,6 +943,28 @@ label chapter4_2_select5:
                 hide hajun
 
                 jump chapter4_2_4
+            jump chapter4_2_select6
+        "네 또래 애들과 맞게 행동해. 이게 뭐하는 짓이야.":
+            show hajun at left_bottom_offset
+            hajun "네 또래 애들과 맞게 행동해. 이게 뭐하는 짓이야"
+            hide hajun
+
+            show haram at right_bottom_offset
+            haram "..."
+            hide haram
+
+            show hajun at left_bottom_offset
+            hajun "(아차, 내가 잘못 말했나?)"
+            hide hajun
+            show chapter4_2_3bg at shake
+            $ wrong_count += 1
+            
+            if wrong_count >= 3:
+                scene black with fade
+                $ wrong_count = 0
+                "라이프가 모두 소진되었습니다."
+                "다시 선택지로 이동합니다."
+                jump chapter4_2_select
             jump chapter4_2_select6
         "네 또래 아이들은 지금 다들 미래를 생각하고 있는데 여기서 뭐하는거니?":
             show hajun at left_bottom_offset
@@ -1112,6 +1113,28 @@ label chapter4_2_select7:
                 "다시 선택지로 이동합니다."
                 jump chapter4_2_select
             jump chapter4_2_select8
+        
+        "여기서 이러지 말고 경찰서에 가서 모든 얘기를 좀 듣자":
+            show hajun_frown at left_bottom_offset
+            hajun "여기서 이러지 말고 경찰서에 가서 모든 얘기를 좀 듣자"
+            hide hajun_frown
+            show haram at right_bottom_offset
+            haram "..."
+            hide haram
+
+            show hajun at left_bottom_offset
+            hajun "(아차, 내가 잘못 말했나?)"
+            hide hajun
+            show chapter4_2_3bg at shake
+            $ wrong_count += 1
+            
+            if wrong_count >= 3:
+                scene black with fade
+                $ wrong_count = 0
+                "라이프가 모두 소진되었습니다."
+                "다시 선택지로 이동합니다."
+                jump chapter4_2_select
+            jump chapter4_2_select8
         "네 오빠도 지금 많이 힘들거야. 경찰 아저씨들이 도와줄게, 같이갈래?":
             show hajun_aha at left_bottom_offset
             hajun "네 오빠도 지금 많이 힘들거야. 경찰 아저씨들이 도와줄게, 같이갈래?"
@@ -1161,10 +1184,14 @@ label chapter4_2_select7:
 
                 jump chapter4_2_4
             jump chapter4_2_select8
-        "여기서 이러지 말고 경찰서에 가서 모든 얘기를 좀 듣자":
-            show hajun_frown at left_bottom_offset
-            hajun "여기서 이러지 말고 경찰서에 가서 모든 얘기를 좀 듣자"
-            hide hajun_frown
+label chapter4_2_select8:
+    pause(1.0)
+    menu:
+        "그러게 왜 모르는 사람을 따라가?":
+            show hajun at left_bottom_offset
+            hajun "그러게 왜 모르는 사람을 따라가?"
+            hide hajun
+
             show haram at right_bottom_offset
             haram "..."
             hide haram
@@ -1181,15 +1208,12 @@ label chapter4_2_select7:
                 "라이프가 모두 소진되었습니다."
                 "다시 선택지로 이동합니다."
                 jump chapter4_2_select
-            jump chapter4_2_select8
-label chapter4_2_select8:
-    pause(1.0)
-    menu:
-        "그러게 왜 모르는 사람을 따라가?":
-            show hajun at left_bottom_offset
-            hajun "그러게 왜 모르는 사람을 따라가?"
-            hide hajun
-
+            jump chapter4_2_4
+        
+        "빨리 말 안할거야?":
+            show hajun_angry at left_bottom_offset
+            hajun "빨리 말 안할거야?"
+            hide hajun_angry
             show haram at right_bottom_offset
             haram "..."
             hide haram
@@ -1255,27 +1279,6 @@ label chapter4_2_select8:
                 hide hajun
 
                 jump chapter4_2_4
-            jump chapter4_2_4
-        "빨리 말 안할거야?":
-            show hajun_angry at left_bottom_offset
-            hajun "빨리 말 안할거야?"
-            hide hajun_angry
-            show haram at right_bottom_offset
-            haram "..."
-            hide haram
-
-            show hajun at left_bottom_offset
-            hajun "(아차, 내가 잘못 말했나?)"
-            hide hajun
-            show chapter4_2_3bg at shake
-            $ wrong_count += 1
-            
-            if wrong_count >= 3:
-                scene black with fade
-                $ wrong_count = 0
-                "라이프가 모두 소진되었습니다."
-                "다시 선택지로 이동합니다."
-                jump chapter4_2_select
             jump chapter4_2_4
     
 

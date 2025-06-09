@@ -67,7 +67,5 @@ label chapter5_2:
 
     pause(1.0)
 
-    $ renpy.quit()
-    
-
+    $ renpy.full_restart()
     
