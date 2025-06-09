@@ -234,6 +234,7 @@ label location_select:
         "식당":
             play sound "sfx_ch2_investigation.mp3" volume 0.5
             play sound2 "sfx_ch1_man_walk.mp3"
+            $ check_knife = 0
             jump chapter1_4_2
 
         "숨겨진 방":
@@ -354,7 +355,6 @@ label chapter1_4_1_2_1_keyword:
 label chapter1_4_2:
     $ visited_dining = True
     scene chapter1_4_2bg with fade
-
     " 식당으로 들어가니 각종 조리도구가 많이 걸려있다. "
 
     show hajun at left_bottom_offset
@@ -368,14 +368,22 @@ label chapter1_4_2_1:
     menu :
         "조리도구":
             $ checked_tools = True
-            $ wrong_count += 1
-            play sound "sfx_ch2_investigation.mp3" volume 0.5
-            play audio "sfx_punch.mp3"
-            play sound2 "sfx_life_minus.mp3"
-            show chapter1_4_2bg at shake
-            "날카로운 칼에 긁혀서 상처가 생겼다."
-            "잘못된 선택으로 라이프가 1 감소했다."
-            with Pause(1.0)
+            
+            if check_knife == 0 :
+                $ check_knife += 1
+                $ wrong_count += 1
+                play sound "sfx_ch2_investigation.mp3" volume 0.5
+                play audio "sfx_punch.mp3"
+                play sound2 "sfx_life_minus.mp3"
+                show chapter1_4_2bg at shake
+                "날카로운 칼에 긁혀서 상처가 생겼다."
+                "잘못된 선택으로 라이프가 1 감소했다."
+                with Pause(1.0)
+            elif check_knife >= 1:
+                show hajun at left_bottom_offset
+                hajun "조리 도구는 이미 확인했다. 다른 물품들을 확인해보자."
+                hide hajun
+            
             jump chapter1_4_2_check
         "메뉴판":
             play sound "sfx_ch2_investigation.mp3" volume 0.5

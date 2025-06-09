@@ -196,7 +196,7 @@ label chapter5_3:
     show dohyeon_angry at right_bottom_offset
     dohyeon "야 최하람 너 까지? 진짜? 두고 봐!"
     dohyeon "내가 이 깜빵에서 나오면 반드시 너부터 죽여버리겠어!"
-    dohyeon "으아아악!!"
+    dohyeon "{color=#803232}{b}으아아악!!{/color}{/b}"
     hide dohyeon_angry
 
     "결국 최도현은 그 자리에서 체포되었고, 법정 공방에 섰다."
@@ -223,4 +223,4 @@ label chapter5_3:
 
     pause(1.0)
 
-    $ renpy.quit()
+    $ renpy.full_restart()

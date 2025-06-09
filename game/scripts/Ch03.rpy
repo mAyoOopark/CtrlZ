@@ -20,7 +20,7 @@ label chapter3:
     hide jungsik_smile
 
     show hajun_smile at left_bottom_offset
-    hajun "오 드디어 나왔데요?"
+    hajun "오 드디어 나왔대요?"
     hide hajun_smile
     
     show hajun at left_bottom_offset
@@ -62,8 +62,8 @@ label chapter3choice:
 
             show jungsik_consider at right_bottom_offset
             jungsik "혹시나 하는 생각인데"
-            jungsik "{i}{color=#803232}어린 아이들이 저지른 일이 아닐까{/i}{/color}    생각이 든다."
-            hide jungsik_consider
+            jungsik "{i}{color=#803232}{size=32}어린 아이들{/size}{/color}{/i}   이 저지른 일이 아닐까 생각이 든다."
+            hide jungsik
 
             show hajun_puzzled at left_bottom_offset
             hajun "에이 설마요, 외국인이지 않을까요?"
@@ -221,16 +221,17 @@ label chapter3_1:
     hide jungsik_consider
 
     show hajun at left_bottom_offset
-    hajun "그럼 우리가 해야 할 일은 이 dna로 부모를 추적해서 \n그 아이들이 누군지 알아야겠네요."
+    hajun "그럼 우리가 해야 할 일은 이 DNA를 통해 \n아이들을 찾아내는 것이 네요."
     hide hajun
 
     show jungsik at right_bottom_offset
     jungsik "그렇지.. 일단 이 아이들의 부모가 누군지부터 확인해야겠네."
+    stop music fadeout 2.0
+    stop amb fadeout 1.0
+    scene black with fade    
 
-    scene black with fade
-
-    "그렇게 이틀이 지나고, 그 아이들의 부모의 신상을 확인하여 전화를 해보기로 한다. "
-    
+    play amb "amb_office.mp3" fadein 2.0
+    "그렇게 이틀이 지나고, 우리는 DNA대조 기술을 통해\n아이들 부모를 찾아냈다."
     scene chapter2_1bg with fade
 
     show hajun at left_bottom_offset
@@ -240,17 +241,24 @@ label chapter3_1:
     show jungsik at right_bottom_offset
     jungsik "그래."
     hide jungsik
+    
+    play sound "sfx_calling.mp3"
+    pause (2.0)
+
 
     hajun "..."
     jungsik "..."
 
+    play sound "sfx_ch2_click_phone.mp3"
+    $ renpy.music.set_volume(0.1, channel='amb')
+    play music "bgm_ch3_parents.mp3" volume 0.7
     show parents at right_bottom_offset
     parents "여보세요?"
     hide parents
 
     show hajun at left_bottom_offset
     hajun "네 안녕하세요."
-    hajun "저는 xx 경찰서 강력 1반 박하준입니다."
+    hajun "저는 달묘 경찰서 강력 1반 박하준입니다."
     hajun "몇가지 여쭤볼게 있어서요."
     hide hajun
 
@@ -268,7 +276,7 @@ label chapter3_1:
 
     show parents at right_bottom_offset
     parents "저희 집에는 아이가 없습니다."
-    parents "이혼하면서 애들을 보육원에 맡겼거든요."
+    parents "이혼하면서 애들을 {i}{color=#803232}보육원{/i}{/color}    에 맡겼거든요."
     hide parents
 
     show hajun at left_bottom_offset
@@ -278,7 +286,7 @@ label chapter3_1:
 
     show parents at right_bottom_offset
     parents "하.."
-    parents "xx 보육원이요."
+    parents "{i}{color=#803232}새벽나무 보육원{/i}{/color}    이요."
     parents "저한테는 피해가 안끼치는거죠?"
     parents "이젠 얼굴도 가물가물한 아이들인데.."
     hide parents
@@ -290,13 +298,15 @@ label chapter3_1:
 
     show parents at right_bottom_offset
     parents "{cps=5}......"
-    parents "최민재와 최하람이에요."
+    parents "{i}{color=#803232}최민재와 최하람이에요.{/i}{/color}"
     parents "이젠 더 이상 물어보실 것 없으시죠?"
     parents "귀찮으니까 전화는 삼가해주세요. 제발"
     hide parents
+    play sound "sfx_ch2_click_phone.mp3"
 
+    play sound2 "sfx_shake.mp3"
     show hajun_angry at left_bottom_offset
-    hajun "잠시만요! 저기요!"
+    hajun "잠시만요! 저기요!" with hpunch
     hide hajun_angry
 
     show hajun_puzzled at left_bottom_offset
@@ -305,7 +315,7 @@ label chapter3_1:
 
     show jungsik at right_bottom_offset
     jungsik "됐어, 우리가 알아야 될 정보는 이정도면 충분해"
-    jungsik "그럼 xx 보육원으로 가보자."
+    jungsik "그럼 새벽나무 보육원으로 가보자."
     jungsik "거기에 우리가 필요한 정보가 있을지도 몰라."
     hide jungsik
 
@@ -315,15 +325,19 @@ label chapter3_1:
 
     scene black with fade
 
-    "그렇게 나와 종식이 형은 xx 보육원으로 아이들의 정보를 얻기 위하여 발걸음을 옮겼다."
+    play sound "sfx_ch1_man_walk.mp3"
+    "그렇게 나와 종식이 형은 아이들의 정보를 얻기 위해\n새벽나무 보육원으로 발걸음을 옮겼다."
+    stop music fadeout 2.0
+    stop amb fadeout 1.0
     jump chapter3_2
 
 label chapter3_2:
-
+    play music "bgm_ch3_child.mp3" volume 0.7
+    play amb "amb_outside.mp3"
     scene chapter3_1 with fade
 
     show hajun at left_bottom_offset
-    hajun "여기가 xx 보육원.."
+    hajun "여기가 새벽나무 보육원.."
     hajun "낡았네요.. 건물이.."
     hide hajun
 
@@ -346,7 +360,7 @@ label chapter3_2:
     hide babyfarmer_flustered
 
     show babyfarmer_low at right_bottom_offset
-    babyfarmer "여기를 몰래 나가 어디론가 가버렸습니다."
+    babyfarmer " {color=#6A5F55}{i}여기를 몰래 나가{/color}{/i} {i}{color=#803232}어디론가 가버렸습니다.{/color}{/i}"
     babyfarmer "경찰에 신고를 해도 여기 주위가 워낙 낡은 동네라서 cctv도 잘 없거든요."
     hide babyfarmer_low
 
@@ -355,11 +369,12 @@ label chapter3_2:
     hide hajun_puzzled
 
     show hajun at left_bottom_offset
-    hajun "이유는 파악이 되나요?"
+    hajun "{i}{color=#803232}이유는 파악이 되나요?{/color}{/i} "
     hide hajun
 
+    play sound "sfx_shake.mp3" volume 0.2 fadein 0.3
     show babyfarmer_flustered at right_bottom_offset
-    babyfarmer "...!"
+    babyfarmer "...!" with hpunch
     hide babyfarmer_flustered
 
     show babyfarmer_low at right_bottom_offset
@@ -422,6 +437,7 @@ label chapter3_2:
     show jungsik_consider at right_bottom_offset
     jungsik "잠시만 하준아"
     hide jungsik_consider
+    play music "bgm_ch3_tension.mp3" volume 0.7 
 
     show hajun at left_bottom_offset
     hajun "네? 왜요?"

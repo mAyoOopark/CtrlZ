@@ -61,7 +61,7 @@ label chapter5_4:
     jungsik "하준아 일로와!!"
     hide jungsik_surprised
 
-    "저 멀리서 검은색 자동차 한 대가 들어오며 남자 한 명이 내렸다."
+    "저 멀리서 검은색 자동차 한 대가 들어오며 {b}남자 한 명{/b}이 내렸다."
 
     show dohyeon_angry at right_bottom_offset
     dohyeon "아 그니까 내가 일 제대로 하라고 했어 안했어?! 이 새끼들아!!!!"

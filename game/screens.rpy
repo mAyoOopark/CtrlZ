@@ -211,7 +211,7 @@ screen choice(items):
 
     vbox:
         for i in items:
-            textbutton i.caption action [Play("sound", "audio/sfx_ch2_investigation.mp3"), Pause(0.1), i.action]
+            textbutton i.caption action i.action
 
 
 style choice_vbox is vbox
@@ -227,10 +227,11 @@ style choice_vbox:
 
 style choice_button is default:
     properties gui.button_properties("choice_button")
-    activate_sound "audio/sfx_ch2_investigation.mp3"
+    activate_sound "sfx_ch2_investigation.mp3"
 
 style choice_button_text is default:
     properties gui.text_properties("choice_button")
+    
 
 
 ## Quick Menu 스크린 ##############################################################
@@ -1600,3 +1601,74 @@ style slider_vbox:
 style slider_slider:
     variant "small"
     xsize 900
+
+screen game_menu(title, scroll=None, yinitial=0.0):
+
+    tag menu
+    use navigation
+
+    window:
+        style "gm_root"
+        background "main_menu_bg.png"
+
+    frame:
+        style "gm_title_frame"
+        xalign 0.5
+        yalign 0.1
+        text title style "gm_title_text"
+
+    if scroll == "viewport":
+
+        viewport:
+            mousewheel True
+            draggable True
+            scrollbars "vertical"
+            yinitial yinitial
+            style "gm_content"
+            has vbox
+
+            transclude
+
+    elif scroll == "vpgrid":
+
+        vpgrid:
+            cols 3
+            mousewheel True
+            draggable True
+            scrollbars "vertical"
+            yinitial yinitial
+            style "gm_content"
+            spacing 10
+
+            transclude
+
+    else:
+
+        frame:
+            style "gm_content"
+            has vbox
+
+            transclude
+
+
+style gm_root is default:
+    background "main_menu_bg.png"
+    xfill True
+    yfill True
+
+style gm_title_frame is default:
+    background "#0008"
+    padding (15, 10)
+    xalign 0.5
+
+style gm_title_text is default:
+    size 50
+    color "#FFFFFF"
+    outlines [ (1, "#000000", 0, 0) ]
+    xalign 0.5
+
+style gm_content is default:
+    background "#000A"
+    padding (20, 20)  # <- 여기 수정됨!
+    xalign 0.5
+    yalign 0.5

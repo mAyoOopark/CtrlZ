@@ -30,7 +30,7 @@ label chapter4_1:
     show hajun at left_bottom_offset
     hajun "여기 cctv에 너랑 비슷한 나이의 아이들이 들어가더라고."
     hajun "물론 원본 영상 이미지로는 너를 알아보기 힘들었지."
-    hajun "하지만 사건 현장에는 머리카락이 떨어져 있었고, 그걸로 DNA를 추적했어."
+    hajun "하지만 사건 현장에는 {color=#803232}머리카락{/color}이 떨어져 있었고, 그걸로 DNA를 추적했어."
     hajun "그렇게 네 부모님을 찾을 수 있었고, 행적을 쫓은 결과 보육원에서 나왔다는 것 까지 알 수 있었어."
     hide hajun
 
@@ -72,7 +72,7 @@ label chapter4_1:
     hajun "또 이렇게 거짓말을 치시겠다?"
     hajun "내가 아까 말했지?"
     hajun "머리카락이 네 것과 하나 더 나왔는데, 나머지 하나는 너보다 1살 많은 남자아이더라고"
-    hajun "그리고, 네 친오빠인 것 까지 알고 있지."
+    hajun "그리고, 네 {color=#803232}친오빠{/color}인 것 까지 알고 있지."
     hide hajun_laugh
 
     show hajun at left_bottom_offset
@@ -124,8 +124,7 @@ label chapter4_1_1:
             show hajun at left_bottom_offset
             hajun "혹시 이거.."
             hajun "아까 전도 할 때 주던 종이들인가..?"
-            hajun "'나는 하늘의 선택을 받아 하늘의 아버지가 내려주신 시련으로부터 살아 남았고,"
-            hajun "그렇기에 나는 하늘에 계신 아버지가 내려주신 메시아다.'"
+            hajun "{i}{b}'나는 하늘의 선택을 받아 하늘의 아버지가 내려주신 시련으로부터 살아 남았고,{w=1}\n그렇기에 나는 하늘에 계신 아버지가 내려주신 메시아다.'{/i}{/b}"
             
             "안에 있는 종이를 모두 펼치니 약도로 보이는 종이가 바닥으로 떨어졌다."
 
@@ -160,7 +159,8 @@ label chapter4_1_2:
     hide haram_teeth
 
     show haram_angry at right_bottom_offset
-    haram "니가 뭘 알아!!"
+    show chapter4_1_1bg at shake
+    haram "{i}{color=#803232}{size=40}니가 뭘 알아!!{/i}{/color}{/size}"
     haram "나는 충분히 잘 살고 있고, 그분이 내려준 낙원에서 부족한 거 없이 지내고 있는.."
     hide haram_angry
 
@@ -245,7 +245,7 @@ label chapter4_1_3:
 
     show hajun_surprised at left_bottom_offset
     hajun "너는..!"
-    hajun "최민재?"
+    hajun "{size=40}{i}최민재?{/szie}{/i}"
     hide hajun_surprised
 
     show hajun at left_bottom_offset
