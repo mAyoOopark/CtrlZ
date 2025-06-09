@@ -8,7 +8,7 @@ label chapter3:
     scene black with fade
     "사건 조사를 끝낸 며칠 뒤"
     "국과수의 감식 결과가 나오게 되었다."
-
+    play amb "amb_office.mp3" volume 0.5 loop
     scene chapter2_1bg with fade
 
     show jungsik at right_bottom_offset
@@ -36,6 +36,7 @@ label chapter3:
     hajun "넵!"
     hide hajun
 
+    play music "bgm_ch2_investigation.mp3" volume 2.0 fadein 1.0
     jump chapter3choice
 
 label chapter3choice:
@@ -52,7 +53,7 @@ label chapter3choice:
             hide hajun_consider 
 
             show jungsik at right_bottom_offset
-            jungsik "그러니까, 지문으로 용의자를 추적 할 수 없다는 뜻이지."
+            jungsik "그러니까, {i}{color=#803232}지문으로 용의자를 추적 할 수 없다{/i}{/color} 는 뜻이지."
             hide jungsik
 
             show hajun_consider at left_bottom_offset
@@ -61,8 +62,8 @@ label chapter3choice:
 
             show jungsik_consider at right_bottom_offset
             jungsik "혹시나 하는 생각인데"
-            jungsik "어린 아이들이 저지른 일이 아닐까 생각이 든다."
-            hide jungsik
+            jungsik "{i}{color=#803232}어린 아이들이 저지른 일이 아닐까{/i}{/color}    생각이 든다."
+            hide jungsik_consider
 
             show hajun_puzzled at left_bottom_offset
             hajun "에이 설마요, 외국인이지 않을까요?"
@@ -78,62 +79,64 @@ label chapter3choice:
             $ saw_drug = True
             
             show jungsik at right_bottom_offset
-            jungsik "그 집에 있었던 주사기 말이야."
-            jungsik "그거 마약 맞는 것 같다. 감식 결과 모르핀이네."
+            jungsik "그 집에서 나왔던 주사기 말이야."
+            jungsik "그거, 마약 맞는 것 같다. {i}{color=#803232}감식 결과, 모르핀{/color}{/i}이 나왔어."
             hide jungsik
 
             show hajun at left_bottom_offset
-            hajun "진짜 마약이 맞았던거군요.."
+            hajun "…진짜 마약이었던 거군요."
+            with dissolve
             hide hajun
 
-            show jungsik at right_bottom_offset
-            jungsik "그래, 마약 종류는 모르핀이였어."
-            hide jungsik
-
             show hajun_consider at left_bottom_offset
-            hajun "그럼.. 스마트폰에 있었던 거래 내용들은 전부 마약 거래가 맞았네요."
+            hajun "그렇다면, 스마트폰에 저장된 거래 내역들…"
+            hajun "{color=#6A5F55}전부 마약 거래{/color}였던 거네요."
             hide hajun_consider
 
             show jungsik_consider at right_bottom_offset
-            jungsik "그렇지.."
+            jungsik "그래. 그렇게 봐야겠지."
             hide jungsik_consider
 
             show hajun_consider at left_bottom_offset
-            hajun "그 피해자는 진짜로 마약을 자신이 속해있던 곳에서 빼왔던 것이고, 그걸로 금전벌이를 했으며.."
-            hajun "..."
-            hajun "빼온게 들키자 피해자가 속해있던 곳의 인원들에게 살해당했다.."
+            hajun "그 피해자는 자신이 속해 있던 곳에서 {color=#6A5F55}마약을 빼돌렸고{/color}…"
+            hajun "그걸로 {color=#6A5F55}돈을 벌려다{/color} 결국…"
+            play sound "sfx_shake.mp3"
+            hajun "{color=#803232}들킨 거군요. 조직의 사람들에게.{/color}" with hpunch
             hide hajun_consider
 
             show hajun_consider at left_bottom_offset
-            hajun "뭔가 복잡해지네.."
+            hajun "그래서… {color=#803232}{cps=10}살해당했다.{/color}"
+            hajun "……"
+            hajun "점점 복잡해지네요."
             hide hajun_consider
 
             jump chapter3choice_check
         "머리카락":
             $ saw_hair = True
+
             show jungsik at right_bottom_offset
-            jungsik "머리카락 감식 결과, 일단 피해자의 것은 아니야"
+            jungsik "머리카락 감식 결과, {color=#6A5F55}일단 피해자의 것은 아니야{/color}."
             hide jungsik
 
             show hajun at left_bottom_offset
-            hajun "그럼, 그 머리카락의 주인이 용의자인 확률이 높겠네요."
+            hajun "그럼, {i}{color=#6A5F55}그 머리카락의 주인{/color}{/i}이 용의자인 확률이 높겠네요."
             hide hajun
 
             show jungsik at right_bottom_offset
-            jungsik "그렇지, 하지만 머리카락의 주인은.."
+            jungsik "그렇지, 하지만 머리카락의 주인은..."
             hide jungsik
 
             show jungsik_consider at right_bottom_offset
-            jungsik "아직 사춘기도 오지 않은 여자 아이와 남자 아이의 것이야."
+            jungsik "{color=#803232}{i}{cps=20}아직 사춘기도 오지 않은 여자 아이와 남자 아이의 것이야.{/cps}{/i}{/color}"
             hide jungsik_consider
 
             show hajun_puzzled at left_bottom_offset
-            hajun "네..?"
-            hajun "설마.. 어린 아이들이 범인이라고 생각하시는 건가요?"
+            hajun "{cps=15}네...?{/cps}"
+            hajun "설마... {i}어린 아이들이 범인이라고 생각하시는 건가요?{/i}"
             hide hajun_puzzled
 
             show jungsik_consider at right_bottom_offset
-            jungsik "일단은.. 그렇게 의심하고 있어."
+            jungsik "일단은... 그렇게 의심하고 있어."
             hide jungsik_consider
 
             show hajun_consider at left_bottom_offset
@@ -145,12 +148,13 @@ label chapter3choice:
             hide jungsik
 
             show hajun at left_bottom_offset
-            hajun "제발.. 우리가 생각하는 상황이 벌어지지 않았으면 좋겠네요."
+            hajun "제발... 우리가 생각하는 상황이 벌어지지 않았으면 좋겠네요."
             hide hajun
 
-            show jungsik at right_bottom_offset
+            show jungsik_consider at right_bottom_offset
             jungsik "...."
-            hide jungsik
+            hide jungsik_consider
+
 
             jump chapter3choice_check
 
@@ -169,45 +173,47 @@ label chapter3_1:
     show hajun at left_bottom_offset
     hajun "네 그럼 그놈들 낯짝 한번 보죠"
     hide hajun
-
+    play sound "sfx_ch2_cctv.mp3"
     scene chapter3_1_1bg with fade
 
     show hajun_frown at left_bottom_offset
-    hajun "흠.. 화질 개선을 했다 해도 얼굴은 잘 보이지 않네요.."
+    hajun "흠… 화질을 아무리 개선해도, 얼굴은 또렷하게 안 보이네요..."
     hide hajun_frown
 
     show chapter3_1_1_ibg at center_image
 
     show hajun_surprised at left_bottom_offset
-    hajun "어? 잠시만.."
+    play sound2 "sfx_shake.mp3"
+    hajun "어? 잠시만..." with hpunch
     hide hajun_surprised
 
     show jungsik_sigh at right_bottom_offset
-    jungsik "..."
+    jungsik "{cps=10}..."
     hide jungsik_sigh
 
     show hajun at left_bottom_offset
-    hajun "..."
+    hajun "{cps=10}..."
     hide hajun
 
     show hajun_surprised at left_bottom_offset
-    hajun "잠시만.. 설마 범행 시각 때 왔다 갔다 한 이..."
-    hajun "어린 아이들이라구요?"
+    hajun "잠시만.. 설마 범행 시각 때 왔다 갔다 했던 게..."
+    hajun "{size=40}{i}{color=#803232}진짜 어린 아이들이라구요?{/size}{i}{/color}" with hpunch
     hide hajun_surprised
 
     show jungsik_sigh at right_bottom_offset
     jungsik "설마설마 했는데.."
-    jungsik "진짜 어린 아이들이였을 줄이야.."
+    jungsik "진짜 어린 아이들이었을 줄이야.."
     hide jungsik_sigh
 
     show jungsik_consider at right_bottom_offset
-    jungsik "그것도 하나가 아니라 둘이나.."
+    jungsik "{size=35}{i}{color=#803232}{cps=10}그것도 하나가 아니라 둘이나...{/size}{/i}{/color}"
     hide jungsik_consider
 
     hide chapter3_1_1_ibg
 
     show hajun_puzzled at left_bottom_offset
-    hajun "그럼 지문이 등록되지 않은 이유도,\n그 집에서 어린 아이들의 머리카락이 나온 이유도..."
+    hajun  "{color=#803232}{i}그럼 지문이 등록되지 않은 이유도,{/i}{/color}"
+    extend "\n{color=#803232}{i}그 집에서 어린 아이들의 머리카락이 나온 이유도...{/i}{/color}"
     hide hajun_puzzled
 
     show jungsik_consider at right_bottom_offset

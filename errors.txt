@@ -2,7 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/scripts/Ch02/Ch02goupChoice.rpy", line 98: Indentation mismatch.
+File "game/scripts/Ch03.rpy", line 209: is not terminated with a newline. (Check strings and parenthesis.)
+(Perhaps you left out a " at the end of the first line.)
+        jungsik "{size=40}{i}{color=#803232}그것도 하나가 아니라 둘이나...{/size}{/i}{/color}""
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Mon Jun  9 07:42:40 2025
+Mon Jun  9 17:43:06 2025

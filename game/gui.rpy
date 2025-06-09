@@ -220,6 +220,7 @@ define gui.choice_button_text_hover_color = "#ffffff"
 define gui.choice_button_text_insensitive_color = '#7070707f'
 
 
+
 ## 파일 슬롯 버튼 ####################################################################
 ##
 ## 파일 슬롯 버튼은 버튼의 특별한 종류입니다. 그것은 썸네일 이미지나 저장 슬롯의

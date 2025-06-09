@@ -296,6 +296,7 @@ label chapter2_7:
     hide hajun_aha
 
     scene chapter2_1bg with fade
+    play amb "amb_office.mp3" loop
     play sound "sfx_ch2_cctv.mp3"
     pause(1.0)
 
