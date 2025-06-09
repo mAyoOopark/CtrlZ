@@ -49,7 +49,7 @@ label chapter5_1:
     show minjae_hard at right_bottom_offset
     minjae "흐.. 흐하.... 하아.."
     minjae "아무도.. 믿을 수 없어.. 도현 아저씨도 우리를 버렸고.."
-    minjae "내가.. 새로운 교주가 되는거야.."
+    minjae "내가.. {i}{size=40}{color=#803232}새로운 교주{/i}{/size}{/color}가 되는거야.."
     hide minjae_hard 
 
     scene black with fade
