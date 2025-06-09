@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/scripts/Ch03.rpy", line 209: is not terminated with a newline. (Check strings and parenthesis.)
-(Perhaps you left out a " at the end of the first line.)
-        jungsik "{size=40}{i}{color=#803232}그것도 하나가 아니라 둘이나...{/size}{/i}{/color}""
+File "game/scripts/Ch05_02.rpy", line 85: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    "그 장면을 떠올리지 않기 위해 매일 술에 의지한 채 잠들곤 했다."
+    ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Mon Jun  9 17:43:06 2025
+Tue Jun 10 06:18:52 2025

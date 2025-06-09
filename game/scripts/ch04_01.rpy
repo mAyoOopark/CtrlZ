@@ -1,4 +1,6 @@
 label chapter4_1:
+    stop music fadeout 2.0
+    play music "bgm_ch4_1.mp3" fadein 2.0
     show screen life_display
     show hajun at left_bottom_offset
     hajun "형 아무래도 잡는게 맞는 거 같아."
@@ -9,10 +11,12 @@ label chapter4_1:
     jungsik "알았어 바로 시작하자."
     hide jungsik_consider
 
+    stop amb fadeout 1.0
+    play amb "amb_city.mp3" fadein 1.0 volume 0.1 
     scene chapter4_1bg with fade
-
     show hajun_angry at left_bottom_offset
-    hajun "거기! 지금 전도하는 너!"
+    play sound "sfx_shake.mp3" volume 0.7
+    hajun "거기! 지금 전도하는 너!" with hpunch
     hajun "연쇄살인사건의 용의자로 체포한다."
     hide hajun_angry
 
@@ -23,15 +27,16 @@ label chapter4_1:
 
     show hajun_puzzled at left_bottom_offset
     hajun "이렇게 발뺌을 한다?"
-    show chapter3_1_1_ibg at center_image
     hajun "너 xx 빌라에 들어간 적 있지?"
     hide hajun_puzzled
+    play sound "sfx_ch2_investigation.mp3"
+    show chapter3_1_1_ibg at center_image
 
     show hajun at left_bottom_offset
     hajun "여기 cctv에 너랑 비슷한 나이의 아이들이 들어가더라고."
     hajun "물론 원본 영상 이미지로는 너를 알아보기 힘들었지."
     hajun "하지만 사건 현장에는 {color=#803232}머리카락{/color}이 떨어져 있었고, 그걸로 DNA를 추적했어."
-    hajun "그렇게 네 부모님을 찾을 수 있었고, 행적을 쫓은 결과 보육원에서 나왔다는 것 까지 알 수 있었어."
+    hajun "그렇게 네 부모님을 찾을 수 있었고,\n  행적을 쫓은 결과 보육원에서 나왔다는 것 까지 알 수 있었어."
     hide hajun
 
     hide chapter3_1_1_ibg
@@ -45,15 +50,19 @@ label chapter4_1:
     hide haram_flustered
 
     show hajun at left_bottom_offset
+    play sound "sfx_handcuff.mp3"
     hajun "그럼 연쇄살인사건의 유력한 용의자로 체포한다."
-    hajun "당신은 묵비권을 행사할 수 있고, 당신은 변호인을 선임할 수 있으며 당신이 한 발언은 법정에서 불리하기 작용할 수 있습니다."
+    hajun "당신은 묵비권을 행사할 수 있고, 당신은 변호인을 선임할 수 있으며\n 당신이 한 발언은 법정에서 불리하기 작용할 수 있습니다."
     hide hajun
-
+    stop music fadeout 2.0
+    play music "bgm_ch4_interrogation.mp3" volume 1.5    fadein 2.0
     scene black with fade
 
-    "그렇게 우리는 최하람을 체포항 경찰서로 들어와 심문을 시작했다."
+    "그렇게 우리는 최하람을 체포go 경찰서로 들어와 심문을 시작했다."
 
     pause(1.0)
+    stop amb fadeout 1.0
+    play amb "amb_room.mp3" fadein 1.0
 
     scene chapter4_1_1bg with fade
 
@@ -71,7 +80,7 @@ label chapter4_1:
     show hajun_laugh at left_bottom_offset
     hajun "또 이렇게 거짓말을 치시겠다?"
     hajun "내가 아까 말했지?"
-    hajun "머리카락이 네 것과 하나 더 나왔는데, 나머지 하나는 너보다 1살 많은 남자아이더라고"
+    hajun "네 머리카락 말고도 하나가 더 나왔는데,\n그건 너보다 한 살 많은 남자아이의 것이더라."
     hajun "그리고, 네 {color=#803232}친오빠{/color}인 것 까지 알고 있지."
     hide hajun_laugh
 
@@ -80,7 +89,8 @@ label chapter4_1:
     hide hajun
 
     show haram_teeth at right_bottom_offset
-    haram "...."
+    play sound "sfx_shake.mp3" volume 0.7
+    haram "...." with hpunch
     hide haram_teeth
 
     show hajun_sigh at left_bottom_offset
@@ -124,7 +134,7 @@ label chapter4_1_1:
             show hajun at left_bottom_offset
             hajun "혹시 이거.."
             hajun "아까 전도 할 때 주던 종이들인가..?"
-            hajun "{i}{b}'나는 하늘의 선택을 받아 하늘의 아버지가 내려주신 시련으로부터 살아 남았고,{w=1}\n그렇기에 나는 하늘에 계신 아버지가 내려주신 메시아다.'{/i}{/b}"
+            hajun "{i}'나는 하늘의 선택을 받아 하늘의 아버지가 내려주신 시련으로부터 살아 남았고,{w=1}\n그렇기에 나는 하늘에 계신 아버지가 내려주신 메시아다.'{/i}  "
             
             "안에 있는 종이를 모두 펼치니 약도로 보이는 종이가 바닥으로 떨어졌다."
 
@@ -160,6 +170,7 @@ label chapter4_1_2:
 
     show haram_angry at right_bottom_offset
     show chapter4_1_1bg at shake
+    play sound "sfx_shake.mp3" volume 0.7
     haram "{i}{color=#803232}{size=40}니가 뭘 알아!!{/i}{/color}{/size}"
     haram "나는 충분히 잘 살고 있고, 그분이 내려준 낙원에서 부족한 거 없이 지내고 있는.."
     hide haram_angry
@@ -174,7 +185,8 @@ label chapter4_1_2:
 
     show haram_angry at right_bottom_offset
     haram "감히 우리 유일 신을 모욕하고 능욕하다니!!"
-    haram "천벌을 받을거야!!"
+    play sound "sfx_shake.mp3" volume 0.7
+    haram "천벌을 받을거야!!" with hpunch
     hide haram_angry
 
     show hajun_smile at left_bottom_offset
@@ -187,13 +199,17 @@ label chapter4_1_2:
     jungsik "알아냈구나! 알았어 바로 거기로 출발하자."
     hide jungsik_smile
 
+    play sound "sfx_ch2_car_ignition.ogg"
+    pause (2.0)
     scene black with fade
-
+    stop music fadeout 2.0
     jump chapter4_1_3
 
 label chapter4_1_3:
     scene chapter4_1_3bg with fade
-    
+    play music "bgm_ch4_mystery.mp3" fadein 2.0
+    stop amb fadeout 1.0
+    play amb "amb_city.mp3" fadein 1.0 volume 0.1 
     show hajun at left_bottom_offset
     hajun "평범한 상가 같은데.."
     hajun "그 연쇄살인사건의 원흉의 장소라니.."
@@ -207,10 +223,12 @@ label chapter4_1_3:
     hajun "네 바로 들어가죠."
     hide hajun
 
+    play sound "sfx_ch1_man_walk.mp3"
     scene black with fade
 
     "그렇게 우리는 사이비 종교의 본거지로 들어갔다."
-
+    stop amb fadeout 1.0
+    play amb "amb_room.mp3" fadein 1.0
     scene chapter4_1_3_1bg with fade
     
     show hajun at left_bottom_offset
@@ -232,21 +250,25 @@ label chapter4_1_3:
     hide jungsik_sigh
 
     show hajun_sad at left_bottom_offset
-    hajun "젠장, 확실한 증거를 잡은 줄 알았는데.."
+    hajun "젠장, 확실한 증거를 잡은 줄 알았는데..."
     hajun "이렇게 또 놓친다고..?"
     hide hajun_sad
+    stop music fadeout 2.0
+    "그 때, 갑자기 문이 열리고 누군가가 들어왔다."
 
-    "그 떄, 갑자기 문이 열리고 누군가가 들어왔다."
-
+    play sound "sfx_ch1_open_door.mp3"
     show dohyeon_asd at right_bottom_offset
     asd "누구세요?"
     asd "여기가 어딘 줄 알고 들어왔죠?"
     hide dohyeon_asd
 
+    play music "bgm_ch4_chase.mp3" fadein 1.0
     show hajun_surprised at left_bottom_offset
     hajun "너는..!"
-    hajun "{size=40}{i}최민재?{/szie}{/i}"
+    play sound "sfx_shake.mp3" volume 0.7
+    hajun "{size=40}{i}최민재?{/szie}{/i}" with hpunch
     hide hajun_surprised
+
 
     show hajun at left_bottom_offset
     hajun "드디어 찾았다.."
@@ -266,9 +288,10 @@ label chapter4_1_3:
     hide minjae
 
     "궁지에 몰린 최민재는 곧장 밖으로 도망갔다."
-    
+    play sound2  "sfx_run_man.mp3"
     show hajun_angry at left_bottom_offset
-    hajun "거기 서!!"
+    play sound "sfx_shake.mp3" volume 0.7
+    hajun "거기 서!!" with hpunch
     hide hajun
 
     jump chapter4_1_4
@@ -304,10 +327,12 @@ label chapter4_1_4:
             $ success += 1
 
             if success == 1:
+                play sound "sfx_run_man.mp3"
                 show hajun_surprised at left_bottom_offset
                 hajun "좋았어. 저기 최민재가 보인다!"
                 hide hajun_surprised
             elif success == 2:
+                play sound "sfx_run_man.mp3"
                 show hajun_surprised at left_bottom_offset
                 hajun "이쪽이다. 최민재! 거기 서!"
                 hide hajun_surprised
@@ -317,10 +342,14 @@ label chapter4_1_4:
             #$ wrong_count += 1
 
             if wrong == 1:
+                play sound "sfx_run_man.mp3"
+                play sound "sfx_shake.mp3" volume 0.7
                 show hajun_surprised at left_bottom_offset, shake
                 hajun "틀렸어. 최도현은 여기에 온거 같지 않아." 
                 hide hajun_surprised
             elif wrong == 2:
+                play sound "sfx_run_man.mp3"
+                play sound "sfx_shake.mp3" volume 0.7
                 show hajun_surprised at left_bottom_offset, shake
                 hajun "아니야, 이쪽 방향이 아니야."
                 hide hajun_surprisedz

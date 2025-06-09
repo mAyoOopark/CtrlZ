@@ -331,7 +331,6 @@ label chapter4_2_run:
                 jungsik "당황하지 말고 계속 찾아봐!"  # (다급한 표정)
                 hide jungsik_angry
         if wrong_count >= 3:
-            show scene black
             show cultists with flash
             cultist "잡았다 이 이단놈들!!!"  # (다급한 표정)
             hide cultists

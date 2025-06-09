@@ -1,61 +1,70 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "renpy/common/00gamemenu.rpy", line 174, in script
-    $ ui.interact()
-  File "renpy/common/00gamemenu.rpy", line 174, in <module>
-    $ ui.interact()
-  File "game/screens.rpy", line 885, in execute
-    screen history():
-  File "game/screens.rpy", line 885, in execute
-    screen history():
-  File "game/screens.rpy", line 892, in execute
-    use game_menu(_("대사록"), scroll=("vpgrid" if gui.history_height else "viewport"), yinitial=1.0, spacing=gui.history_spacing):
-TypeError: got an unexpected keyword argument 'spacing'
+While processing text tag {/i} in '{color=#803232}{size=40}등에서 뿜어져 나오는 피{/color}{/size}가 벽에 묻어 마치 날개 처럼 보이는 듯 했다.{/i}'.:
+  File "game/scripts/Ch05_02.rpy", line 75, in script
+    "{color=#803232}{size=40}등에서 뿜어져 나오는 피{/color}{/size}가 벽에 묻어 마치 날개 처럼 보이는 듯 했다.{/i}"
+Exception: '/i' closes a text tag that isn't open.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/00gamemenu.rpy", line 174, in script
-    $ ui.interact()
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 834, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/python.py", line 1187, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "renpy/common/00gamemenu.rpy", line 174, in <module>
-    $ ui.interact()
+  File "game/scripts/Ch05_02.rpy", line 75, in script
+    "{color=#803232}{size=40}등에서 뿜어져 나오는 피{/color}{/size}가 벽에 묻어 마치 날개 처럼 보이는 듯 했다.{/i}"
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 2586, in execute
+    Say.execute(self)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 623, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/exports/sayexports.py", line 132, in say
+    who(what, *args, **kwargs)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/character.py", line 1471, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/character.py", line 1117, in do_display
+    display_say(who,
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/character.py", line 814, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
   File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ui.py", line 301, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
   File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/core.py", line 2218, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/core.py", line 2748, in interact_core
-    root_widget.visit_all(lambda d : d.per_interact())
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/displayable.py", line 434, in visit_all
-    d.visit_all(callback, seen)
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/displayable.py", line 434, in visit_all
-    d.visit_all(callback, seen)
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/displayable.py", line 434, in visit_all
-    d.visit_all(callback, seen)
-  [Previous line repeated 1 more time]
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/screen.py", line 480, in visit_all
-    callback(self)
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/core.py", line 2748, in <lambda>
-    root_widget.visit_all(lambda d : d.per_interact())
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/screen.py", line 491, in per_interact
-    self.update()
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/screen.py", line 700, in update
-    self.screen.function(**self.scope)
-  File "game/screens.rpy", line 885, in execute
-    screen history():
-  File "game/screens.rpy", line 885, in execute
-    screen history():
-  File "game/screens.rpy", line 892, in execute
-    use game_menu(_("대사록"), scroll=("vpgrid" if gui.history_height else "viewport"), yinitial=1.0, spacing=gui.history_spacing):
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/parameter.py", line 384, in apply
-    raise TypeError(
-TypeError: got an unexpected keyword argument 'spacing'
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/core.py", line 2882, in interact_core
+    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/core.py", line 1384, in draw_screen
+    surftree = renpy.display.render.render_screen(
+  File "render.pyx", line 486, in renpy.display.render.render_screen
+  File "render.pyx", line 260, in renpy.display.render.render
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/layout.py", line 900, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 260, in renpy.display.render.render
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/layout.py", line 900, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 260, in renpy.display.render.render
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/layout.py", line 900, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 260, in renpy.display.render.render
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/screen.py", line 755, in render
+    child = renpy.display.render.render(self.child, w, h, st, at)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 260, in renpy.display.render.render
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/layout.py", line 900, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 260, in renpy.display.render.render
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/display/layout.py", line 1457, in render
+    surf = render(child,
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 260, in renpy.display.render.render
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/text/text.py", line 2627, in render
+    virtual_layout = Layout(self, width, height, renders, drawable_res=False, size_only=True)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/text/text.py", line 739, in __init__
+    self.paragraphs = self.segment(text.tokens, style, renders, text)
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/text/text.py", line 1285, in segment
+    raise Exception("%r closes a text tag that isn't open." % text)
+Exception: '/i' closes a text tag that isn't open.
 
 macOS-13.6.4-arm64-arm-64bit arm64
 Ren'Py 8.3.7.25031702
 MysteryGame 1.0
-Tue Jun 10 03:07:48 2025
+Tue Jun 10 06:11:31 2025

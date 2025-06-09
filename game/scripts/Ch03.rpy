@@ -375,6 +375,7 @@ label chapter3_2:
     play sound "sfx_shake.mp3" volume 0.2 fadein 0.3
     show babyfarmer_flustered at right_bottom_offset
     babyfarmer "...!" with hpunch
+    pause (2.0  )
     hide babyfarmer_flustered
 
     show babyfarmer_low at right_bottom_offset
@@ -391,9 +392,11 @@ label chapter3_2:
 
     show babyfarmer at right_bottom_offset
     babyfarmer "이 사진을 보시면 되실거예요"
+    play sound "sfx_ch2_flippage.mp3"
+    window hide
     show chapter3_2_1bg at center_image
     hide babyfarmer
-    pause(3.0)
+    pause(5.0)
     hide chapter3_2_1bg
 
     show hajun at left_bottom_offset
@@ -403,15 +406,18 @@ label chapter3_2:
     
     show babyfarmer at right_bottom_offset
     babyfarmer "별말씀을요."
-    babyfarmer "꼭 아이들을 찾아주세요."
+    babyfarmer "{color=#803232}{i}꼭 아이들을 찾아주세요.{/i}{/color}"
     hide babyfarmer
 
     show hajun at left_bottom_offset
     hajun "네, 수고하십시오."
     hide hajun
     
+    play sound "sfx_ch1_man_walk.mp3"
+    stop music fadeout 2.0
+    stop amb fadeout 1.0
     scene chapter3_3bg with fade
-
+    play amb "amb_car.mp3" fadein 1.0
     show jungsik_sigh at right_bottom_offset
     jungsik "이 넓고 낡은 동네에서 어떻게 찾냐.."
     hide jungsik_sigh
@@ -434,9 +440,10 @@ label chapter3_2:
     jungsik "..."
     hide jungsik
 
-    show jungsik_consider at right_bottom_offset
-    jungsik "잠시만 하준아"
-    hide jungsik_consider
+    show jungsik_puzzled at right_bottom_offset
+    play sound "sfx_shake.mp3" volume 0.5
+    jungsik "{color=#803232}{i}잠시만 하준아{/i}{/color}" with hpunch
+    hide jungsik_puzzled
     play music "bgm_ch3_tension.mp3" volume 0.7 
 
     show hajun at left_bottom_offset
@@ -445,29 +452,33 @@ label chapter3_2:
 
     show chapter3_2_2bg at center_image    
 
+    play sound2 "sfx_ch2_investigation.mp3"
     show jungsik_surprised at right_bottom_offset
-    jungsik "이거... 아까 봤던 최하람 아니냐?"
+    jungsik "{color=#803232}{i}{cps=10}이거... {cps=20}{size=40}아까 봤던 최하람 아니냐?{/size}{/i}{/color}"
     hide jungsik_surprised
      
 
     show hajun_surprised at left_bottom_offset
-    hajun "어? 잠시만"
-    hide chapter3_2_2bg
+    play sound "sfx_shake.mp3" volume 0.5
+    hajun "어? 잠시만" with hpunch
     hajun "여기가 어디죠?"
     hide hajun_surprised
+    hide chapter3_2_2bg
 
-    show jungsik at right_bottom_offset
+    show jungsik_panic at right_bottom_offset
     jungsik "나 여기 어디인지 알아!"
-    jungsik "내가 네비 찍을게. 얼른 이 장소로 가보자!"
-    hide jungsik
+    jungsik "내가 네비 찍을게.   "
+    extend "{color=#803232}{i}얼른 이 장소로 가보자!{/i}{/color}"
+    hide jungsik_panic
 
     show hajun at left_bottom_offset
     hajun "네! 바로 가보죠!"
     hide hajun
 
+    play sound "sfx_ch2_car_ignition.ogg"
     scene black with fade
 
-    "그렇게 우리는 실낱같은 정보를 가지고 뉴스에서 최하람이 찍힌 장소로 급하게 차를 타고 이동하였다."
+    "그렇게 우리는 실낱같은 정보를 가지고\n{color=#803232}{i}뉴스 속 최하람이 발견된 장소로{/i}{/color}    급하게 차를 타고 이동하였다."
     jump chapter3_3
 
 label chapter3_3:
@@ -475,41 +486,46 @@ label chapter3_3:
     scene chapter3_3bg with fade
 
     show hajun at left_bottom_offset
-    hajun "찾았다.."
+    hajun "{i}찾았다...{/i}"
     hide hajun
 
     show hajun_frown at left_bottom_offset
-    hajun "저 자식.. 사람을 죽여놓고 저렇게 태연하게.."
-    hajun "웃는 얼굴로 사이비 종교를 전도하고 있다니"
+    hajun "{color=#803232}저 자식...{/color}"
+    extend "       {i}{color=#803232}사람을 죽여놓고 저렇게 태연하게...{/color}{/i}"
+    hajun "{color=#803232}{size=36}웃는 얼굴로 사이비 종교를 전도하고 있다니{/size}{/color}"
     hajun "지금 바로 체포할까요?"
     hide hajun_frown
 
-    show jungsik at right_bottom_offset
-    jungsik "아니야, 기다려."
-    hide jungsik
-
+    play sound "sfx_shake.mp3" volume 0.5
     show jungsik_consider at right_bottom_offset
-    jungsik "저 녀석이 진짜 범인이라면 얼마 전 사건의 피해자가 마약을 가져온 장소도 알게 될 것 같지 않아?"
+    jungsik "{i}아니야, 기다려.{/i}" with hpunch
     hide jungsik_consider
 
-    show jungsik at right_bottom_offset
-    jungsik "그리고 쟤 혼자가 아니라 2명 이였다면서"
-    jungsik "그럼 나머지 한 명도 잡을 수 있을거야."
-    jungsik "몰래 미행하는 것도 나쁘지 않을 것 같아."
-    hide jungsik
+    show jungsik_consider at right_bottom_offset
+    jungsik "{color=#6A5F55}저 녀석이 진짜 범인이라면{/color}"
+    extend "\n얼마 전 사건의 피해자가 마약을 가져온 장소도 알게 될 것 같지 않아?"
+    hide jungsik_consider
+
+    show jungsik_consider at right_bottom_offset
+    jungsik "{color=#6A5F55}그리고 저 아이 혼자가 아니라 2명 이였다면서{/color}"
+    jungsik "{i}그럼 나머지 한 명도 잡을 수 있을 거야.{/i}"
+    jungsik "{color=#6A5F55}몰래 미행하는 것도 나쁘지 않을 것 같아.{/color}"
+    hide jungsik_consider
 
     show hajun_consider at left_bottom_offset
-    hajun "하긴.. 만약에 진짜 저 녀석이 그 사람을 죽인 범인이라면 \n그 전에 있던 사건의 범인도 알게 되겠죠"
-    hajun "그리고 사람을 아무렇지 않게 죽이고, 마약을 유통하는 곳도 알게 되겠죠."
+    hajun "하긴... 만약에 진짜 {color=#803232}저 녀석이 그 사람을 죽인 범인{/color}이라면\n그 전에 있던 사건의 범인도 알게 되겠죠."
+    hajun "그리고 {color=#803232}마약을 유통한 장소까지도{/color}   알게 되겠죠."
     hide hajun_consider
 
     show hajun at left_bottom_offset
-    hajun "하지만 저희가 헛짚은 거라면요?"
-    hajun "저 녀석이 마약을 유통하던 곳의 사람이 아니라 그냥 구매자였다면요?"
+    hajun "하지만 {color=#6A5F55}저희가 헛짚은 거라면요?{/color}"
+    hajun "{i}저 녀석이 마약을 유통하던 곳의 사람이 아니라{/i}"
+    hajun "{i}{color=#803232}그저 단순한...  {/color}{/i}"
+    extend "{i}{color=#803232}{size=36}구매자였다면요?{/size}  {/color}{/i}"
     hide hajun
-    
+
     show jungsik_consider at right_bottom_offset
-    jungsik "그것도 그렇긴 하지.. 어떻게 해야할까?"
+    jungsik "그것도 그렇긴 하지... {color=#6A5F55}어떻게 해야 할까?{/color}"
     hide jungsik_consider
 
     menu:
@@ -517,4 +533,3 @@ label chapter3_3:
             jump chapter4_1
         "미행한다":
             jump chapter4_2
-    
