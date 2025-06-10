@@ -1042,7 +1042,7 @@ label chapter1_9:
             "그렇게 나와 선배는 불 속에서 불을 키우는 장작이 되어버렸다."
 
             pause 1.0
-            pro "\n{size=40}Bad End2 : 무모한 돌파{/size}"
+            pro "\n{size=40}Bad End : 무모한 돌파{/size}"
 
             scene black with fade
 

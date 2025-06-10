@@ -10,6 +10,7 @@ label chapter5_3:
     hide hajun
 
     scene chapter4_2bg with fade
+    stop music fadeout 2.0
 
     "본거지에 들어가보니 대기하고 있는 아이들이 줄지어 있었다."
 

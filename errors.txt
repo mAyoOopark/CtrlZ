@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/scripts/Ch05_02.rpy", line 85: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    "그 장면을 떠올리지 않기 위해 매일 술에 의지한 채 잠들곤 했다."
-    ^
+File "game/scripts/ch04_02.rpy", line 1448: is not terminated with a newline. (Check strings and parenthesis.)
+(Perhaps you left out a " at the end of the first line.)
+        haram "오빠가 어느날 기쁜 얼굴로 뛰어와 저에게 말하는거에요.
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Tue Jun 10 06:18:52 2025
+Tue Jun 10 13:35:09 2025
