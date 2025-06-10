@@ -10,7 +10,10 @@ label chapter5_3:
     hide hajun
 
     scene chapter4_2bg with fade
+    stop amb fadeout 1.0
+    play amb "amb_church.mp3"
     stop music fadeout 2.0
+    play music "bgm_ch4_cute.mp3" volume 1.5 fadein 1.0
 
     "본거지에 들어가보니 대기하고 있는 아이들이 줄지어 있었다."
 
@@ -72,6 +75,8 @@ label chapter5_3:
     kid "네! 좋아요!"
     hide kids
 
+    stop amb fadeout 1.0
+    play amb "amb_office.mp3" volume 0.5
     scene black with fade
 
     "아이들은 형사들을 따라 경찰서 안으로 이동했다."
@@ -102,6 +107,8 @@ label chapter5_3:
 
     "그렇게 모든 이들을 구출한 후 즐거운 시간을 보내고 있었다."
     "하지만 그 즐거움도 잠시, 최하람의 핸드폰에 전화가 걸려왔다."
+    stop music fadeout 3.0
+    play sound "sfx_ch2_cellphone_ring.ogg"
     #여기도 벨소리 시간 맞추면 될 것 같아요!
     pause(1.0)
 
@@ -117,6 +124,8 @@ label chapter5_3:
     haram "네! 알겠어요!"
     hide haram
 
+    play sound "sfx_ch2_click_phone.mp3"
+
     show dohyeon_angry at right_bottom_offset
     dohyeon "야 너, 본거지에 기다리고 있으랬더니 어디 간거야?"
     dohyeon "신도들은 또 다 어디갔어?"
@@ -127,8 +136,9 @@ label chapter5_3:
     hajun "최도현, 이게 몇 년 만이냐?"
     hide hajun_laugh
 
+    play sound "sfx_shake.mp3" volume 0.8
     show dohyeon_angry at right_bottom_offset
-    dohyeon "야 이 새끼야 너 누구야!!!"
+    dohyeon "야 이 새끼야 너 누구야!!!" with hpunch
     hide dohyeon_angry
 
     show hajun_laugh at left_bottom_offset
@@ -166,6 +176,9 @@ label chapter5_3:
     scene black with fade
 
     "그 말과 동시에 잠복해있던 남종식과 동료들이 총을 들고 최도현을 순식간에 포위하였다."
+    play music "bgm_ch5_3_2.mp3" fadein 2.0
+    stop amb fadeout 1.0
+    play amb "amb_church.mp3"
 
     scene chapter4_2_2bg with fade
 
@@ -197,7 +210,8 @@ label chapter5_3:
     show dohyeon_angry at right_bottom_offset
     dohyeon "야 최하람 너 까지? 진짜? 두고 봐!"
     dohyeon "내가 이 깜빵에서 나오면 반드시 너부터 죽여버리겠어!"
-    dohyeon "{color=#803232}{b}으아아악!!{/color}{/b}"
+    play sound "sfx_shake.mp3" volume 0.8
+    dohyeon "{color=#803232}{b}으아아악!!{/color}{/b}" with hpunch
     hide dohyeon_angry
 
     "결국 최도현은 그 자리에서 체포되었고, 법정 공방에 섰다."
@@ -220,6 +234,10 @@ label chapter5_3:
 
     "결국 최도현은 무기징역을 선고받고 평생을 감옥에서 지내게 되었다."
 
+    pro "\nHappy End : 완벽한 정의 구현"
+    
+    stop amb fadeout 1.0
+    stop music fadeout 1.0
     scene black with fade
 
     pause(1.0)

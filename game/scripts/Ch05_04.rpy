@@ -4,16 +4,21 @@ label chapter5_4:
     hajun "아이들 보다는 주 범인을 잡아서 이 모든 사건을 없애는 게 더 좋을 것 같다."
     hide hajun_consider
 
+    stop music fadeout 2.0
+    play music "bgm_ch5_4.mp3" fadein 1.0
+    stop amb fadeout 1.0
+    play amb "amb_car.mp3"
     scene chapter5_4bg with fade
 
     "박하준은 카페를 떠난 후, 바로 차로 이동하였다."
     "박하준은 차에 탑승하며 남종식에게 전화를 걸었다."
 
+    play sound "sfx_calling.mp3"
     #전화 벨소리 3초정도 입니당
     pause(3.0)
 
     scene chapter3_3bg with fade
-
+    stop sound
     show hajun_angry at left_bottom_offset
     hajun "선배님!!"
     show chapter3_3bg at shake
@@ -34,7 +39,9 @@ label chapter5_4:
 
     scene black with fade
 
-    "박하준과 남종식은 예상 시간인 2시간 보다 30분 더 일찍 도착하였다."
+    stop amb fadeout 1.0
+    play amb "amb_harbor.mp3" volume 0.3 fadein 1.0
+    "박하준과 남종식은 예상 시간인\n2시간 보다 30분 더 일찍 도착하였다."
 
     scene chapter5_4_1bg with fade
 
@@ -55,23 +62,28 @@ label chapter5_4:
     hajun "하하.. 죄송합니다 선배"
     hide hajun
 
+    play sound "sfx_ch5_park.mp3"
     "그 때, 어디선가 자동차 엔진음 소리가 들려왔다."
 
     show jungsik_surprised at right_bottom_offset
     jungsik "하준아 일로와!!"
     hide jungsik_surprised
 
+    play sound "sfx_ch4_close_car.mp3"
+    play sound "sfx_ch1_man_walk.mp3"
     "저 멀리서 검은색 자동차 한 대가 들어오며 {b}남자 한 명{/b}이 내렸다."
 
     show dohyeon_angry at right_bottom_offset
-    dohyeon "아 그니까 내가 일 제대로 하라고 했어 안했어?! 이 새끼들아!!!!"
+    dohyeon "아 그니까 내가 일 제대로 하라고 했어 안했어?! 이 새끼들아!!!!" 
     dohyeon "밀항선은 제대로 준비한 거 맞아?! 제대로 하는걸 볼 수 있어야지 하.."
     hide dohyeon_angry
 
-    "최도현이 밀항선에 도착하기 전에 박하준과 남종식은 최도현에게 뛰어들었다."
+    play sound "sfx_run.mp3" volume 3.0
+    "최도현이 밀항선에 도착하기 전\n 박하준과 남종식은 최도현에게 뛰어들었다."
+    play audio "sfx_big_shake.mp3"
 
     show hajun_smile at left_bottom_offset
-    hajun "반갑다 최도현. 우리 인연 엄청 기네?"
+    hajun "반갑다 최도현. 우리 인연 엄청 기네?" with hpunch
     hide hajun_smile
 
     show dohyeon_flustered at right_bottom_offset
@@ -84,25 +96,32 @@ label chapter5_4:
     hide jungsik_smile
 
     show hajun at left_bottom_offset
-    hajun "너를 살인 사건의 용의자로 체포한다. 당신은 묵비권을 행사 할 권리가 있고, 변호사를 선임할 수 있으며 당신이 하는 모든 발언은 법정에서 불리하게 작용할 수 있습니다."
+    hajun "너를 살인 사건의 용의자로 체포한다."
+    hajun "당신은 묵비권을 행사 할 권리가 있고, 변호사를 선임할 수 있으며"
+    hajun "당신이 하는 모든 발언은 법정에서 불리하게 작용할 수 있습니다"
     hide hajun
 
     show hajun_smile at left_bottom_offset
-    hajun "만? 최도현 너는 그런 것 없지."
+    extend "만?\n최도현 너는 그런 것 없지."
     hajun "너 덕분에 우리가 개고생한게 있으니 그거는 서에 가서 천천히 얘기 해 보자고?"
     hide hajun
 
     show dohyeon_angry at right_bottom_offset
-    dohyeon "야 이 개자식아아아아아!!!!"
+    play sound "sfx_big_shake.mp3"
+    dohyeon "야 이 개자식아아아아아!!!!" with hpunch
     hide dohyeon_angry
 
     scene black with fade
 
-    "ㅁㅁ 뉴스입니다. 어젯 밤 23시 30분 즈음 xxx에서 밀항선을 타고 도주하려던 8년 전 살인 사건의 범인 최도현은 잡았다는 소식이 들어왔습니다."
+    "ㅁㅁ 뉴스입니다. 어젯 밤 23시 30분 즈음"
+    "xxx에서 밀항선을 타고 도주하려던\n 8년 전 살인 사건의 범인, 최도현을 잡았다는 소식입니다."
     
     pause(1.0)
 
+    stop amb fadeout 3.0
+
     "박하준과 최도현의 길고 길었던 추격전은 막을 내렸다."
+    play amb "amb_room.mp3" volume 0.3 fadein 1.0
 
     scene chapter4_1_1bg with fade
 
@@ -128,7 +147,12 @@ label chapter5_4:
 
     scene black with fade
 
-    "뉴스 속보입니다. 어젯밤 8년 전 살인 사건의 범인인 최도현이 무죄로 풀려났다는 소식입니다."
+    "뉴스 속보입니다. 어젯밤 8년 전 살인 사건의 범인인 최도현이"
+    "{cps=10}{size=40}{i} 무죄로 풀려났다는 소식입니다.{/size}{/i}"
+
+    pro "\nEnd : 정의는 어디에"
+    stop amb fadeout 1.0
+    stop music fadeout 1.0
 
     pause(1.0)
 

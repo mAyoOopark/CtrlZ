@@ -1,15 +1,15 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While processing text tag {/i} in '{color=#803232}{size=40}등에서 뿜어져 나오는 피{/color}{/size}가 벽에 묻어 마치 날개 처럼 보이는 듯 했다.{/i}'.:
-  File "game/scripts/Ch05_02.rpy", line 75, in script
-    "{color=#803232}{size=40}등에서 뿜어져 나오는 피{/color}{/size}가 벽에 묻어 마치 날개 처럼 보이는 듯 했다.{/i}"
-Exception: '/i' closes a text tag that isn't open.
+While processing text tag {size} in '{cps=10}{size=40}{i} 무죄로 풀려났다는 소식입니다.{/i}{size}'.:
+  File "game/scripts/Ch05_04.rpy", line 151, in script
+    "{cps=10}{size=40}{i} 무죄로 풀려났다는 소식입니다.{/i}{size}"
+Exception: empty value supplied for tag 'size'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/scripts/Ch05_02.rpy", line 75, in script
-    "{color=#803232}{size=40}등에서 뿜어져 나오는 피{/color}{/size}가 벽에 묻어 마치 날개 처럼 보이는 듯 했다.{/i}"
+  File "game/scripts/Ch05_04.rpy", line 151, in script
+    "{cps=10}{size=40}{i} 무죄로 풀려났다는 소식입니다.{/i}{size}"
   File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 2586, in execute
     Say.execute(self)
   File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/ast.py", line 623, in execute
@@ -60,11 +60,11 @@ Full traceback:
     virtual_layout = Layout(self, width, height, renders, drawable_res=False, size_only=True)
   File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/text/text.py", line 739, in __init__
     self.paragraphs = self.segment(text.tokens, style, renders, text)
-  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/text/text.py", line 1285, in segment
-    raise Exception("%r closes a text tag that isn't open." % text)
-Exception: '/i' closes a text tag that isn't open.
+  File "/Users/joooyeon/Documents/renpy-8.3.7-sdk/renpy/text/text.py", line 1415, in segment
+    raise Exception("empty value supplied for tag %r" % tag)
+Exception: empty value supplied for tag 'size'
 
 macOS-13.6.4-arm64-arm-64bit arm64
 Ren'Py 8.3.7.25031702
 MysteryGame 1.0
-Tue Jun 10 06:11:31 2025
+Tue Jun 10 14:25:35 2025
