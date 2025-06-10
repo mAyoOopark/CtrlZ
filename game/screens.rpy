@@ -291,45 +291,45 @@ screen navigation():
     vbox:
         style_prefix "navigation"
 
-        xpos gui.navigation_xpos
+        xpos 0.1
         yalign 0.5
 
         spacing gui.navigation_spacing
 
         if main_menu:
 
-            textbutton _("시작하기") action Start()
+            textbutton _("시작하기") action Start() text_color "#DDDDDD"
 
         else:
 
-            textbutton _("대사록") action ShowMenu("history")
+            textbutton _("대사록") action ShowMenu("history")  text_color "#DDDDDD"
 
-            textbutton _("저장하기") action ShowMenu("save")
+            textbutton _("저장하기") action ShowMenu("save") text_color "#DDDDDD"
 
-        textbutton _("불러오기") action ShowMenu("load")
+        textbutton _("불러오기") action ShowMenu("load") text_color "#DDDDDD"
 
-        textbutton _("환경설정") action ShowMenu("preferences")
+        textbutton _("환경설정") action ShowMenu("preferences") text_color "#DDDDDD" 
 
         if _in_replay:
 
-            textbutton _("리플레이 끝내기") action EndReplay(confirm=True)
+            textbutton _("리플레이 끝내기") action EndReplay(confirm=True) text_color "#DDDDDD"
 
         elif not main_menu:
 
-            textbutton _("메인 메뉴") action MainMenu()
+            textbutton _("메인 메뉴") action MainMenu() text_color "#DDDDDD"
 
-        textbutton _("버전정보") action ShowMenu("about")
+        textbutton _("버전정보") action ShowMenu("about") text_color "#DDDDDD"
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
             ## 도움말 메뉴는 모바일 디바이스와 맞지 않아 불필요합니다.
-            textbutton _("조작방법") action ShowMenu("help")
+            textbutton _("조작방법") action ShowMenu("help") text_color "#DDDDDD"
 
         if renpy.variant("pc"):
 
             ## iOS에서는 종료 버튼이 금지되어 있으며 Android 및 웹에서는 불필요
             ## 합니다.
-            textbutton _("종료하기") action Quit(confirm=not main_menu)
+            textbutton _("종료하기") action Quit(confirm=not main_menu) text_color "#DDDDDD"
 
 
 style navigation_button is gui_button
@@ -359,6 +359,7 @@ screen main_menu():
     ## 이 빈 프레임은 기본 메뉴를 어둡게 만듭니다.
     frame:
         style "main_menu_frame"
+        background None
 
     ## use 명령어로 스크린 내에 다른 스크린을 불러옵니다. 메인 메뉴 스크린의 내
     ## 용물은 navigation 스크린에 있습니다.

@@ -11,7 +11,7 @@
 ##
 ## 문자열을 _()로 둘러 쌓으면 씌우면 번역의 대상으로 표시됩니다.
 
-define config.name = _("MysteryGame")
+define config.name = _("")
 
 ## 개발자 메뉴
 define config.developer = True
@@ -24,7 +24,7 @@ define gui.show_name = True
 
 ## 게임의 버전입니다.
 
-define config.version = "1.0"
+define config.version = ""
 
 
 ## 게임의 about 스크린에 배치되는 텍스트입니다. 텍스트를 삼중 따옴표 사이에 배치
